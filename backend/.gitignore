@@ -10,4 +10,4 @@ npm-debug.log*
 .env
 
 # Ignore contentful.js file
-backend/music/contentful_connector/contentful.js
+music/contentful_connector/contentful.js
