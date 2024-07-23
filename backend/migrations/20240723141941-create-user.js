@@ -10,24 +10,32 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       User_ID: {
-        type: Sequelize.UUID
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4, // Automatically generate UUIDs
+        allowNull: false
       },
       Username: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       Email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true // Ensure emails are unique
       },
       Shopping_bag_items: {
-        type: Sequelize.UUID
+        type: Sequelize.UUID,
+        allowNull: true // Optional foreign key reference
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       }
     });
   },
