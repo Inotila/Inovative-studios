@@ -11,3 +11,6 @@ npm-debug.log*
 
 # Ignore contentful.js file
 music/contentful_connector/contentful.js
+
+# Ignore the config file
+config/config.json

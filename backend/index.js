@@ -1,5 +1,5 @@
 const express = require('express');
-const { getTrackEntries } = require('./music/contentful_connector/script');
+const { getTrackEntries } = require('./utils/contentful_connector/script');
 
 const app = express();
 const port = 3001;
