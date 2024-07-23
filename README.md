@@ -33,20 +33,22 @@ Users can listen to music etc
 1. Home screen
 2. Services screen -> I.T (web design, prototype design), Graphic (cover art design, poster design)
 3. Entertainment screen -> Music, Video, Games
-4. Projects -> 
-5. Registeration ->email or social media
-6. secure debit/card payement system
-7. checkout
-8. user profile
-9. search tools
-10. filter tools
-11. 
+4. Music -> View all music, filter music, Play music, skip songs, shuffle songs, create playlist, 
+   like & comment on songs, buy songs, download
+5. Projects -> 
+6. Registeration ->email or social media
+7. secure debit/card payement system
+8. checkout
+9. user profile
+10. search tools
+11. filter tools
 12. 
 13. 
 14. 
 15. 
 16. 
 17. 
+18. 
 
 ## Actual Features (end product)
 

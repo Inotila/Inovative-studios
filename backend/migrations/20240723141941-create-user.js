@@ -40,7 +40,6 @@ module.exports = {
       }
     });
 
-    // Add index on User_ID
     await queryInterface.addIndex('Users', ['User_ID']);
   },
   async down(queryInterface, Sequelize) {
