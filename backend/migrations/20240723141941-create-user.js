@@ -11,8 +11,9 @@ module.exports = {
       },
       User_ID: {
         type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4, // Automatically generate UUIDs
-        allowNull: false
+        defaultValue: Sequelize.UUIDV4,
+        allowNull: false,
+        unique: true // Ensure UUID is unique
       },
       Username: {
         type: Sequelize.STRING,
@@ -21,11 +22,11 @@ module.exports = {
       Email: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: true // Ensure emails are unique
+        unique: true
       },
       Shopping_bag_items: {
         type: Sequelize.UUID,
-        allowNull: true // Optional foreign key reference
+        allowNull: true
       },
       createdAt: {
         allowNull: false,
@@ -38,6 +39,9 @@ module.exports = {
         defaultValue: Sequelize.NOW
       }
     });
+
+    // Add index on User_ID
+    await queryInterface.addIndex('Users', ['User_ID']);
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Users');
