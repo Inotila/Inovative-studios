@@ -1,0 +1,16 @@
+# Node modules
+node_modules/
+
+# Log files
+logs/
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+
+# Ignore contentful.js file
+music/contentful_connector/contentful.js
+
+# Ignore the config file
+config/config.json

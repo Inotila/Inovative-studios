@@ -6,36 +6,49 @@
 
 To run the webpage click on this link: [by_ino_ati](https://byinoati.herokuapp.com/)
 
-## About by_ino_ati
+## About Inovative Studios
 
-A web application for creative studio business called Ino.v.ati.ve studio, where users can book web design and software development services. Furthermore, users can also interact with projects by the studio and view animations videos and music owned by the. 
+A web application for a creative studio business. The business creates art (music, paintings, animations),graphic design (cover art and posters), fashion, games and software development and design. This is a small business with a primary focus on B2C sales but also does B2B particularly for it's more softwaredevelopment offerings.
 
 The site owner is a designer, artist, and software developer. The owner would like to offer users a platform to view his studio's services and also the products and projects that are being developed by the studio. In addition the owner would like to be able to handle data at the backend and manage his product by adding, removing, updating his product from the admin panel. Furthermore, the owner would like to also be able to communicate with site users so that potential clients, collaborators, and inverstors can easily communicate their questions and queries to the owner. The owner would like to keep adding features to the site and updating it to increase the way in which site users can engage with the content, the owner and each other. 
 
 The users are primarily entities interested in web application developement and design. The target markter is small business owners and sole traders. Since the studio also offers it's own products, it is also targeting potential invetors, gamers, and music lovers.
 
 ## Value
+### Intutive and minimal design
+The app is optimized for all screens and is desginded with a user first approach
+### Users can easily navigate webapp
+
+### Users can easily signup
+Users can signup with social media
+
+### Content
+Users can listen to music etc
+
+### Secure payment portals
 
 
 ## Potential features (before starting)
 
-1. 
-2. 
-3. 
-4. 
-5. 
-6. 
-7. 
-8. 
-9. 
-10. 
-11. 
+1. Home screen
+2. Services screen -> I.T (web design, prototype design), Graphic (cover art design, poster design)
+3. Entertainment screen -> Music, Video, Games
+4. Music -> View all music, filter music, Play music, skip songs, shuffle songs, create playlist, 
+   like & comment on songs, buy songs, download
+5. Projects -> 
+6. Registeration ->email or social media
+7. secure debit/card payement system
+8. checkout
+9. user profile
+10. search tools
+11. filter tools
 12. 
 13. 
 14. 
 15. 
 16. 
 17. 
+18. 
 
 ## Actual Features (end product)
 
