@@ -8,6 +8,11 @@ module.exports = (sequelize) => {
       User.hasMany(models.Bag, {
         foreignKey: 'User_ID',
       });
+
+      // Define association with Playlist model
+      User.hasMany(models.Playlist, {
+        foreignKey: 'User_ID',
+      });
     }
   }
 

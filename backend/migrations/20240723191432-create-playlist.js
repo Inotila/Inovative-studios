@@ -9,14 +9,26 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      Playlist_ID: {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        allowNull: false
+      },
       Title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       User_ID: {
-        type: Sequelize.UUID
+        type: Sequelize.UUID,
+        allowNull: false,
+        references: {
+          model: 'Users',
+          key: 'User_ID'
+        }
       },
       Tracks: {
-        type: Sequelize.JSON
+        type: Sequelize.JSON,
+        allowNull: true
       },
       createdAt: {
         allowNull: false,
