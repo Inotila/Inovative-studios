@@ -14,7 +14,7 @@ The site owner is a designer, artist, and software developer. The owner would li
 
 The users are primarily entities interested in web application developement and design. The target markter is small business owners and sole traders. Since the studio also offers it's own products, it is also targeting potential invetors, gamers, and music lovers.
 
-## Value
+## Value 
 ### Intutive and minimal design
 The app is optimized for all screens and is desginded with a user first approach
 ### Users can easily navigate webapp
@@ -30,18 +30,34 @@ Users can listen to music etc
 
 ## Potential features (before starting)
 
-1. Home screen
-2. Services screen -> I.T (web design, prototype design), Graphic (cover art design, poster design)
+1. Home screen -> 
+   -> Nav bar ->
+      login/logout button
+      bag button
+      buttons/burger menu (for small screens) for links to other pages
+      seach bar
+   buttons to other pages with slide show of pages ever 15 seconds
+2. Services screen -> I.T:
+                           web design, prototype design
+                           availability status for new project/ calander
+                           option to book consultation/open a file
+                      Graphic (cover art design, poster design)
+                           availability status for new project/ calander
+                           option to book consultation/open a file
 3. Entertainment screen -> Music, Video, Games
-4. Music -> View all music, filter music, Play music, skip songs, shuffle songs, create playlist, 
-   like & comment on songs, buy songs, download
+                           Music:
+                           View all music, 
+                           filter music, 
+                           Music player -> Play, skip songs, shuffle songs, create playlist, like, comment, share link,
+                                           download/buy songs
+4.                      
 5. Projects -> 
 6. Registeration ->email or social media
 7. secure debit/card payement system
 8. checkout
-9. user profile
-10. search tools
-11. filter tools
+9. user profile -> 
+10. 
+11. 
 12. 
 13. 
 14. 
@@ -69,9 +85,8 @@ Users can listen to music etc
 ### Entity relationship diagram
 
 ### Wireframes
-
-### Project task list 
-I made a project task list to ensure I was aware of all the requirements and that all them were met 
+    Low-fi protoype on figma:
+    https://www.figma.com/design/1vXBjki37l8LWRMeXTMMc7/Ino.v.ati.v.e-Studio?node-id=0-1&t=LCwXjMlNrjO0ZDQm-1
 ## Bugs and fixes
 
 ### bug 
