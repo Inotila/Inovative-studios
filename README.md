@@ -2,9 +2,9 @@
 
 **July 31, 2023**
 
-![logo]()
+![Inovative studio]()
 
-To run the webpage click on this link: [by_ino_ati](https://byinoati.herokuapp.com/)
+To run the webpage click on this link: [Inovative studio]()
 
 ## About Inovative Studios
 
