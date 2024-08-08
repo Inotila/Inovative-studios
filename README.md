@@ -85,8 +85,8 @@ Users can listen to music etc
 ### Entity relationship diagram
 
 ### Wireframes
-    [Low-fi protoype on figma:](https://www.figma.com/design/1vXBjki37l8LWRMeXTMMc7/Ino.v.ati.v.e-Studio?node-id=0-1&)t=LCwXjMlNrjO0ZDQm-1
-## Bugs and fixes
+ Low-fi protoype on figma:
+## Bugs and fixes [Prototype](https://www.figma.com/design/1vXBjki37l8LWRMeXTMMc7/Ino.v.ati.v.e-Studio?node-id=0-1&t=LCwXjMlNrjO0ZDQm-1)
 
 ### bug 
 none
