@@ -16,18 +16,33 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+// Load models from music_models
 fs
-  .readdirSync(__dirname)
+  .readdirSync(path.join(__dirname, 'music_models'))
   .filter(file => {
     return (
       file.indexOf('.') !== 0 &&
-      file !== basename &&
       file.slice(-3) === '.js' &&
       file.indexOf('.test.js') === -1
     );
   })
   .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
+    const model = require(path.join(__dirname, 'music_models', file))(sequelize, Sequelize.DataTypes);
+    db[model.name] = model;
+  });
+
+// Load models from user_models
+fs
+  .readdirSync(path.join(__dirname, 'user_models'))
+  .filter(file => {
+    return (
+      file.indexOf('.') !== 0 &&
+      file.slice(-3) === '.js' &&
+      file.indexOf('.test.js') === -1
+    );
+  })
+  .forEach(file => {
+    const model = require(path.join(__dirname, 'user_models', file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
   });
 

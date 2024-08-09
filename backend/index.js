@@ -1,8 +1,8 @@
 const express = require('express');
-const userRoutes = require('./routes/userRoutes');
-const bagRoutes = require('./routes/bagRoutes');
-const albumRoutes = require('./routes/albumRoutes');
-const trackRoutes = require('./routes/trackRoutes');
+const userRoutes = require('./routes/user_routes/userRoutes');
+const bagRoutes = require('./routes/user_routes/bagRoutes');
+const albumRoutes = require('./routes/music_routes/albumRoutes');
+const trackRoutes = require('./routes/music_routes/trackRoutes');
 const { fetchAndStoreContentfulData } = require('./utils/js/script');
 
 const app = express();

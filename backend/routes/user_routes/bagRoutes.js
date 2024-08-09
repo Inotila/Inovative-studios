@@ -1,5 +1,5 @@
 const express = require('express');
-const { createBag, getAllBags } = require('../controllers/bagController');
+const { createBag, getAllBags } = require('../../controllers/user_controller/bagController');
 
 const router = express.Router();
 

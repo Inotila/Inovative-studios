@@ -1,5 +1,5 @@
 const express = require('express');
-const { createTrack, getAllTracks, getTrackById, deleteTrack } = require('../controllers/trackController');
+const { createTrack, getAllTracks, getTrackById, deleteTrack } = require('../../controllers/music_controller/trackController');
 
 const router = express.Router();
 
