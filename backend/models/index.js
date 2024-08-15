@@ -16,35 +16,31 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+// Function to load models from a directory
+const loadModels = (directory) => {
+  fs
+    .readdirSync(directory)
+    .filter(file => {
+      return (
+        file.indexOf('.') !== 0 &&
+        file.slice(-3) === '.js' &&
+        file.indexOf('.test.js') === -1
+      );
+    })
+    .forEach(file => {
+      const model = require(path.join(directory, file))(sequelize, Sequelize.DataTypes);
+      db[model.name] = model;
+    });
+};
+
 // Load models from music_models
-fs
-  .readdirSync(path.join(__dirname, 'music_models'))
-  .filter(file => {
-    return (
-      file.indexOf('.') !== 0 &&
-      file.slice(-3) === '.js' &&
-      file.indexOf('.test.js') === -1
-    );
-  })
-  .forEach(file => {
-    const model = require(path.join(__dirname, 'music_models', file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
-  });
+loadModels(path.join(__dirname, 'music_models'));
 
 // Load models from user_models
-fs
-  .readdirSync(path.join(__dirname, 'user_models'))
-  .filter(file => {
-    return (
-      file.indexOf('.') !== 0 &&
-      file.slice(-3) === '.js' &&
-      file.indexOf('.test.js') === -1
-    );
-  })
-  .forEach(file => {
-    const model = require(path.join(__dirname, 'user_models', file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
-  });
+loadModels(path.join(__dirname, 'user_models'));
+
+// Load models from video_models
+loadModels(path.join(__dirname, 'video_models'));
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
