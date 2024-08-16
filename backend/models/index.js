@@ -42,6 +42,9 @@ loadModels(path.join(__dirname, 'user_models'));
 // Load models from video_models
 loadModels(path.join(__dirname, 'video_models'));
 
+// Load models from Project_models
+loadModels(path.join(__dirname, 'Project_models'));
+
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
     db[modelName].associate(db);

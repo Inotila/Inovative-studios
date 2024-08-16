@@ -5,6 +5,7 @@ const albumRoutes = require('./routes/music_routes/albumRoutes');
 const videoRoutes = require('./routes/video_routes/videoRoutes');
 const seriesRoutes = require('./routes/video_routes/seriesRoutes');
 const trackRoutes = require('./routes/music_routes/trackRoutes');
+const projectRoutes = require('./routes/project_routes/projectRoutes');
 const { fetchAndStoreContentfulData } = require('./utils/js/script');
 
 const app = express();
@@ -18,6 +19,7 @@ app.use('/api/albums', albumRoutes);
 app.use('/api/tracks', trackRoutes);
 app.use('/api/videos', videoRoutes);
 app.use('/api/series', seriesRoutes);
+app.use('/api/projects', projectRoutes);
 
 // Fetch and store Contentful data on startup
 fetchAndStoreContentfulData()

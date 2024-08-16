@@ -1,5 +1,5 @@
 const { client } = require('../contentful_connector/contentful');
-const { Album, Track, Series, Video } = require('../../models');
+const { Album, Track, Series, Video, Project } = require('../../models');
 
 async function fetchAndStoreContentfulData() {
     try {
@@ -43,13 +43,9 @@ async function fetchAndStoreContentfulData() {
             });
             console.log(`Stored Series: ${seriesData.title || 'Untitled Series'}`);
 
-            // Log the seriesData object to debug
-            console.log('Series Data:', seriesData);
-
             // Check if seriesData.videos is an array
             if (Array.isArray(seriesData.videos)) {
-                console.log('Found Videos:', seriesData.videos);
-
+             
                 for (const videoLink of seriesData.videos) {
                     const videoEntry = await client.getEntry(videoLink.sys.id);
                     const videoData = videoEntry.fields;
@@ -74,6 +70,19 @@ async function fetchAndStoreContentfulData() {
             } else {
                 console.log(`No videos found for Series: ${seriesData.title || 'Untitled Series'}`);
             }
+        }
+
+        // Fetch and store Project data
+        console.log("Fetching Projects from Contentful...");
+        const projectEntries = await client.getEntries({ content_type: 'project' });
+        for (const entry of projectEntries.items) {
+            const projectData = entry.fields;
+            await Project.upsert({
+                Project_ID: entry.sys.id,
+                Like_count: projectData.like_count || 0,
+                Funding_status: projectData.funding_status || 0,
+            });
+            console.log(`Stored Project: ${projectData.title}`);
         }
 
     } catch (err) {
