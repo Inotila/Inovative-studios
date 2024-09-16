@@ -33,17 +33,12 @@ const loadModels = (directory) => {
     });
 };
 
-// Load models from music_models
+// Load models from different directories
 loadModels(path.join(__dirname, 'music_models'));
-
-// Load models from user_models
 loadModels(path.join(__dirname, 'user_models'));
-
-// Load models from video_models
 loadModels(path.join(__dirname, 'video_models'));
-
-// Load models from Project_models
 loadModels(path.join(__dirname, 'Project_models'));
+loadModels(path.join(__dirname, 'service_models'));
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {

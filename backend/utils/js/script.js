@@ -1,5 +1,5 @@
 const { client } = require('../contentful_connector/contentful');
-const { Album, Track, Series, Video, Project } = require('../../models');
+const { Album, Track, Series, Video, Project, Service } = require('../../models'); // Include Service model
 
 async function fetchAndStoreContentfulData() {
     try {
@@ -83,6 +83,26 @@ async function fetchAndStoreContentfulData() {
                 Funding_status: projectData.funding_status || 0,
             });
             console.log(`Stored Project: ${projectData.title}`);
+        }
+
+        // Fetch and store Service data
+        console.log("Fetching Services from Contentful...");
+        const serviceEntries = await client.getEntries({ content_type: 'service' });
+        for (const entry of serviceEntries.items) {
+            const serviceData = entry.fields;
+
+            // Handle the thumbnail cover asset URL
+            const thumbnailUrl = serviceData.thumbnailCover.fields.file.url; 
+
+            await Service.upsert({
+                Service_ID: entry.sys.id,
+                Title: serviceData.title,
+                Type: serviceData.type,
+                General_description: serviceData.generalDescription,
+                Thumbnail_cover: thumbnailUrl,
+                Availability: serviceData.availability,
+            });
+            console.log(`Stored Service: ${serviceData.title}`);
         }
 
     } catch (err) {
