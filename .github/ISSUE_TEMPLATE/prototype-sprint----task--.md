@@ -1,7 +1,7 @@
 ---
 name: 'Prototype Sprint: < Task >'
 about: 'Tasks to get the project to low fidelity prototype version 1.0. '
-title: ''
+title: 'Prototype Sprint: < Task >'
 labels: ''
 assignees: Inotila
 
