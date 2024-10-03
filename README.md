@@ -45,19 +45,34 @@ Users can watch videos
                            Graphic (cover art design, poster design)  
                            availability status for new project/ calander  
                            option to book consultation/open a file  
-3. Entertainment screen -> Music, Video, Games  
+3. Entertainment screen -> 
                            Music:  
-                           View all music,   
-                           filter music,   
-                           Music player -> Play, skip songs, shuffle songs, create playlist, like, comment, share link,  
-                                           download/buy songs  
-4. Projects -> 
-      View projects details
+                           View all music,    
+                           filter music,    
+                           Music player -> Play,<br>skip songs,<br> shuffle songs,<br> create playlist,<br> like,<br> comment,<br> share link,<br>download/buy songs  
+
+                            Video:  
+                            View all videos  
+                            Video -> Play, skip, like, pause, volume
+
+                            Games:  
+                            View details about game  
+                            Link to play games
+4. Projects ->  
+      View projects details  
       Button to go to project link (if available)                      
-5. Registeration ->email or social media
-6. secure debit/card payement system
-7. checkout
-8. user profile
+5. Registeration ->  
+   With email  
+   With social media account  
+6. checkout page:  
+   secure debit/card payement system
+7. User profile:
+   Update name  
+   View items in bag  
+8. Footer:  
+   Links socail media accounts  
+   Privacy disclaimer  
+   Copy right disclaimer  
 9. 
 10. 
 11. 
