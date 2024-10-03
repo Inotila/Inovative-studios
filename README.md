@@ -31,26 +31,26 @@ Users can watch videos
 
 ## Potential features (before starting)
 
-1. Home screen -> 
-   -> Nav bar ->
-      login/logout button
-      bag button
-      buttons/burger menu (for small screens) for links to other pages
-      seach bar
-   buttons to other pages with slide show of pages ever 15 seconds
-2. Services screen -> I.T:
-                           web design, prototype design  
+1. Home screen ->    
+   -> Nav bar ->    
+      login/logout button    
+      bag button    
+      buttons/burger menu (for small screens) for links to other pages    
+      seach bar    
+   buttons to other pages with slide show of pages ever 15 seconds  
+2. Services screen -> I.T:  
+                           web design, prototype design    
+                           availability status for new project/ calander    
+                           option to book consultation/open a file  
+                           Graphic (cover art design, poster design)  
                            availability status for new project/ calander  
-                           option to book consultation/open a file
-                           Graphic (cover art design, poster design)
-                           availability status for new project/ calander
-                           option to book consultation/open a file
-3. Entertainment screen -> Music, Video, Games
-                           Music:
-                           View all music, 
-                           filter music, 
-                           Music player -> Play, skip songs, shuffle songs, create playlist, like, comment, share link,
-                                           download/buy songs
+                           option to book consultation/open a file  
+3. Entertainment screen -> Music, Video, Games  
+                           Music:  
+                           View all music,   
+                           filter music,   
+                           Music player -> Play, skip songs, shuffle songs, create playlist, like, comment, share link,  
+                                           download/buy songs  
 4. Projects -> 
       View projects details
       Button to go to project link (if available)                      
