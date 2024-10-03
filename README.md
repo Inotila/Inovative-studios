@@ -23,7 +23,8 @@ The app is optimized for all screens and is desginded with a user first approach
 Users can signup with social media
 
 ### Content
-Users can listen to music etc
+Users can listen to music
+Users can watch videos
 
 ### Secure payment portals
 
@@ -38,10 +39,10 @@ Users can listen to music etc
       seach bar
    buttons to other pages with slide show of pages ever 15 seconds
 2. Services screen -> I.T:
-                           web design, prototype design
-                           availability status for new project/ calander
+                           web design, prototype design  
+                           availability status for new project/ calander  
                            option to book consultation/open a file
-                      Graphic (cover art design, poster design)
+                           Graphic (cover art design, poster design)
                            availability status for new project/ calander
                            option to book consultation/open a file
 3. Entertainment screen -> Music, Video, Games
@@ -50,12 +51,14 @@ Users can listen to music etc
                            filter music, 
                            Music player -> Play, skip songs, shuffle songs, create playlist, like, comment, share link,
                                            download/buy songs
-4.                      
-5. Projects -> 
-6. Registeration ->email or social media
-7. secure debit/card payement system
-8. checkout
-9. user profile -> 
+4. Projects -> 
+      View projects details
+      Button to go to project link (if available)                      
+5. Registeration ->email or social media
+6. secure debit/card payement system
+7. checkout
+8. user profile
+9. 
 10. 
 11. 
 12. 
