@@ -1,5 +1,5 @@
 const express = require('express');
-const { createAlbum, getAllAlbums, getAlbumById, updateAlbum, deleteAlbum } = require('../controllers/albumController');
+const { createAlbum, getAllAlbums, getAlbumById, updateAlbum, deleteAlbum } = require('../../controllers/music_controller/albumController');
 
 const router = express.Router();
 

@@ -1,0 +1,14 @@
+.home-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f0f0f0; /* Light background color */
+  }
+  
+  .centered-text {
+    font-size: 2rem; /* Adjust as needed */
+    color: #333; /* Dark text color */
+    text-align: center;
+  }
+  

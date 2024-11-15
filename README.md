@@ -2,9 +2,9 @@
 
 **July 31, 2023**
 
-![logo]()
+![Inovative studio]()
 
-To run the webpage click on this link: [by_ino_ati](https://byinoati.herokuapp.com/)
+To run the webpage click on this link: [Inovative studio]()
 
 ## About Inovative Studios
 
@@ -14,7 +14,7 @@ The site owner is a designer, artist, and software developer. The owner would li
 
 The users are primarily entities interested in web application developement and design. The target markter is small business owners and sole traders. Since the studio also offers it's own products, it is also targeting potential invetors, gamers, and music lovers.
 
-## Value
+## Value 
 ### Intutive and minimal design
 The app is optimized for all screens and is desginded with a user first approach
 ### Users can easily navigate webapp
@@ -23,25 +23,59 @@ The app is optimized for all screens and is desginded with a user first approach
 Users can signup with social media
 
 ### Content
-Users can listen to music etc
+Users can listen to music
+Users can watch videos
 
 ### Secure payment portals
 
 
 ## Potential features (before starting)
 
-1. Home screen
-2. Services screen -> I.T (web design, prototype design), Graphic (cover art design, poster design)
-3. Entertainment screen -> Music, Video, Games
-4. Music -> View all music, filter music, Play music, skip songs, shuffle songs, create playlist, 
-   like & comment on songs, buy songs, download
-5. Projects -> 
-6. Registeration ->email or social media
-7. secure debit/card payement system
-8. checkout
-9. user profile
-10. search tools
-11. filter tools
+1. Home screen ->    
+   -> Nav bar ->    
+      login/logout button    
+      bag button    
+      buttons/burger menu (for small screens) for links to other pages    
+      seach bar    
+   buttons to other pages with slide show of pages ever 15 seconds  
+2. Services screen -> I.T:  
+                           web design, prototype design    
+                           availability status for new project/ calander    
+                           option to book consultation/open a file  
+                           Graphic (cover art design, poster design)  
+                           availability status for new project/ calander  
+                           option to book consultation/open a file  
+3. Entertainment screen -> 
+                           Music:  
+                           View all music,    
+                           filter music,    
+                           Music player -> Play,<br>skip songs,<br> shuffle songs,<br> create playlist,<br> like,<br> comment,<br> share link,<br>download/buy songs  
+
+                            Video:  
+                            View all videos  
+                            Video -> Play, skip, like, pause, volume
+
+                            Games:  
+                            View details about game  
+                            Link to play games
+4. Projects ->  
+      View projects details  
+      Button to go to project link (if available)                      
+5. Registeration ->  
+   With email  
+   With social media account  
+6. checkout page:  
+   secure debit/card payement system
+7. User profile:
+   Update name  
+   View items in bag  
+8. Footer:  
+   Links socail media accounts  
+   Privacy disclaimer  
+   Copy right disclaimer  
+9. 
+10. 
+11. 
 12. 
 13. 
 14. 
@@ -69,10 +103,10 @@ Users can listen to music etc
 ### Entity relationship diagram
 
 ### Wireframes
+ Low-fi protoype on figma:
+[Prototype](https://www.figma.com/design/1vXBjki37l8LWRMeXTMMc7/Ino.v.ati.v.e-Studio?node-id=0-1&t=LCwXjMlNrjO0ZDQm-1)
 
-### Project task list 
-I made a project task list to ensure I was aware of all the requirements and that all them were met 
-## Bugs and fixes
+## Bugs and fixes 
 
 ### bug 
 none

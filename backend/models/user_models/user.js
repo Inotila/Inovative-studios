@@ -13,6 +13,12 @@ module.exports = (sequelize) => {
       User.hasMany(models.Playlist, {
         foreignKey: 'User_ID',
       });
+
+      // Define association with PaidContent model
+      User.hasMany(models.PaidContent, {
+        foreignKey: 'User_ID',
+        as: 'PaidContents'
+      });
     }
   }
 

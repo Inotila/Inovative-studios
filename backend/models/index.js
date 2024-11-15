@@ -16,20 +16,29 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (
-      file.indexOf('.') !== 0 &&
-      file !== basename &&
-      file.slice(-3) === '.js' &&
-      file.indexOf('.test.js') === -1
-    );
-  })
-  .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
-  });
+// Function to load models from a directory
+const loadModels = (directory) => {
+  fs
+    .readdirSync(directory)
+    .filter(file => {
+      return (
+        file.indexOf('.') !== 0 &&
+        file.slice(-3) === '.js' &&
+        file.indexOf('.test.js') === -1
+      );
+    })
+    .forEach(file => {
+      const model = require(path.join(directory, file))(sequelize, Sequelize.DataTypes);
+      db[model.name] = model;
+    });
+};
+
+// Load models from different directories
+loadModels(path.join(__dirname, 'music_models'));
+loadModels(path.join(__dirname, 'user_models'));
+loadModels(path.join(__dirname, 'video_models'));
+loadModels(path.join(__dirname, 'Project_models'));
+loadModels(path.join(__dirname, 'service_models'));
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {

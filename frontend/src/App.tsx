@@ -1,25 +1,27 @@
+// frontend/src/App.tsx
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './components/home/HomePage';  // Keeping the HomePage component
+import Navbar from './components/navbar/Navbar';  // Import the Navbar component
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          {/* HomePage component */}
+          <Route path="/" element={<HomePage />} />
+
+          {/* Placeholder routes for other pages */}
+          <Route path="/signup-login" element={<div>Signup/Login Page</div>} />
+          <Route path="/music" element={<div>Music Page</div>} />
+          <Route path="/videos" element={<div>Videos Page</div>} />
+          <Route path="/services" element={<div>Services Page</div>} />
+          <Route path="/projects" element={<div>Projects Page</div>} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

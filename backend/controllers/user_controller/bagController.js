@@ -1,4 +1,4 @@
-const { Bag } = require('../models');
+const { Bag } = require('../../models');
 
 const createBag = async (req, res) => {
   try {
