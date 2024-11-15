@@ -1,0 +1,16 @@
+/* frontend/src/components/nav.css */
+footer {
+    background-color: #303B5D;
+    color: #fff !important;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #fff !important;
+
+  }
+
+  a:hover {
+    color: #a2d0de !important;
+  }
+  
