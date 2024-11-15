@@ -23,39 +23,57 @@ The app is optimized for all screens and is desginded with a user first approach
 Users can signup with social media
 
 ### Content
-Users can listen to music etc
+Users can listen to music
+Users can watch videos
 
 ### Secure payment portals
 
 
 ## Potential features (before starting)
 
-1. Home screen -> 
-   -> Nav bar ->
-      login/logout button
-      bag button
-      buttons/burger menu (for small screens) for links to other pages
-      seach bar
-   buttons to other pages with slide show of pages ever 15 seconds
-2. Services screen -> I.T:
-                           web design, prototype design
-                           availability status for new project/ calander
-                           option to book consultation/open a file
-                      Graphic (cover art design, poster design)
-                           availability status for new project/ calander
-                           option to book consultation/open a file
-3. Entertainment screen -> Music, Video, Games
-                           Music:
-                           View all music, 
-                           filter music, 
-                           Music player -> Play, skip songs, shuffle songs, create playlist, like, comment, share link,
-                                           download/buy songs
-4.                      
-5. Projects -> 
-6. Registeration ->email or social media
-7. secure debit/card payement system
-8. checkout
-9. user profile -> 
+1. Home screen ->    
+   -> Nav bar ->    
+      login/logout button    
+      bag button    
+      buttons/burger menu (for small screens) for links to other pages    
+      seach bar    
+   buttons to other pages with slide show of pages ever 15 seconds  
+2. Services screen -> I.T:  
+                           web design, prototype design    
+                           availability status for new project/ calander    
+                           option to book consultation/open a file  
+                           Graphic (cover art design, poster design)  
+                           availability status for new project/ calander  
+                           option to book consultation/open a file  
+3. Entertainment screen -> 
+                           Music:  
+                           View all music,    
+                           filter music,    
+                           Music player -> Play,<br>skip songs,<br> shuffle songs,<br> create playlist,<br> like,<br> comment,<br> share link,<br>download/buy songs  
+
+                            Video:  
+                            View all videos  
+                            Video -> Play, skip, like, pause, volume
+
+                            Games:  
+                            View details about game  
+                            Link to play games
+4. Projects ->  
+      View projects details  
+      Button to go to project link (if available)                      
+5. Registeration ->  
+   With email  
+   With social media account  
+6. checkout page:  
+   secure debit/card payement system
+7. User profile:
+   Update name  
+   View items in bag  
+8. Footer:  
+   Links socail media accounts  
+   Privacy disclaimer  
+   Copy right disclaimer  
+9. 
 10. 
 11. 
 12. 
