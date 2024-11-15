@@ -1,0 +1,26 @@
+/* frontend/src/components/nav.css */
+nav {
+    background-color: #303B5D;
+    color: #fff !important;
+  }
+  
+  /* Make sure navbar links are white */
+  .navbar-light .navbar-nav .nav-link {
+    color: #fff !important;
+  }
+  
+  /* For the brand name/logo */
+  .navbar-light .navbar-brand {
+    color: #fff !important;
+  }
+  
+  /* Active and hover states */
+  .navbar-light .navbar-nav .nav-link:hover,
+  .navbar-light .navbar-nav .nav-item.active .nav-link {
+    color: #a2d0de !important;
+  }
+  
+  .navbar-light .navbar-nav .nav-link.active {
+    font-weight: bold;
+  }
+  

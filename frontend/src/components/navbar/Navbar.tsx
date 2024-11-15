@@ -6,7 +6,7 @@ import './nav.css';
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-danger">
+    <nav className="navbar navbar-expand-lg navbar-light ">
       <div className="container-fluid">
         {/* Logo */}
         <div className="col-4">
