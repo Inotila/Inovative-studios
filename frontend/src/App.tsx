@@ -1,7 +1,7 @@
 // frontend/src/App.tsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './components/home/HomePage';  // Keeping the HomePage component
+import HomePage from './components/home/HomePage'; 
 import Navbar from './components/navbar/Navbar';  
 import Footer from './components/footer/Footer';
 
