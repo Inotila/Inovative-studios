@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../assets/index.css';
 import './assets/css/HomePage.css';
 
@@ -21,28 +22,28 @@ const HomePage: React.FC = () => {
         <div className="row">
           <div className="col">
             <div className="card">
-                <a href="#" className='home-img-links-container'>
+                <Link to="/" className='home-img-links-container'>
                   <img className="home-img-links card-img-top" src={imagePath + "services.png"}
                         alt="#" aria-label="an image link leads to details about the art work"/>
-                </a>
+                </Link>
               <button className='home-link-button'> services</button>
             </div>
           </div>
           <div className="col">
           <div className="card">
-                <a href="#" className='home-img-links-container'>
+                <Link to="/entertainment" className='home-img-links-container'>
                   <img className="home-img-links card-img-top" src={imagePath + "entertainment.png"}
                         alt="#" aria-label="an image link leads to details about the art work"/>
-                </a>
-              <button className='home-link-button'> Entertainment</button>
+                </Link>
+              <button className='home-link-button'> Media Center</button>
             </div>
           </div>
           <div className="col">
           <div className="card">
-                <a href="#" className='home-img-links-container'>
+                <Link to="/" className='home-img-links-container'>
                   <img className="home-img-links card-img-top" src={imagePath + "projects.png"}
                         alt="#" aria-label="an image link leads to details about the art work"/>
-                </a>
+                </Link>
               <button className='home-link-button'>Projects</button>
             </div>
           </div>
