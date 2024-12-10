@@ -1,0 +1,53 @@
+.home-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+  }
+  
+  .centered-text {
+    font-size: 2rem; /* Adjust as needed */
+    color: #333; /* Dark text color */
+    text-align: center;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the content vertically within the card */
+    align-items: center; /* Centers the content horizontally within the card */
+    height: 100%; /* Ensure the card takes the full height of its container */
+    padding: 10px;
+    border: none !important;
+  }
+  
+ .home-img-links-container {
+  height:20rem;
+ }
+
+ .home-img-links {
+  width: auto;
+  height: 20rem;
+  object-fit:any-link /* Make the image cover the entire card */
+}
+
+.card {
+border: none !important;
+}
+
+.home-link-button {
+  width: auto; /* Button width adjusts to its content */
+  text-align: center;
+  background-color: rgb(54, 54, 88);
+  color: white; /* Optional: for better visibility */
+  border: none; /* Optional: remove button border */
+  padding: 10px 20px; /* Optional: adjust button padding */
+  margin-top: 10px; /* Optional: add space between the button and other content */
+  cursor: pointer; /* Optional: make it clear the button is clickable */
+}
+
+button {
+  background-color:blue;
+  text-align: center;
+}
+

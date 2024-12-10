@@ -1,28 +1,58 @@
 import React from 'react';
 import '../assets/index.css';
-import './HomePage.css';
+import './assets/css/HomePage.css';
 
 const HomePage: React.FC = () => {
+  const imagePath = '/images/home/';
   return (
-      <div className="container">
+      <div className="container text-center">
         <div className="row">
           <div className="col">
-            <p>Row 1: Content goes here.</p>
+            <h1>Inovative Studios</h1>
           </div>
         </div>
         <div className="row">
           <div className="col">
-            <p>Row 2: Content goes here.</p>
+            <p>Welcome to Inovative Studios
+            <br />
+          We make stuff and have fun a long the way!</p>
           </div>
         </div>
         <div className="row">
           <div className="col">
-            <p>Row 3: Content goes here.</p>
+            <div className="card">
+                <a href="#" className='home-img-links-container'>
+                  <img className="home-img-links card-img-top" src={imagePath + "services.png"}
+                        alt="#" aria-label="an image link leads to details about the art work"/>
+                </a>
+              <button className='home-link-button'> services</button>
+            </div>
+          </div>
+          <div className="col">
+          <div className="card">
+                <a href="#" className='home-img-links-container'>
+                  <img className="home-img-links card-img-top" src={imagePath + "entertainment.png"}
+                        alt="#" aria-label="an image link leads to details about the art work"/>
+                </a>
+              <button className='home-link-button'> Entertainment</button>
+            </div>
+          </div>
+          <div className="col">
+          <div className="card">
+                <a href="#" className='home-img-links-container'>
+                  <img className="home-img-links card-img-top" src={imagePath + "projects.png"}
+                        alt="#" aria-label="an image link leads to details about the art work"/>
+                </a>
+              <button className='home-link-button'>Projects</button>
+            </div>
           </div>
         </div>
         <div className="row">
           <div className="col">
-            <p>Row 4: Content goes here.</p>
+            <p> We strive to create the world we want to live in. A world of color, and wonder! Where technology and art cross
+              <br />
+              Contact us today!
+            </p>
           </div>
         </div>
       </div>
