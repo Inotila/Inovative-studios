@@ -21,7 +21,7 @@ const HomePage: React.FC = () => {
         </div>
         <div className="row">
           <div className="col">
-            <div className="card">
+            <div className="card home-card">
                 <Link to="/" className='home-img-links-container'>
                   <img className="home-img-links card-img-top" src={imagePath + "services.png"}
                         alt="#" aria-label="an image link leads to details about the art work"/>

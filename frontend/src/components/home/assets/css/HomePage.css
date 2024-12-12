@@ -18,6 +18,9 @@
     align-items: center; /* Centers the content horizontally within the card */
     height: 100%; /* Ensure the card takes the full height of its container */
     padding: 10px;
+  }
+
+  .home-card {
     border: none !important;
   }
   
