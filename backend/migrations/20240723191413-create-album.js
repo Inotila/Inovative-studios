@@ -27,9 +27,9 @@ module.exports = {
         type: Sequelize.INTEGER,
         defaultValue: 0
       },
-      Album_cover_art: {  // Add this line to store the cover image URL
-        type: Sequelize.STRING,  // This is for storing a URL or file path as a string
-        allowNull: true,  // It's okay if some albums don't have a cover art
+      Album_cover_art: {  
+        type: Sequelize.STRING, 
+        allowNull: true,
       },
       createdAt: {
         allowNull: false,

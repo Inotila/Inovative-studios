@@ -1,5 +1,5 @@
 const { client } = require('../contentful_connector/contentful');
-const { Album, Track, Series, Video, Project, Service } = require('../../models'); // Include Service model
+const { Album, Track, Series, Video, Project, Service } = require('../../models');
 
 async function fetchAndStoreContentfulData() {
     try {
