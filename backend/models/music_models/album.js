@@ -26,6 +26,10 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       defaultValue: 0,
     },
+    Album_cover_art: {
+      type: DataTypes.STRING,  
+      allowNull: false,  
+    }
   }, {
     sequelize,
     modelName: 'Album',

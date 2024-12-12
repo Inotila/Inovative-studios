@@ -8,11 +8,16 @@ async function fetchAndStoreContentfulData() {
         const albumEntries = await client.getEntries({ content_type: 'album' });
         for (const entry of albumEntries.items) {
             const albumData = entry.fields;
+
+             const albumCoverArt = albumData.albumCoverArt && albumData.albumCoverArt.length > 0
+        ? albumData.albumCoverArt[0].fields.file.url  
+        : null;
             await Album.upsert({
                 Album_ID: entry.sys.id,
                 Title: albumData.title,
                 Download_count: albumData.download_count || 0,
                 Like_count: albumData.like_count || 0,
+                Album_cover_art: albumCoverArt,
             });
             console.log(`Stored Album: ${albumData.title}`);
 
@@ -41,7 +46,7 @@ async function fetchAndStoreContentfulData() {
                 Like_count: seriesData.like_count || 0,
                 Download_count: seriesData.download_count || 0,
             });
-            console.log(`Stored Series: ${seriesData.title || 'Untitled Series'}`);
+            // console.log(`Stored Series: ${seriesData.title || 'Untitled Series'}`);
 
             // Check if seriesData.videos is an array
             if (Array.isArray(seriesData.videos)) {
@@ -65,10 +70,10 @@ async function fetchAndStoreContentfulData() {
                         Executive_producer: videoData.executiveProducer,
                         Owner_of_video_rights: videoData.ownerOfVideoRights,
                     });
-                    console.log(`Stored Video: ${videoData.title} in Series: ${seriesData.title || 'Untitled Series'}`);
+                    // console.log(`Stored Video: ${videoData.title} in Series: ${seriesData.title || 'Untitled Series'}`);
                 }
             } else {
-                console.log(`No videos found for Series: ${seriesData.title || 'Untitled Series'}`);
+                // console.log(`No videos found for Series: ${seriesData.title || 'Untitled Series'}`);
             }
         }
 
@@ -82,7 +87,7 @@ async function fetchAndStoreContentfulData() {
                 Like_count: projectData.like_count || 0,
                 Funding_status: projectData.funding_status || 0,
             });
-            console.log(`Stored Project: ${projectData.title}`);
+            // console.log(`Stored Project: ${projectData.title}`);
         }
 
         // Fetch and store Service data
@@ -102,7 +107,7 @@ async function fetchAndStoreContentfulData() {
                 Thumbnail_cover: thumbnailUrl,
                 Availability: serviceData.availability,
             });
-            console.log(`Stored Service: ${serviceData.title}`);
+            // console.log(`Stored Service: ${serviceData.title}`);
         }
 
     } catch (err) {

@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors'); // Import cors
 const userRoutes = require('./routes/user_routes/userRoutes');
 const bagRoutes = require('./routes/user_routes/bagRoutes');
 const albumRoutes = require('./routes/music_routes/albumRoutes');
@@ -11,6 +12,9 @@ const { fetchAndStoreContentfulData } = require('./utils/js/script');
 
 const app = express();
 const port = 3001;
+
+// Use CORS middleware
+app.use(cors());  // This allows all origins, including http://localhost:3000
 
 app.use(express.json());
 
