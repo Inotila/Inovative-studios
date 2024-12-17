@@ -1,23 +1,23 @@
+/* Container for albums */
 .music-selection-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-/* Ensure that the images are responsive and fit within the card */
+/* Album cards styling */
 .album-cover {
   width: 100%;
   height: auto;
   object-fit: cover;
 }
 
-/* Optional: Customize the appearance of the album cards */
 .album-card {
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -28,4 +28,22 @@
 .album-card:hover {
   transform: scale(1.05);
   transition: transform 0.3s ease;
+}
+
+/* Custom music player styling */
+.custom-music-player {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  margin-top: 20px;
+}
+
+
+.music-player-cover-art {
+  width: 100%;
+  max-width: 150px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
