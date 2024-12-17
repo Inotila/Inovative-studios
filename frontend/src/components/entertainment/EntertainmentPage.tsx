@@ -1,6 +1,7 @@
 import React from 'react';
 import '../assets/index.css';
 import './assets/css/EntertainmentPage.css';
+import { Link } from 'react-router-dom';
 
 const EntertainmentPage: React.FC = () => {
   const imagePath = '/images/entertainment/';
@@ -28,6 +29,7 @@ const EntertainmentPage: React.FC = () => {
           </div>
         </div>
         <div className="col">
+          <Link to="/music">
           <div className="entertainment-card">
             <img
               className="entertainment-img"
@@ -37,6 +39,7 @@ const EntertainmentPage: React.FC = () => {
             />
             <p>Dive into trending music!</p>
           </div>
+          </Link>
         </div>
       </div>
     </div>

@@ -35,7 +35,9 @@ const HomePage: React.FC = () => {
                   <img className="home-img-links card-img-top" src={imagePath + "entertainment.png"}
                         alt="#" aria-label="an image link leads to details about the art work"/>
                 </Link>
-              <button className='home-link-button'> Media Center</button>
+                <Link to="/entertainment">
+                  <button className="home-link-button"> Media Center</button>
+                </Link>
             </div>
           </div>
           <div className="col">
