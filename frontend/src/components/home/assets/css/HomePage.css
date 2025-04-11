@@ -38,17 +38,6 @@
 border: none !important;
 }
 
-.home-link-button {
-  width: auto; /* Button width adjusts to its content */
-  text-align: center;
-  background-color: rgb(54, 54, 88);
-  color: white; /* Optional: for better visibility */
-  border: none; /* Optional: remove button border */
-  padding: 10px 20px; /* Optional: adjust button padding */
-  margin-top: 10px; /* Optional: add space between the button and other content */
-  cursor: pointer; /* Optional: make it clear the button is clickable */
-}
-
 button {
   background-color:blue;
   text-align: center;
