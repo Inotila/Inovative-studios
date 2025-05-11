@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../assets/index.css';
 import './assets/css/musicPage.css';
 
 interface Album {
@@ -118,8 +117,8 @@ const MusicPage: React.FC = () => {
               src={
                 currentSong?.Album_cover_art
                   ? (currentSong.Album_cover_art.startsWith('//')
-                      ? 'https:' + currentSong.Album_cover_art
-                      : currentSong.Album_cover_art)
+                    ? 'https:' + currentSong.Album_cover_art
+                    : currentSong.Album_cover_art)
                   : 'https://via.placeholder.com/150'
               }
               alt={currentSong?.Title || 'Placeholder'}
@@ -133,25 +132,25 @@ const MusicPage: React.FC = () => {
             </div>
             <div className="music-controls">
               <button className="btn btn-secondary" onClick={handleSkipBack}>
-              <i className="fa-solid fa-backward"></i>
+                <i className="fa-solid fa-backward"></i>
               </button>
               <button className="btn btn-primary mx-2" onClick={handlePlayPause}>
-              <i className={isPlaying ? 'fas fa-pause' : 'fas fa-play'}></i>
+                <i className={isPlaying ? 'fas fa-pause' : 'fas fa-play'}></i>
               </button>
               <button className="btn btn-secondary" onClick={handleSkipForward}>
-              <i className="fa-solid fa-forward"></i>
+                <i className="fa-solid fa-forward"></i>
               </button>
             </div>
           </div>
           <div className="col-2 d-flex flex-column align-items-center">
             {/* Share, Shuffle, Like Buttons */}
             <button className="btn btn-secondary mb-2" onClick={handleShare}>
-            <i className="fa-regular fa-share-from-square"></i>            </button>
+              <i className="fa-regular fa-share-from-square"></i>            </button>
             <button className="btn btn-secondary mb-2" onClick={handleShuffle}>
-            <i className="fa-solid fa-shuffle"></i>
+              <i className="fa-solid fa-shuffle"></i>
             </button>
             <button className="btn btn-secondary" onClick={handleLike}>
-            <i className="fa-regular fa-heart"></i>
+              <i className="fa-regular fa-heart"></i>
             </button>
           </div>
         </div>

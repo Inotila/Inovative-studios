@@ -1,5 +1,4 @@
 import React from 'react';
-import '../assets/index.css';
 import './assets/css/EntertainmentPage.css';
 import { Link } from 'react-router-dom';
 
@@ -30,15 +29,15 @@ const EntertainmentPage: React.FC = () => {
         </div>
         <div className="col">
           <Link to="/music">
-          <div className="entertainment-card">
-            <img
-              className="entertainment-img"
-              src={imagePath + "music.png"}
-              alt="Music"
-              aria-label="Music section"
-            />
-            <p>Dive into trending music!</p>
-          </div>
+            <div className="entertainment-card">
+              <img
+                className="entertainment-img"
+                src={imagePath + "music.png"}
+                alt="Music"
+                aria-label="Music section"
+              />
+              <p>Dive into trending music!</p>
+            </div>
           </Link>
         </div>
       </div>

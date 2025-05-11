@@ -1,7 +1,6 @@
 // frontend/src/components/Navbar.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/index.css'
 import './nav.css';
 
 const Navbar: React.FC = () => {

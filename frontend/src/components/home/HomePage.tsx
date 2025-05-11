@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/index.css';
+import '../assets/css/index.css';
 import './assets/css/HomePage.css';
 
 const HomePage: React.FC = () => {
@@ -16,7 +16,7 @@ const HomePage: React.FC = () => {
         <div className="col">
           <p>Welcome to Inovative Studios
             <br />
-            We make stuff and have fun a long the way!</p>
+            We make stuff because we can!</p>
         </div>
       </div>
       <div className="row">
