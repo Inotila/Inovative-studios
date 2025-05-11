@@ -25,6 +25,31 @@ h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   color: #000 !important;
 }
 
+a, p, link {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+p
+
+
+/* Bootstrao styling  */
+.row, .col {
+  padding: 0 !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+
+}
+
+.row {
+   max-width: 100% !important;
+}
+
+.container-fluid {
+  padding: 0 !important;
+}
+
+
 /* Main App container fills the available height */
 .App {
   display: flex;
@@ -38,6 +63,20 @@ h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
 }
+
+/* contiainer and element styling */
+
+.shadow-container{
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #000000 !important;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+}
+
 
 /* button styling */
 
