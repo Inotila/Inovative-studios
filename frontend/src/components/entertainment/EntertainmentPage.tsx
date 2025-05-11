@@ -1,44 +1,39 @@
 import React from 'react';
 import './assets/css/EntertainmentPage.css';
 import { Link } from 'react-router-dom';
+import videoCover from '../assets/images/entertianment/videoCover.png'
+import musicCover from '../assets/images/entertianment/Front-cover-art.jpg'
+
 
 const EntertainmentPage: React.FC = () => {
-  const imagePath = '/images/entertainment/';
-
   return (
-    <div className="container text-center">
-      {/* Row 1: Header */}
-      <div className="row">
-        <div className="col">
+    <div className="container-fluid text-center">
+      <div className="row ent-row ">
+        <div className="my-3 page-title">
           <h1 className="entertainment-header">Media Center</h1>
-        </div>
-      </div>
-
-      {/* Row 2: Two Columns */}
-      <div className="row">
-        <div className="col">
-          <div className="entertainment-card">
-            <img
-              className="entertainment-img"
-              src={imagePath + "movie.png"}
-              alt="Movies"
-              aria-label="Movies section"
-            />
-            <p>Explore the latest movies!</p>
-          </div>
-        </div>
-        <div className="col">
-          <Link to="/music">
-            <div className="entertainment-card">
+        </div> <div className="ent-card-wrapper d-flex flex-grow-1">
+          <div className="ent-card-container">
+            <div className="entertainment-card shadow-container">
               <img
                 className="entertainment-img"
-                src={imagePath + "music.png"}
-                alt="Music"
-                aria-label="Music section"
+                src={videoCover}
+                alt="Movies"
+                aria-label="Movies section"
               />
-              <p>Dive into trending music!</p>
+              <p>Explore the latest movies!</p>
             </div>
-          </Link>
+            <Link to="/music">
+              <div className="entertainment-card shadow-container">
+                <img
+                  className="entertainment-img"
+                  src={musicCover}
+                  alt="Music"
+                  aria-label="Music section"
+                />
+                <p>Dive into trending music!</p>
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

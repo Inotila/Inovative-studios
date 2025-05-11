@@ -7,18 +7,13 @@
   .entertainment-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   
   .entertainment-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+    font-weight:bolder !important;
   }
   
   .entertainment-img {
@@ -27,4 +22,31 @@
     object-fit: cover;
     border-radius: 5px;
     margin-bottom: 10px;
+  }
+
+  .ent-row{
+    display: flex;
+    flex-direction: column;
+    height: 100% !important;
+    justify-content: center; /* Vertical center */
+    align-items: center;
+  }
+
+  .ent-card-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* vertical center */
+  }
+
+  .ent-card-container{
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .page-title{
+    align-self: flex-start;
   }
