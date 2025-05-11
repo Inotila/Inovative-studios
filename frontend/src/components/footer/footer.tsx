@@ -9,19 +9,17 @@ const Footer: React.FC = () => {
       <div className="row">
         <div className="col d-flex flex-row justify-content-center">
           <div className='me-2'>
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/byinoati/" target="_blank" rel="noopener noreferrer">
               Facebook
             </a>
           </div>
           <div className='ms-2'>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/by_ino_ati/" target="_blank" rel="noopener noreferrer">
               Instagram
             </a>
           </div>
-
         </div>
       </div>
-
       {/* Row 2: Property of Inovative Studios */}
       <div className="row">
         <div className="col">
