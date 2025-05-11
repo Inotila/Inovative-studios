@@ -1,0 +1,77 @@
+/* frontend/src/components/nav.css */
+nav {
+    padding: 0.75rem !important;
+    max-width: 100%;
+  }
+  
+  /* Make sure navbar links are white */
+  .navbar-light .navbar-nav .nav-link {
+    color: #000000 !important;
+  }
+  
+  /* For the brand name/logo */
+  .navbar-light .navbar-brand {
+    color: #000000 !important;
+  }
+  
+  /* Active and hover states */
+  .navbar-light .navbar-nav .nav-link:hover,
+  .navbar-light .navbar-nav .nav-item.active .nav-link {
+    color: #085c94 !important;
+  }
+  
+  .navbar-light .navbar-nav .nav-link.active {
+    font-weight: bold;
+  }
+
+  .navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .nav-logo-container {
+    display: flex;
+    justify-content: flex-start;
+    flex: 1;
+  }
+  
+  .nav-logo{
+    height: 100%;
+    width: auto;
+  }
+  
+  .nav-search-container {
+    display: flex;
+    justify-content: center;
+    flex: 2; 
+  }
+  
+  .nav-links-container {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+  }
+  
+  .navbar-toggler {
+    background-color: #E8620F !important;
+  }
+  
+  
+  .dropdown-menu {
+    text-align: center;
+  }
+  
+  .dropdown-menu li {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .info-dropdown-menu {
+    position: absolute;
+    right: 0 !important;
+    left: auto !important;
+  }
+  
+  
