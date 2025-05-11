@@ -30,7 +30,17 @@ a, p, link {
   margin: 0 !important;
 }
 
-p
+a {
+  text-decoration: none;
+  color: #000000 !important;
+
+}
+
+a:hover {
+  color: #085c94 !important;
+}
+
+
 
 
 /* Bootstrao styling  */

@@ -54,11 +54,9 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="row">
+      <div className="row mt-3">
         <div className="col">
-          <p> We strive to create the world we want to live in. A world of color, and wonder! Where technology and art cross
-            <br />
-            Contact us today!
+          <p> We strive to create the world we want to live in. A world of color, and wonder! Where technology and art converge.
           </p>
         </div>
       </div>

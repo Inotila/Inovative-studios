@@ -1,19 +1,7 @@
 /* frontend/src/components/nav.css */
 footer {
-    background-color: #303B5D;
-    color: #fff !important;
     flex-shrink: 0; /* Prevent footer from shrinking */
   }
   
-  a {
-    text-decoration: none;
-    color: #fff !important;
 
-  }
-
-  a:hover {
-    color: #a2d0de !important;
-  }
-
-  
   
