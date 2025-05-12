@@ -37,7 +37,7 @@ async function fetchAndStoreContentfulData() {
         }
 
         // Fetch and store Series data
-        console.log("Fetching Series from Contentful...");
+        // console.log("Fetching Series from Contentful...");
         const seriesEntries = await client.getEntries({ content_type: 'series' });
         for (const entry of seriesEntries.items) {
             const seriesData = entry.fields;
@@ -55,7 +55,7 @@ async function fetchAndStoreContentfulData() {
                     const videoEntry = await client.getEntry(videoLink.sys.id);
                     const videoData = videoEntry.fields;
 
-                    console.log(`Fetching Video: ${videoEntry.sys.id}`);
+                    // console.log(`Fetching Video: ${videoEntry.sys.id}`);
                     
                     await Video.upsert({
                         Video_ID: videoEntry.sys.id,
