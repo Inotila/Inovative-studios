@@ -40,15 +40,20 @@ a:hover {
   color: #085c94 !important;
 }
 
-
-
-
 /* Bootstrao styling  */
+
+.row>* {
+  width: auto !important;
+}
 .row, .col {
   padding: 0 !important;
   margin-right: 0 !important;
   margin-left: 0 !important;
 
+}
+
+.row>*{
+  padding: 0 !important;
 }
 
 .row {
@@ -88,7 +93,6 @@ a:hover {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
 }
 
-
 /* button styling */
 
 .btn  {
@@ -96,10 +100,19 @@ a:hover {
   border: 1px solid #000 !important;
   padding: 0.2rem 0.75rem !important;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+  background-color: #fff !important;
+  color: #000 !important;
 }
 
 .btn:hover  {
   font-weight:bolder !important;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
   transform: scale(1.05);
+}
+
+
+/* card styling  */
+
+.card-title {
+  font-weight: 600;
 }

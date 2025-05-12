@@ -23,7 +23,7 @@ const HomePage: React.FC = () => {
         <div className="col-12 col-md-4 card-col d-flex mt-1 mb-3">
           <div className="card shadow-container homepage-card flex-fill h-100">
             <Link to="/" className='home-img-links-container'>
-              <img className="home-img-links card-img-top" src={imagePath + ""}
+              <img className="home-img-links card-img-top" src={imagePath + "services.png"}
                 alt="#" aria-label="an image link leads to details about the art work" />
             </Link>
             <Link to="#" className="btn main-btn mt-2">

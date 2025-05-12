@@ -1,33 +1,79 @@
-/* Container for albums */
-.music-selection-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* Out now banner */
+.out-now-banner-container{
+  height: 150px !important;
+  width: 90% !important;
+  background-color: #e1f2fa;
+  gap: 1rem;
+  padding: 0.75rem !important;
 }
 
-/* Album cards styling */
-.album-cover {
-  width: 100%;
-  height: auto;
+.out-now-banner-img-div{
+  height: 100%;
+}
+
+#outnow-img{
+  height: 100%;
+}
+
+/* selection btns */
+
+.track-album-playlist-container{
+  gap: 1rem;
+}
+
+/* music cards  */
+
+.music-card{
+  /* background-color: aqua;
+  display: flex;
+  flex-direction: row;
+  width: 100%; */
+}
+
+.music-cover {
+  height: 75%;
+  width: auto;
   object-fit: contain;
 }
 
-.album-card {
-  height: 10rem !important;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  
+/* Container for albums */
+.music-selection-container {
+  background-color: #fafbfc !important;
+  margin: 1rem;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center;
+  justify-content: center;
+  width: 90% !important;
+  padding: 20px;
 }
 
-.album-card > img {
-  height: 5rem !important;
+/* Album cards styling */
+.album-card-container {
+  width: 200px; /* fixed width or use flex-basis */
+}
+.album-cards-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.music-card-body{
+  width: 100%;
+padding: 0 !important;
+}
+
+.music-card-body>h4{
+color: #000000 !important;
+}
+.album-card {
+  height: 15rem !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .album-card:hover {
@@ -36,13 +82,12 @@
 }
 
 /* Custom music player styling */
+
+.music-player-col {
+width: 100% !important;
+}
 .custom-music-player {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
-  margin-top: 20px;
+width: 90% !important;
 }
 
 
@@ -51,4 +96,22 @@
   max-width: 150px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-music-player {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 900px;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.controls-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
 }
