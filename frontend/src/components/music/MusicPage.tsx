@@ -1,39 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import './assets/css/musicPage.css';
 import uncool from '../assets/images/entertianment/Front-cover-art.jpg';
-
-interface Album {
-  Album_ID: string;
-  Title: string;
-  Album_cover_art: string | null;
-}
+import { fetchAlbums } from '../../services/contentfulService';
 
 const MusicPage: React.FC = () => {
-  const [albums, setAlbums] = useState<Album[]>([]);
-  const [currentSong, setCurrentSong] = useState<Album | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-
   useEffect(() => {
-    const fetchAlbums = async () => {
+    const loadAlbums = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/albums');
-        setAlbums(response.data);
+        const albums = await fetchAlbums();
+        console.log('Fetched albums:', albums);
       } catch (error) {
-        console.error('Error fetching albums:', error);
+        console.error('Failed to fetch albums:', error);
       }
     };
 
-    fetchAlbums();
+    loadAlbums();
   }, []);
-
-  const handlePlayPause = () => setIsPlaying(!isPlaying);
-  const handleSkipForward = () => console.log('Skip forward');
-  const handleSkipBack = () => console.log('Skip back');
-  const handleShuffle = () => console.log('Shuffle');
-  const handleShare = () => console.log('Share');
-  const handleLike = () => console.log('Like');
-
   return (
     <div className="container-fluid text-center">
       {/* Banner */}
@@ -57,31 +39,23 @@ const MusicPage: React.FC = () => {
             <button className="btn">Playlist</button>
           </div>
           <div className="album-cards-row d-flex flex-row flex-wrap justify-content-center">
-            {albums.map((album) => {
-              const coverImageUrl = album.Album_cover_art;
-              const fullImageUrl =
-                coverImageUrl && coverImageUrl.startsWith('//')
-                  ? 'https:' + coverImageUrl
-                  : coverImageUrl;
 
-              return (
-                <div key={album.Album_ID} className="album-card-container mx-2 mb-4">
-                  <div className="card shadow-container album-card flex-column">
-                    <img
-                      src={fullImageUrl || 'https://via.placeholder.com/150'}
-                      alt={album.Title}
-                      className="card-img-top music-cover"
-                    />
-                    <div className="card-body music-card-body align-self-end">
-                      <h5 className="card-title">{album.Title}</h5>
-                      <button className="btn" onClick={() => setCurrentSong(album)}>
-                        Play
-                      </button>
-                    </div>
-                  </div>
+            <div className="album-card-container mx-2 mb-4">
+              <div className="card shadow-container album-card flex-column">
+                <img
+                  src={uncool}
+                  alt={'ssss'}
+                  className="card-img-top music-cover"
+                />
+                <div className="card-body music-card-body align-self-end">
+                  <h5 className="card-title">{ }</h5>
+                  <button className="btn">
+                    Play
+                  </button>
                 </div>
-              );
-            })}
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -95,13 +69,9 @@ const MusicPage: React.FC = () => {
             <div className="album-art-container text-center me-auto">
               <img
                 src={
-                  currentSong?.Album_cover_art
-                    ? (currentSong.Album_cover_art.startsWith('//')
-                      ? 'https:' + currentSong.Album_cover_art
-                      : currentSong.Album_cover_art)
-                    : 'https://via.placeholder.com/150'
+                  uncool
                 }
-                alt={currentSong?.Title || 'Placeholder'}
+                alt={'Placeholder'}
                 className="music-player-cover-art"
               />
             </div>
@@ -112,13 +82,13 @@ const MusicPage: React.FC = () => {
                 <p>00:00 / 03:45</p>
               </div>
               <div className="music-controls">
-                <button className="btn btn-secondary" onClick={handleSkipBack}>
+                <button className="btn btn-secondary">
                   <i className="fa-solid fa-backward"></i>
                 </button>
-                <button className="btn btn-primary mx-2" onClick={handlePlayPause}>
-                  <i className={isPlaying ? 'fas fa-pause' : 'fas fa-play'}></i>
+                <button className="btn btn-primary mx-2" >
+                  <i className={'fas fa-pause'}></i>
                 </button>
-                <button className="btn btn-secondary" onClick={handleSkipForward}>
+                <button className="btn btn-secondary" >
                   <i className="fa-solid fa-forward"></i>
                 </button>
               </div>
@@ -126,13 +96,13 @@ const MusicPage: React.FC = () => {
 
             {/* Extra Actions */}
             <div className="d-flex flex-column align-items-center">
-              <button className="btn btn-secondary mb-2" onClick={handleShare}>
+              <button className="btn btn-secondary mb-2" >
                 <i className="fa-regular fa-share-from-square"></i>
               </button>
-              <button className="btn btn-secondary mb-2" onClick={handleShuffle}>
+              <button className="btn btn-secondary mb-2">
                 <i className="fa-solid fa-shuffle"></i>
               </button>
-              <button className="btn btn-secondary" onClick={handleLike}>
+              <button className="btn btn-secondary">
                 <i className="fa-regular fa-heart"></i>
               </button>
             </div>
