@@ -24,7 +24,7 @@ const fetchAndStoreContentfulData = async () => {
     });
 
     console.log("Fetched albums from Contentful:", albums);
-    
+    return albums;
   } catch (err) {
     console.error('Error fetching albums from Contentful:', err);
     res.status(500).json({ error: err.message });

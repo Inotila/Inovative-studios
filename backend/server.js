@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors'); 
 const { fetchAndStoreContentfulData } = require('./utils/js/contentfulService');
+const albumController = require('./controllers/musicControllers/albumController' );
 
 const app = express();
 const port = 3001;
@@ -10,6 +11,9 @@ app.use(cors());
 
 // Parse incoming JSON requests
 app.use(express.json());
+
+// API Routes
+app.get('/api/albums', albumController.getAllAlbums);
 
 // Fetch and store Contentful data on startup
 fetchAndStoreContentfulData()
