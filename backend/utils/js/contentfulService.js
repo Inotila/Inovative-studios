@@ -19,7 +19,14 @@ const fetchAndStoreContentfulData = async () => {
       const albumCoverArtUrl = albumFields.albumCoverArt && albumFields.albumCoverArt.fields.file.url;
       return {
         Title: albumFields.title,
-        AlbumCoverArt: albumCoverArtUrl,
+        Artist: albumFields.artist,
+        // Tracks: albumFields.tracks, // Assuming tracks are related entries, you may need to fetch track details separately
+        Price: albumFields.price,
+        ReleaseDate: albumFields.releaseDate,
+        Genre: albumFields.genre,
+        ExecutiveProducer: albumFields.executiveProducer,
+        OwnerOfAlbumRights: albumFields.ownerOfAlbumRights,
+        AlbumCoverArt: albumCoverArtUrl
       };
     });
 
