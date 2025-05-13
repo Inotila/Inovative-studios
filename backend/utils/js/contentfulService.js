@@ -16,8 +16,10 @@ const fetchAndStoreContentfulData = async () => {
     // Map the album entries to a simpler structure
     const albums = albumEntries.items.map((item) => {
       const albumFields = item.fields;
+      const albumCoverArtUrl = albumFields.albumCoverArt && albumFields.albumCoverArt.fields.file.url;
       return {
         Title: albumFields.title,
+        AlbumCoverArt: albumCoverArtUrl,
       };
     });
 
