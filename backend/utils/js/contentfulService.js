@@ -1,40 +1,78 @@
 const { client } = require('../contentful_connector/contentful');
 
-// Fetch albums from Contentful
+// Fetch albums and tracks from Contentful
 const fetchAndStoreContentfulData = async () => {
   try {
-    console.log("Fetching Albums from Contentful...");
+    console.log("Fetching Albums and Tracks from Contentful...");
 
-    // Fetch album entries from Contentful
+    // 1. Fetch all albums
     const albumEntries = await client.getEntries({ content_type: 'album' });
+    console.log("Album Entries:", albumEntries.items.length); 
+    const albumsMap = {};
 
-    if (albumEntries.items.length === 0) {
-      console.log("No albums found in Contentful.");
-      return;
-    }
-
-    // Map the album entries to a simpler structure
     const albums = albumEntries.items.map((item) => {
-      const albumFields = item.fields;
-      const albumCoverArtUrl = albumFields.albumCoverArt && albumFields.albumCoverArt.fields.file.url;
-      return {
-        Title: albumFields.title,
-        Artist: albumFields.artist,
-        // Tracks: albumFields.tracks, // Assuming tracks are related entries, you may need to fetch track details separately
-        Price: albumFields.price,
-        ReleaseDate: albumFields.releaseDate,
-        Genre: albumFields.genre,
-        ExecutiveProducer: albumFields.executiveProducer,
-        OwnerOfAlbumRights: albumFields.ownerOfAlbumRights,
-        AlbumCoverArt: albumCoverArtUrl
+      const fields = item.fields;
+      const id = item.sys.id;
+      const albumCoverArtUrl = fields.albumCoverArt?.fields?.file?.url;
+
+      const albumData = {
+        id,
+        Title: fields.title,
+        Artist: fields.artist,
+        Price: fields.price,
+        ReleaseDate: fields.releaseDate,
+        Genre: fields.genre,
+        ExecutiveProducer: fields.executiveProducer,
+        OwnerOfAlbumRights: fields.ownerOfAlbumRights,
+        AlbumCoverArt: albumCoverArtUrl,
+        Tracks: []
       };
+
+      albumsMap[id] = albumData;
+      return albumData;
     });
 
-    console.log("Fetched albums from Contentful:", albums);
-    return albums;
+    // 2. Fetch all tracks
+    const trackEntries = await client.getEntries({ content_type: 'track' });
+    console.log("Track Entries:", trackEntries.items.length);
+
+    const tracks = trackEntries.items.map((item) => {
+      const fields = item.fields;
+
+      const musicFileUrl = fields.musicFile?.fields?.file?.url;
+      const coverArtUrl = fields.trackCoverArt?.fields?.file?.url;
+      const albumRefId = fields.album?.sys?.id;
+
+      const trackData = {
+        Title: fields.title,
+        TrackNumber: fields.trackNumber,
+        TrackArtist: fields.trackArtist,
+        FeaturedArtists: fields.featuredArtists || [],
+        Producer: fields.producer,
+        MixAndMasteredBy: fields.mixAndMasteredBy,
+        Genre: fields.genre,
+        Price: fields.price,
+        OwnerOfTrackRights: fields.ownerOfTrackRights,
+        ReleaseDate: fields.releaseDate,
+        MusicFile: musicFileUrl,
+        TrackCoverArt: coverArtUrl,
+        AlbumId: albumRefId
+      };
+
+      // Associate with album if applicable
+      if (albumRefId && albumsMap[albumRefId]) {
+        albumsMap[albumRefId].Tracks.push(trackData);
+      }
+
+      return trackData;
+    });
+
+    console.log(`Fetched ${albums.length} albums and ${tracks.length} tracks`);
+
+    return { albums, tracks }; // both flat and grouped by album
   } catch (err) {
-    console.error('Error fetching albums from Contentful:', err);
-    res.status(500).json({ error: err.message });
+    console.error('Error fetching albums/tracks from Contentful:', err);
+    throw err;
   }
 };
 
