@@ -19,9 +19,9 @@ const HomePage: React.FC = () => {
             We make stuff because we can!</h5>
         </div>
       </div>
-      <div className="row mt-2">
+      <div className="row justify-content-center home-row mt-2">
         <div className="col-12 col-md-4 card-col d-flex mt-1 mb-3">
-          <div className="card shadow-container homepage-card flex-fill h-100">
+          <div className="card shadow-container flex-fill h-100">
             <Link to="/" className='home-img-links-container'>
               <img className="home-img-links card-img-top" src={imagePath + "services.png"}
                 alt="#" aria-label="an image link leads to details about the art work" />
@@ -32,7 +32,7 @@ const HomePage: React.FC = () => {
           </div>
         </div>
         <div className="col-12 col-md-4 card-col d-flex mt-1 mb-3">
-          <div className="card shadow-container homepage-card flex-fill h-100">
+          <div className="card shadow-container flex-fill h-100">
             <Link to="/entertainment" className='home-img-links-container'>
               <img className="home-img-links card-img-top" src={imagePath + "entertainment.png"}
                 alt="#" aria-label="an image link leads to details about the art work" />
@@ -43,7 +43,7 @@ const HomePage: React.FC = () => {
           </div>
         </div>
         <div className="col-12 col-md-4 card-col d-flex mt-1 mb-3">
-          <div className="card shadow-container homepage-card flex-fill h-100">
+          <div className="card shadow-container flex-fill h-100">
             <Link to="/" className='home-img-links-container'>
               <img className="home-img-links card-img-top" src={imagePath + "projects.png"}
                 alt="#" aria-label="an image link leads to details about the art work" />

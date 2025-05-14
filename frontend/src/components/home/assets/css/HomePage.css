@@ -4,6 +4,10 @@
     justify-content: center;
     height: 100vh; /* Full viewport height */
   }
+
+  .home-row {
+    gap: 3rem;
+  }
   
   .centered-text {
     font-size: 2rem; /* Adjust as needed */
@@ -14,15 +18,12 @@
   .card {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centers the content vertically within the card */
-    align-items: center; /* Centers the content horizontally within the card */
-    height: 100%; /* Ensure the card takes the full height of its container */
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
     padding: 10px;
   }
 
-  .home-card {
-    border: none !important;
-  }
   
  .home-img-links-container {
   height:20rem;
@@ -34,12 +35,10 @@
   object-fit:any-link /* Make the image cover the entire card */
 }
 
-.card {
-border: none !important;
-}
 
 button {
-  background-color:blue;
   text-align: center;
+  justify-content: center; 
+  align-items: center;
 }
 
