@@ -1,8 +1,7 @@
-// src/components/music/MusicSelection.tsx
-
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import uncool from '../assets/images/entertianment/Front-cover-art.jpg';
 import { Album, Track } from '../../interfaces/musicInterface';
+import AudioElement from './AudioElement';
 
 interface MusicSelectionProps {
     albums: Album[];
@@ -19,6 +18,30 @@ const MusicSelection: React.FC<MusicSelectionProps> = ({
     handleTabClick,
     handleAlbumClick,
 }) => {
+    const [playingTrackId, setPlayingTrackId] = useState<string | null>(null);
+    const audioRefs = useRef<{ [key: string]: HTMLAudioElement | null }>({});
+
+    const registerAudioRef = (trackId: string, element: HTMLAudioElement | null) => {
+        audioRefs.current[trackId] = element;
+    };
+
+    const togglePlay = (trackId: string) => {
+        const currentAudio = audioRefs.current[trackId];
+        if (!currentAudio) return;
+
+        if (playingTrackId === trackId) {
+            currentAudio.pause();
+            setPlayingTrackId(null);
+        } else {
+            if (playingTrackId && audioRefs.current[playingTrackId]) {
+                audioRefs.current[playingTrackId]?.pause();
+                audioRefs.current[playingTrackId]!.currentTime = 0;
+            }
+
+            setPlayingTrackId(trackId);
+        }
+    };
+
     return (
         <div className="music-selection-container shadow-container">
             <div className="track-album-playlist-container my-3">
@@ -77,9 +100,21 @@ const MusicSelection: React.FC<MusicSelectionProps> = ({
                                 <div>
                                     <strong>{track.title}</strong> — <span>{track.artist}</span>
                                 </div>
-                                <audio controls src={track.audioUrl}>
-                                    Your browser does not support the audio element.
-                                </audio>
+                                <div className="track-controls">
+                                    <button
+                                        className="btn btn-primary mx-2"
+                                        onClick={() => togglePlay(track.id)}
+                                    >
+                                        <i className={`fas ${playingTrackId === track.id ? 'fa-pause' : 'fa-play'}`}></i>
+                                    </button>
+                                    <AudioElement
+                                        trackId={track.id}
+                                        audioUrl={track.audioUrl}
+                                        isPlaying={playingTrackId === track.id}
+                                        onEnded={() => setPlayingTrackId(null)}
+                                        registerAudioRef={registerAudioRef}
+                                    />
+                                </div>
                             </li>
                         ))}
                     </ul>

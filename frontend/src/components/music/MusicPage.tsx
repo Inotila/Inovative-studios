@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import './assets/css/musicPage.css';
 import uncool from '../assets/images/entertianment/Front-cover-art.jpg';
 import { fetchAlbums, fetchTracks } from '../../services/contentfulService';
@@ -102,7 +101,7 @@ const MusicPage: React.FC = () => {
                   <i className="fa-solid fa-backward"></i>
                 </button>
                 <button className="btn btn-primary mx-2">
-                  <i className="fas fa-pause"></i>
+                  <i className="fas fa-play"></i>
                 </button>
                 <button className="btn btn-secondary">
                   <i className="fa-solid fa-forward"></i>
