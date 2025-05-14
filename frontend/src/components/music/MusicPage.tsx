@@ -5,6 +5,12 @@ import { fetchAlbums, fetchTracks } from '../../services/contentfulService';
 import MusicSelection from './MusicSelection';
 import { Album, Track } from '../../interfaces/musicInterface';
 
+const formatTime = (time: number) => {
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+  return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+};
+
 const MusicPage: React.FC = () => {
   const [albums, setAlbums] = useState<Album[]>([]);
   const [tracks, setTracks] = useState<Track[]>([]);
@@ -13,6 +19,9 @@ const MusicPage: React.FC = () => {
   const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const [duration, setDuration] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0);
 
   const handleTabClick = async (tab: 'albums' | 'tracks' | 'playlist') => {
     setSelectedTab(tab);
@@ -72,6 +81,7 @@ const MusicPage: React.FC = () => {
 
 
   useEffect(() => {
+
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.play();
@@ -80,6 +90,28 @@ const MusicPage: React.FC = () => {
       }
     }
   }, [isPlaying, currentTrack]);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    const handleLoadedMetadata = () => {
+      setDuration(audio.duration);
+    };
+
+    const handleTimeUpdate = () => {
+      setCurrentTime(audio.currentTime);
+    };
+
+    audio.addEventListener('loadedmetadata', handleLoadedMetadata);
+    audio.addEventListener('timeupdate', handleTimeUpdate);
+
+    return () => {
+      audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
+      audio.removeEventListener('timeupdate', handleTimeUpdate);
+    };
+  }, [currentTrack]);
 
   return (
     <div className="container-fluid text-center">
@@ -125,11 +157,26 @@ const MusicPage: React.FC = () => {
                 className="music-player-cover-art"
               />
             </div>
-
             {/* Timeline & Controls */}
             <div className="controls-wrapper d-flex flex-column align-items-center justify-content-center flex-grow-1">
-              <div className="music-timeline">
-                <p>00:00 / 03:45</p>
+              <div className="music-timeline d-flex align-items-center w-100">
+                <span className="me-2" style={{ fontSize: '0.9rem' }}>{formatTime(currentTime)}</span>
+                <input
+                  type="range"
+                  min={0}
+                  max={duration}
+                  step="0.1"
+                  value={currentTime}
+                  onChange={(e) => {
+                    const newTime = parseFloat(e.target.value);
+                    if (audioRef.current) {
+                      audioRef.current.currentTime = newTime;
+                      setCurrentTime(newTime);
+                    }
+                  }}
+                  className="form-range flex-grow-1 mx-2"
+                />
+                <span className="ms-2" style={{ fontSize: '0.9rem' }}>{formatTime(duration)}</span>
               </div>
               <div className="music-controls">
                 <button className="btn btn-secondary" disabled>
