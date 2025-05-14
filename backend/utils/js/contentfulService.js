@@ -58,7 +58,7 @@ const fetchAndStoreContentfulData = async () => {
         TrackCoverArt: coverArtUrl,
         AlbumId: albumRefId
       };
-
+console.log(`Track "${fields.title}" is linked to album ID: ${albumRefId}`);
       // Associate with album if applicable
       if (albumRefId && albumsMap[albumRefId]) {
         albumsMap[albumRefId].Tracks.push(trackData);
