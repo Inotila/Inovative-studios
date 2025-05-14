@@ -46,6 +46,9 @@ export const fetchTracks = async () => {
         audioUrl: track.MusicFile?.startsWith('//')
           ? `https:${track.MusicFile}`
           : track.MusicFile,
+        TrackCoverArt: track.TrackCoverArt?.startsWith('//')
+          ? `https:${track.TrackCoverArt}`
+          :  track.TrackCoverArt || album.AlbumCoverArt || '',
         duration: track.Duration || undefined
       }));
     });

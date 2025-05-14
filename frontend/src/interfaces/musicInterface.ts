@@ -18,4 +18,5 @@ export interface Track {
   albumId?: string;
   audioUrl: string;
   duration?: string;
+  TrackCoverArt?: string
 }

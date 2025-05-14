@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './assets/css/musicPage.css';
 import uncool from '../assets/images/entertianment/Front-cover-art.jpg';
 import { fetchAlbums, fetchTracks } from '../../services/contentfulService';
@@ -10,6 +10,9 @@ const MusicPage: React.FC = () => {
   const [tracks, setTracks] = useState<Track[]>([]);
   const [selectedTab, setSelectedTab] = useState<'albums' | 'tracks' | 'playlist'>('albums');
 
+  const [currentTrack, setCurrentTrack] = useState<Track | null>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const handleTabClick = async (tab: 'albums' | 'tracks' | 'playlist') => {
     setSelectedTab(tab);
@@ -40,6 +43,20 @@ const MusicPage: React.FC = () => {
     }
   };
 
+  const handleTrackPlay = (track: Track) => {
+    if (currentTrack?.id === track.id && isPlaying) {
+      audioRef.current?.pause();
+      setIsPlaying(false);
+    } else {
+      setCurrentTrack(track);
+      setIsPlaying(true);
+    }
+  };
+
+  const handleEnded = () => {
+    setIsPlaying(false);
+  };
+
   useEffect(() => {
     const loadAlbums = async () => {
       try {
@@ -52,6 +69,17 @@ const MusicPage: React.FC = () => {
 
     loadAlbums();
   }, []);
+
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isPlaying, currentTrack]);
 
   return (
     <div className="container-fluid text-center">
@@ -75,6 +103,9 @@ const MusicPage: React.FC = () => {
           selectedTab={selectedTab}
           handleTabClick={handleTabClick}
           handleAlbumClick={handleAlbumClick}
+          currentTrack={currentTrack}
+          isPlaying={isPlaying}
+          handleTrackPlay={handleTrackPlay}
         />
       </div>
 
@@ -85,8 +116,12 @@ const MusicPage: React.FC = () => {
             {/* Cover Art */}
             <div className="album-art-container text-center me-auto">
               <img
-                src={uncool}
-                alt={'Placeholder'}
+                src={
+                  currentTrack?.TrackCoverArt ||
+                  albums.find((album) => album.id === currentTrack?.albumId)?.AlbumCoverArt ||
+                  uncool
+                }
+                alt={currentTrack?.title || 'Placeholder'}
                 className="music-player-cover-art"
               />
             </div>
@@ -97,13 +132,17 @@ const MusicPage: React.FC = () => {
                 <p>00:00 / 03:45</p>
               </div>
               <div className="music-controls">
-                <button className="btn btn-secondary">
+                <button className="btn btn-secondary" disabled>
                   <i className="fa-solid fa-backward"></i>
                 </button>
-                <button className="btn btn-primary mx-2">
-                  <i className="fas fa-play"></i>
+                <button
+                  className="btn btn-primary mx-2"
+                  onClick={() => setIsPlaying(!isPlaying)}
+                  disabled={!currentTrack}
+                >
+                  <i className={`fas ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
                 </button>
-                <button className="btn btn-secondary">
+                <button className="btn btn-secondary" disabled>
                   <i className="fa-solid fa-forward"></i>
                 </button>
               </div>
@@ -121,6 +160,14 @@ const MusicPage: React.FC = () => {
                 <i className="fa-regular fa-heart"></i>
               </button>
             </div>
+
+            {/* Hidden Audio Element */}
+            <audio
+              ref={audioRef}
+              src={currentTrack?.audioUrl}
+              onEnded={handleEnded}
+              hidden
+            />
           </div>
         </div>
       </div>
