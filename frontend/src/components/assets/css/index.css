@@ -113,6 +113,15 @@ a:hover {
 
 /* card styling  */
 
+ .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+    padding: 10px;
+  }
+
 .card-title {
   font-weight: 600;
 }

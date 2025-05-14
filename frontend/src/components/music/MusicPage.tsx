@@ -1,14 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, } from 'react';
+import { Link } from 'react-router-dom';
 import './assets/css/musicPage.css';
 import uncool from '../assets/images/entertianment/Front-cover-art.jpg';
 import { fetchAlbums } from '../../services/contentfulService';
 
+interface Album {
+  Title: string;
+  Artist: string;
+  AlbumCoverArt: string;
+  Price: number;
+  ReleaseDate: string;
+  Genre: string;
+  ExecutiveProducer: string;
+  OwnerOfAlbumRights: string;
+}
+
 const MusicPage: React.FC = () => {
+  const [albums, setAlbums] = useState<Album[]>([]);
+
   useEffect(() => {
     const loadAlbums = async () => {
       try {
         const albums = await fetchAlbums();
         console.log('Fetched albums:', albums);
+        setAlbums(albums);
       } catch (error) {
         console.error('Failed to fetch albums:', error);
       }
@@ -39,23 +54,26 @@ const MusicPage: React.FC = () => {
             <button className="btn">Playlist</button>
           </div>
           <div className="album-cards-row d-flex flex-row flex-wrap justify-content-center">
-
-            <div className="album-card-container mx-2 mb-4">
-              <div className="card shadow-container album-card flex-column">
-                <img
-                  src={uncool}
-                  alt={'ssss'}
-                  className="card-img-top music-cover"
-                />
-                <div className="card-body music-card-body align-self-end">
-                  <h5 className="card-title">{ }</h5>
-                  <button className="btn">
-                    Play
-                  </button>
-                </div>
+            {albums.map((album, index) => (
+              <div className="album-card-container mx-2 mb-4" key={index}>
+                <Link
+                  to={`/music/${encodeURIComponent(album.Title.toLowerCase().replace(/\s+/g, '-'))}`}
+                  className="text-decoration-none text-dark"
+                >
+                  <div className="card shadow-container album-card flex-column">
+                    <img
+                      src={album.AlbumCoverArt || uncool}
+                      alt={album.Title}
+                      className="card-img-top music-cover"
+                    />
+                    <div className="card-body music-card-body d-flex flex-column justify-content-between">
+                      <h5 className="card-title">{album.Title}</h5>
+                      <p className="card-text">{album.Artist}</p>
+                    </div>
+                  </div>
+                </Link>
               </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </div>

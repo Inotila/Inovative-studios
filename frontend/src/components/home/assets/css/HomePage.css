@@ -9,22 +9,6 @@
     gap: 3rem;
   }
   
-  .centered-text {
-    font-size: 2rem; /* Adjust as needed */
-    color: #333; /* Dark text color */
-    text-align: center;
-  }
-
-  .card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
-    height: 100%; 
-    padding: 10px;
-  }
-
-  
  .home-img-links-container {
   height:20rem;
  }
