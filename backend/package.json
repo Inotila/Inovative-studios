@@ -9,7 +9,9 @@
   },
   "keywords": [
     "Namibia",
-    "Sweden"
+    "Sweden",
+    "steaming",
+    "music"
   ],
   "author": "Inotila Opoeli Nghaamwa",
   "license": "ISC",
@@ -17,6 +19,7 @@
     "axios": "^1.9.0",
     "contentful": "^10.15.1",
     "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
     "express": "^4.19.2"
   },
   "devDependencies": {
