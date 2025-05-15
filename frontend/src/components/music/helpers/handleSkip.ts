@@ -24,7 +24,9 @@ export const handleSkipForward = (
       : tracks[Math.floor(Math.random() * tracks.length)]; // fallback to any if all have been played
 
     if (nextTrack) {
-        setShuffleHistory([...shuffleHistory, currentTrack]); // push current into history
+        const newHistory = [...shuffleHistory, currentTrack];
+        const limitedHistory = newHistory.slice(-20);
+        setShuffleHistory(limitedHistory);
         setCurrentTrack(nextTrack);
         setIsPlaying(true);
     }
