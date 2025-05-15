@@ -5,6 +5,7 @@ export const handleEnded = (
   currentTrack: Track | null,
   tracks: Track[],
   repeatMode: 'none' | 'album' | 'track',
+  isShuffling: boolean,
   setCurrentTrack: (track: Track) => void,
   setIsPlaying: (val: boolean) => void,
   audioRef: React.RefObject<HTMLAudioElement>
@@ -15,7 +16,21 @@ export const handleEnded = (
 
   if (repeatMode === 'track') {
     audioRef.current?.play();
-  } else if (currentIndex < tracks.length - 1) {
+  } 
+  
+  if (isShuffling) {
+    const remainingTracks = tracks.filter(t => t.id !== currentTrack.id);
+    const nextTrack = remainingTracks[Math.floor(Math.random() * remainingTracks.length)];
+    if (nextTrack) {
+      setCurrentTrack(nextTrack);
+      setIsPlaying(true);
+    } else {
+      setIsPlaying(false);
+    }
+    return;
+  }
+  
+  if (currentIndex < tracks.length - 1) {
     setCurrentTrack(tracks[currentIndex + 1]);
     setIsPlaying(true);
   } else if (repeatMode === 'album') {

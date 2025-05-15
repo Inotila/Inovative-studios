@@ -25,6 +25,7 @@ const MusicPage: React.FC = () => {
 
   const [repeatMode, setRepeatMode] = useState<RepeatMode>('none');
 
+  const [isShuffling, setIsShuffling] = useState(false);
 
   useEffect(() => {
     const loadAlbums = async () => {
@@ -158,16 +159,19 @@ const MusicPage: React.FC = () => {
 
             {/* Extra Actions */}
             <div className="d-flex flex-column align-items-center">
-              <button className="btn btn-secondary mb-2">
+              <button className="btn btn-secondary mb-2 s">
                 <i className="fa-regular fa-share-from-square"></i>
               </button>
-              <button className="btn btn-secondary mb-2">
+              <button
+                className={`btn mb-2 ${!isShuffling ? 'music-btn-disabled' : ''}`}
+                onClick={() => setIsShuffling(prev => !prev)}
+              >
                 <i className="fa-solid fa-shuffle"></i>
               </button>
               <button className="btn btn-secondary mb-2">
                 <i className="fa-regular fa-heart"></i>
               </button>
-              <button className={`btn mb-2 ${repeatMode === 'none' ? 'repeat-disabled' : ''}`}
+              <button className={`btn mb-2 ${repeatMode === 'none' ? 'music-btn-disabled' : ''}`}
                 onClick={() => setRepeatMode(prev => toggleRepeatMode(prev))}>
                 <i className="fa-solid fa-repeat"></i>
                 {repeatMode === 'track' && <span className='repeat-current-track'>1</span>}
@@ -179,7 +183,7 @@ const MusicPage: React.FC = () => {
               ref={audioRef}
               src={currentTrack?.audioUrl}
               onEnded={() =>
-                handleEnded(currentTrack, tracks, repeatMode, setCurrentTrack, setIsPlaying, audioRef)
+                handleEnded(currentTrack, tracks, repeatMode, isShuffling, setCurrentTrack, setIsPlaying, audioRef)
               }
               hidden
             />

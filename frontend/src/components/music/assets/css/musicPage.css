@@ -138,7 +138,7 @@ width: 90% !important;
   background-color: #a5aecb; 
 }
 
-.repeat-disabled {
+.music-btn-disabled {
   opacity: 0.5;
   pointer-events: auto; /* Still clickable */
   filter: grayscale(100%);
