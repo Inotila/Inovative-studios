@@ -10,6 +10,8 @@ import { handleEnded } from './helpers/handleEnded';
 import { handleTrackPlay } from './helpers/handleTrackPlay';
 import { handleTabClick } from './helpers/handleTabClick';
 import { handleAlbumClick } from './helpers/handleAlbumClick';
+import { handleSkipForward, handleSkipBackward } from './helpers/handleSkip';
+
 
 const MusicPage: React.FC = () => {
   const [albums, setAlbums] = useState<Album[]>([]);
@@ -26,6 +28,7 @@ const MusicPage: React.FC = () => {
   const [repeatMode, setRepeatMode] = useState<RepeatMode>('none');
 
   const [isShuffling, setIsShuffling] = useState(false);
+  const [shuffleHistory, setShuffleHistory] = useState<Track[]>([]);
 
   useEffect(() => {
     const loadAlbums = async () => {
@@ -141,7 +144,13 @@ const MusicPage: React.FC = () => {
                 <span className="ms-2" style={{ fontSize: '0.9rem' }}>{formatTime(duration)}</span>
               </div>
               <div className="music-controls">
-                <button className="btn btn-secondary" disabled>
+                <button
+                  className="btn btn-secondary"
+                  onClick={() =>
+                    handleSkipBackward(currentTrack, tracks, isShuffling, shuffleHistory, setShuffleHistory, setCurrentTrack, setIsPlaying)
+                  }
+                  disabled={!currentTrack}
+                >
                   <i className="fa-solid fa-backward"></i>
                 </button>
                 <button
@@ -151,7 +160,13 @@ const MusicPage: React.FC = () => {
                 >
                   <i className={`fas ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
                 </button>
-                <button className="btn btn-secondary" disabled>
+                <button
+                  className="btn btn-secondary"
+                  onClick={() =>
+                    handleSkipForward(currentTrack, tracks, isShuffling, repeatMode, shuffleHistory, setShuffleHistory, setCurrentTrack, setIsPlaying)
+                  }
+                  disabled={!currentTrack}
+                >
                   <i className="fa-solid fa-forward"></i>
                 </button>
               </div>
