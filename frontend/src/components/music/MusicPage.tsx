@@ -1,15 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './assets/css/musicPage.css';
 import uncool from '../assets/images/entertianment/Front-cover-art.jpg';
-import { fetchAlbums, fetchTracks } from '../../services/contentfulService';
+import { fetchAlbums } from '../../services/contentfulService';
 import MusicSelection from './MusicSelection';
-import { Album, Track } from '../../interfaces/musicInterface';
-
-const formatTime = (time: number) => {
-  const minutes = Math.floor(time / 60);
-  const seconds = Math.floor(time % 60);
-  return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-};
+import { Album, Track, RepeatMode } from '../../interfaces/musicInterface';
+import { formatTime } from './helpers/formatTime';
+import { toggleRepeatMode } from './helpers/repeatMode';
+import { handleEnded } from './helpers/handleEnded';
+import { handleTrackPlay } from './helpers/handleTrackPlay';
+import { handleTabClick } from './helpers/handleTabClick';
+import { handleAlbumClick } from './helpers/handleAlbumClick';
 
 const MusicPage: React.FC = () => {
   const [albums, setAlbums] = useState<Album[]>([]);
@@ -23,77 +23,8 @@ const MusicPage: React.FC = () => {
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
 
-  type RepeatMode = 'none' | 'album' | 'track';
   const [repeatMode, setRepeatMode] = useState<RepeatMode>('none');
 
-  const toggleRepeatMode = () => {
-    setRepeatMode((prevMode) => {
-      if (prevMode === 'none') return 'album';
-      if (prevMode === 'album') return 'track';
-      return 'none';
-    });
-  };
-
-  const handleTabClick = async (tab: 'albums' | 'tracks' | 'playlist') => {
-    setSelectedTab(tab);
-
-    if (tab === 'tracks') {
-
-      try {
-        const fetchedTracks = await fetchTracks();
-        setTracks(fetchedTracks);
-      } catch (error) {
-        console.error('Failed to fetch tracks:', error);
-      }
-    }
-  };
-
-  const handleAlbumClick = async (albumId: string) => {
-
-    setSelectedTab('tracks');
-
-    try {
-      const fetchedTracks = await fetchTracks();
-      const filteredTracks = fetchedTracks.filter(
-        (track: Track) => track.albumId === albumId
-      );
-      setTracks(filteredTracks);
-    } catch (error) {
-      console.error('Failed to fetch tracks for album:', error);
-    }
-  };
-
-  const handleTrackPlay = (track: Track) => {
-    if (currentTrack?.id === track.id && isPlaying) {
-      audioRef.current?.pause();
-      setIsPlaying(false);
-    } else {
-      setCurrentTrack(track);
-      setIsPlaying(true);
-    }
-  };
-
-  const handleEnded = () => {
-    if (!currentTrack) return;
-
-    const currentIndex = tracks.findIndex(t => t.id === currentTrack.id);
-
-    if (repeatMode === 'track') {
-      // Repeat same track
-      audioRef.current?.play();
-    } else if (currentIndex < tracks.length - 1) {
-      // Play next track in the current view (album or all-tracks)
-      setCurrentTrack(tracks[currentIndex + 1]);
-      setIsPlaying(true);
-    } else if (repeatMode === 'album') {
-      // Loop back to the first track in current list
-      setCurrentTrack(tracks[0]);
-      setIsPlaying(true);
-    } else {
-      // Stop at the last track
-      setIsPlaying(false);
-    }
-  };
 
   useEffect(() => {
     const loadAlbums = async () => {
@@ -104,13 +35,10 @@ const MusicPage: React.FC = () => {
         console.error('Failed to fetch albums:', error);
       }
     };
-
     loadAlbums();
   }, []);
 
-
   useEffect(() => {
-
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.play();
@@ -162,11 +90,15 @@ const MusicPage: React.FC = () => {
           albums={albums}
           tracks={tracks}
           selectedTab={selectedTab}
-          handleTabClick={handleTabClick}
-          handleAlbumClick={handleAlbumClick}
+          handleTabClick={(tab) => handleTabClick(tab, setSelectedTab, setTracks)}
+          handleAlbumClick={(albumId) =>
+            handleAlbumClick(albumId, setSelectedTab, setTracks)
+          }
           currentTrack={currentTrack}
           isPlaying={isPlaying}
-          handleTrackPlay={handleTrackPlay}
+          handleTrackPlay={(track) =>
+            handleTrackPlay(track, currentTrack, isPlaying, setCurrentTrack, setIsPlaying, audioRef)
+          }
         />
       </div>
 
@@ -236,7 +168,7 @@ const MusicPage: React.FC = () => {
                 <i className="fa-regular fa-heart"></i>
               </button>
               <button className={`btn mb-2 ${repeatMode === 'none' ? 'repeat-disabled' : ''}`}
-                onClick={toggleRepeatMode}>
+                onClick={() => setRepeatMode(prev => toggleRepeatMode(prev))}>
                 <i className="fa-solid fa-repeat"></i>
                 {repeatMode === 'track' && <span className='repeat-current-track'>1</span>}
               </button>
@@ -246,7 +178,9 @@ const MusicPage: React.FC = () => {
             <audio
               ref={audioRef}
               src={currentTrack?.audioUrl}
-              onEnded={handleEnded}
+              onEnded={() =>
+                handleEnded(currentTrack, tracks, repeatMode, setCurrentTrack, setIsPlaying, audioRef)
+              }
               hidden
             />
           </div>

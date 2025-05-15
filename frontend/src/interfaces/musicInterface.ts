@@ -20,3 +20,5 @@ export interface Track {
   duration?: string;
   TrackCoverArt?: string
 }
+
+export type RepeatMode = 'none' | 'album' | 'track';
