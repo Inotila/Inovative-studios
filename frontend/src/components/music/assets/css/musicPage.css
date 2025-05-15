@@ -137,3 +137,13 @@ width: 90% !important;
 .music-timeline input[type="range"]::-moz-range-track {
   background-color: #a5aecb; 
 }
+
+.repeat-disabled {
+  opacity: 0.5;
+  pointer-events: auto; /* Still clickable */
+  filter: grayscale(100%);
+}
+
+.repeat-current-track{
+font-size: 13px;
+}

@@ -23,6 +23,17 @@ const MusicPage: React.FC = () => {
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
 
+  type RepeatMode = 'none' | 'album' | 'track';
+  const [repeatMode, setRepeatMode] = useState<RepeatMode>('none');
+
+  const toggleRepeatMode = () => {
+    setRepeatMode((prevMode) => {
+      if (prevMode === 'none') return 'album';
+      if (prevMode === 'album') return 'track';
+      return 'none';
+    });
+  };
+
   const handleTabClick = async (tab: 'albums' | 'tracks' | 'playlist') => {
     setSelectedTab(tab);
 
@@ -63,7 +74,25 @@ const MusicPage: React.FC = () => {
   };
 
   const handleEnded = () => {
-    setIsPlaying(false);
+    if (!currentTrack) return;
+
+    const currentIndex = tracks.findIndex(t => t.id === currentTrack.id);
+
+    if (repeatMode === 'track') {
+      // Repeat same track
+      audioRef.current?.play();
+    } else if (currentIndex < tracks.length - 1) {
+      // Play next track in the current view (album or all-tracks)
+      setCurrentTrack(tracks[currentIndex + 1]);
+      setIsPlaying(true);
+    } else if (repeatMode === 'album') {
+      // Loop back to the first track in current list
+      setCurrentTrack(tracks[0]);
+      setIsPlaying(true);
+    } else {
+      // Stop at the last track
+      setIsPlaying(false);
+    }
   };
 
   useEffect(() => {
@@ -203,8 +232,13 @@ const MusicPage: React.FC = () => {
               <button className="btn btn-secondary mb-2">
                 <i className="fa-solid fa-shuffle"></i>
               </button>
-              <button className="btn btn-secondary">
+              <button className="btn btn-secondary mb-2">
                 <i className="fa-regular fa-heart"></i>
+              </button>
+              <button className={`btn mb-2 ${repeatMode === 'none' ? 'repeat-disabled' : ''}`}
+                onClick={toggleRepeatMode}>
+                <i className="fa-solid fa-repeat"></i>
+                {repeatMode === 'track' && <span className='repeat-current-track'>1</span>}
               </button>
             </div>
 
