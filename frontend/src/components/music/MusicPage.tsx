@@ -198,7 +198,7 @@ const MusicPage: React.FC = () => {
               ref={audioRef}
               src={currentTrack?.audioUrl}
               onEnded={() =>
-                handleEnded(currentTrack, tracks, repeatMode, isShuffling, setCurrentTrack, setIsPlaying, audioRef)
+                handleEnded(currentTrack, tracks, repeatMode, isShuffling, setCurrentTrack, setIsPlaying, audioRef, shuffleHistory, setShuffleHistory)
               }
               hidden
             />

@@ -1,5 +1,5 @@
-// src/components/music/helpers/handleEnded.ts
 import { Track } from '../../../interfaces/musicInterface';
+import { getNextTrack } from './getNextTrack';
 
 export const handleEnded = (
   currentTrack: Track | null,
@@ -8,33 +8,21 @@ export const handleEnded = (
   isShuffling: boolean,
   setCurrentTrack: (track: Track) => void,
   setIsPlaying: (val: boolean) => void,
-  audioRef: React.RefObject<HTMLAudioElement>
+  audioRef: React.RefObject<HTMLAudioElement>,
+  shuffleHistory: Track[],
+  setShuffleHistory: (history: Track[]) => void
 ) => {
   if (!currentTrack) return;
 
-  const currentIndex = tracks.findIndex(t => t.id === currentTrack.id);
-
   if (repeatMode === 'track') {
     audioRef.current?.play();
-  } 
-  
-  if (isShuffling) {
-    const remainingTracks = tracks.filter(t => t.id !== currentTrack.id);
-    const nextTrack = remainingTracks[Math.floor(Math.random() * remainingTracks.length)];
-    if (nextTrack) {
-      setCurrentTrack(nextTrack);
-      setIsPlaying(true);
-    } else {
-      setIsPlaying(false);
-    }
     return;
   }
-  
-  if (currentIndex < tracks.length - 1) {
-    setCurrentTrack(tracks[currentIndex + 1]);
-    setIsPlaying(true);
-  } else if (repeatMode === 'album') {
-    setCurrentTrack(tracks[0]);
+
+  const nextTrack = getNextTrack(currentTrack, tracks, isShuffling, repeatMode, shuffleHistory, setShuffleHistory);
+
+  if (nextTrack) {
+    setCurrentTrack(nextTrack);
     setIsPlaying(true);
   } else {
     setIsPlaying(false);
