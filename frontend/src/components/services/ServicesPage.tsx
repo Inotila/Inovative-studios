@@ -54,7 +54,7 @@ const ServicePage: React.FC = () => {
                                 <button className="btn">all</button>
                             </div>
                             <div className="service-detail-row my-2">
-                                <div className="album-card-container service-card mx-2 mb-4" >
+                                <div className="service-card-container mx-2 mb-4" >
                                     <div
                                         className="card shadow-container album-card flex-column cursor-pointer"
                                     >
@@ -68,13 +68,13 @@ const ServicePage: React.FC = () => {
                                             <p className="card-text">text about the service</p>
                                         </div>
                                     </div>
-                                    <div className="service-toggler-container justify-content-center">
+                                    <div className="service-toggler-container justify-content-center mt-3">
                                         <button className="btn">Process</button>
                                         <button className="btn">Portfolio</button>
                                         <button className="btn">Enquire</button>
                                     </div>
                                 </div>
-                                <div className="service-text" >
+                                <div className="service-details-container-one" >
                                     <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
                                         dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
                                         sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
@@ -105,19 +105,6 @@ const ServicePage: React.FC = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="row justify-content-center my-3">
-                <div className="col shadow-container mx-3">
-                    <div className="design-process">
-                        <div className="mb-1">
-                            <h3>Our Customers</h3>
-                        </div>
-                        <div>
-                            <p>Zugvogel Namibia, Byinoati.com
-                            </p>
                         </div>
                     </div>
                 </div>

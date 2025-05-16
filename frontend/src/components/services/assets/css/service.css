@@ -17,12 +17,17 @@
     background-color: blueviolet;
 }
 
+.service-card-container{
+    padding: 0.75rem;
+}
+
 .service-card{
     background-color: aquamarine;
     width: 25% !important;
 }
 
-.service-text{
-    background-color: brown;
+.service-details-container-one{
     width: 75%;
+    padding: 0.75rem;
+    background-color: brown;
 }
