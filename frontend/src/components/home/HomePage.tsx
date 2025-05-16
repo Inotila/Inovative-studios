@@ -26,7 +26,7 @@ const HomePage: React.FC = () => {
               <img className="home-img-links card-img-top" src={imagePath + "services.png"}
                 alt="#" aria-label="an image link leads to details about the art work" />
             </Link>
-            <Link to="#" className="btn main-btn mt-2">
+            <Link to="/services" className="btn main-btn mt-2">
               <h5 className="card-title">Services</h5>
             </Link>
           </div>

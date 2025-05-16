@@ -1,0 +1,28 @@
+.design-process{
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem;
+}
+
+.service-toggler-container{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem !important;
+}
+
+.service-detail-row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: blueviolet;
+}
+
+.service-card{
+    background-color: aquamarine;
+    width: 25% !important;
+}
+
+.service-text{
+    background-color: brown;
+    width: 75%;
+}

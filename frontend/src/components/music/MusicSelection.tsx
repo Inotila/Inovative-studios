@@ -61,7 +61,7 @@ const MusicSelection: React.FC<MusicSelectionProps> = ({
                                     className="card-img-top music-cover"
                                 />
                                 <div className="card-body music-card-body d-flex flex-column justify-content-between">
-                                    <h5 className="card-title">{album.Title}</h5>
+                                    <h5 className="card-title mt-1">{album.Title}</h5>
                                     <p className="card-text">{album.Artist}</p>
                                 </div>
                             </div>
