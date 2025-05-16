@@ -1,10 +1,13 @@
 const express = require('express');
 const cors = require('cors'); 
-const { fetchAndStoreContentfulData } = require('./utils/js/contentfulService');
-const contentStore = require('./utils/js/contentStore');
-const albumController = require('./controllers/musicControllers/albumController' );
 const albumRoutes = require('./routes/albumRoutes');
 const trackRoutes = require('./routes/trackRoutes'); 
+const serviceRoutes = require('./routes/serviceRoutes');
+const contentStore = require('./utils/js/contentStore');
+const { fetchAndStoreContentfulData } = require('./utils/js/contentfulService');
+const { fetchServicesFromContentful } = require('./utils/js/servicesService');
+// const albumController = require('./controllers/musicControllers/albumController' );
+
 
 const app = express();
 const port = 3001;
@@ -18,6 +21,7 @@ app.use(express.json());
 // API Routes
 app.use('/api/albums', albumRoutes); 
 app.use('/api/tracks', trackRoutes);
+app.use('/api/services', serviceRoutes);
 
 // Fetch and store Contentful data on startup
 fetchAndStoreContentfulData() 
@@ -27,6 +31,13 @@ fetchAndStoreContentfulData()
     console.log('Contentful data fetched and stored');
   })
   .catch(err => console.error('Error fetching Contentful data:', err));
+
+  fetchServicesFromContentful()
+  .then((services) => {
+    contentStore.setServices(services);
+    console.log('Services stored');
+  })
+  .catch(err => console.error('Error fetching services:', err));
 
 // Root route
 app.get('/', (req, res) => {

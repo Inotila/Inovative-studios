@@ -4,10 +4,8 @@ const { client } = require('../contentful_connector/contentful');
 const fetchAndStoreContentfulData = async () => {
   try {
     console.log("Fetching Albums and Tracks from Contentful...");
-
     // 1. Fetch all albums
     const albumEntries = await client.getEntries({ content_type: 'album' });
-    console.log("Album Entries:", albumEntries.items.length); 
     const albumsMap = {};
 
     const albums = albumEntries.items.map((item) => {
@@ -34,7 +32,6 @@ const fetchAndStoreContentfulData = async () => {
 
     // 2. Fetch all tracks
     const trackEntries = await client.getEntries({ content_type: 'track' });
-    console.log("Track Entries:", trackEntries.items.length);
 
     const tracks = trackEntries.items.map((item) => {
       const fields = item.fields;
@@ -58,7 +55,6 @@ const fetchAndStoreContentfulData = async () => {
         TrackCoverArt: coverArtUrl,
         AlbumId: albumRefId
       };
-console.log(`Track "${fields.title}" is linked to album ID: ${albumRefId}`);
       // Associate with album if applicable
       if (albumRefId && albumsMap[albumRefId]) {
         albumsMap[albumRefId].Tracks.push(trackData);
@@ -66,8 +62,6 @@ console.log(`Track "${fields.title}" is linked to album ID: ${albumRefId}`);
 
       return trackData;
     });
-
-    console.log(`Fetched ${albums.length} albums and ${tracks.length} tracks`);
 
     return { albums, tracks }; // both flat and grouped by album
   } catch (err) {
