@@ -13,8 +13,8 @@
 .service-detail-row{
     display: flex;
     flex-direction: row;
-    width: 100%;
-    background-color: blueviolet;
+    min-width: 100% !important;
+    /* background-color: blueviolet; */
 }
 
 .service-card-container{
@@ -22,15 +22,27 @@
 }
 
 .service-card{
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     width: 25% !important;
 }
 
 .service-details-container-one{
     width: 75%;
     padding: 0.75rem;
-    background-color: brown;}
+    /* background-color: brown; */
+}
 
-    .service-primary-container{
-        padding: 0.75rem;
+.service-primary-container{
+    padding: 0.75rem;
+    width: 100% !important;
     }
+
+.service-primary-option{
+    min-width: 100% !important;
+}
+
+#default-service-togglers{
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+}
