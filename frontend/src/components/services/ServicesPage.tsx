@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './assets/css/service.css';
 import uncool from '../assets/images/entertianment/Front-cover-art.jpg';
+import { fetchServices } from "../../services/contentfulService";
+
+interface Service {
+    id: string;
+    Title: string;
+    TypeOfService: string | null;
+    SummaryDescription: string;
+    GeneralDescription: string;
+    DesignProcess: string;
+    ThumbnailCover: string;
+    IsAvailable: boolean;
+    RelatedProjects: string | null;
+}
+
 
 const ServicePage: React.FC = () => {
+    const [services, setServices] = useState<Service[]>([]);
+
+    useEffect(() => {
+        const loadServices = async () => {
+            try {
+                const data = await fetchServices();
+                setServices(data);
+            } catch (error) {
+                console.error("Failed to load services:", error);
+            }
+        };
+        loadServices();
+    }, []);
+
     return (
         <div className="container-fluid justify-content-center text-center">
 
@@ -13,37 +41,22 @@ const ServicePage: React.FC = () => {
                             <h3>Services</h3>
                         </div>
                         <div>
-                            <div className="album-cards-row d-flex flex-row flex-wrap justify-content-center">
-                                <div className="album-card-container mx-2 mb-4" >
-                                    <div
-                                        className="card shadow-container album-card flex-column cursor-pointer"
-                                    >
-                                        <img
-                                            src={uncool}
-                                            alt="{album.Title}"
-                                            className="card-img-top music-cover"
-                                        />
-                                        <div className="card-body music-card-body d-flex flex-column justify-content-between">
-                                            <h5 className="card-title mt-1">Web dev</h5>
-                                            <p className="card-text">text about the service</p>
+                            <div className="service-cards-row d-flex flex-row flex-wrap justify-content-center">
+                                {services.map((service) => (
+                                    <div className="service-card-container mx-2 mb-4" key={service.id}>
+                                        <div className="card shadow-container album-card flex-column cursor-pointer">
+                                            <img
+                                                src={service.ThumbnailCover?.startsWith("//") ? `https:${service.ThumbnailCover}` : service.ThumbnailCover}
+                                                alt={service.Title}
+                                                className="card-img-top music-cover"
+                                            />
+                                            <div className="card-body music-card-body d-flex flex-column justify-content-between">
+                                                <h5 className="card-title mt-1">{service.Title}</h5>
+                                                <p className="card-text">{service.SummaryDescription}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="album-card-container mx-2 mb-4" >
-                                    <div
-                                        className="card shadow-container album-card flex-column cursor-pointer"
-                                    >
-                                        <img
-                                            src={uncool}
-                                            alt="{album.Title}"
-                                            className="card-img-top music-cover"
-                                        />
-                                        <div className="card-body music-card-body d-flex flex-column justify-content-between">
-                                            <h5 className="card-title mt-1">Graphic Design</h5>
-                                            <p className="card-text">text about the service</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                         </div>
                         <div className="service-detail-container">

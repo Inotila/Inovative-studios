@@ -59,3 +59,28 @@ export const fetchTracks = async () => {
     throw error;
   }
 };
+export const fetchServices = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/services`);
+    const rawServices = response.data;
+
+    const services = rawServices.map((service: any) => ({
+      id: service.id,
+      Title: service.Title || '',
+      TypeOfService: service.TypeOfService || '',
+      SummaryDescription: service.SummaryDescription || '',
+      GeneralDescription: service.GeneralDescription || '',
+      DesignProcess: service.DesignProcess || '',
+      ThumbnailCover: service.ThumbnailCover?.startsWith('//')
+        ? `https:${service.ThumbnailCover}`
+        : service.ThumbnailCover || '',
+      IsAvailable: service.IsAvailable || false,
+      RelatedProjects: service.RelatedProjects || ''
+    }));
+
+    return services;
+  } catch (error) {
+    console.error('Error fetching services:', error);
+    throw error;
+  }
+};
