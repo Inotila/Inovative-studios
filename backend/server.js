@@ -3,9 +3,12 @@ const cors = require('cors');
 const albumRoutes = require('./routes/albumRoutes');
 const trackRoutes = require('./routes/trackRoutes'); 
 const serviceRoutes = require('./routes/serviceRoutes');
+const projectRoutes = require('./routes/projectRoutes')
 const contentStore = require('./utils/js/contentStore');
 const { fetchAndStoreContentfulData } = require('./utils/js/contentfulService');
 const { fetchServicesFromContentful } = require('./utils/js/servicesService');
+const { fetchProjectsFromContentful } = require('./utils/js/projectService');
+
 // const albumController = require('./controllers/musicControllers/albumController' );
 
 
@@ -22,6 +25,7 @@ app.use(express.json());
 app.use('/api/albums', albumRoutes); 
 app.use('/api/tracks', trackRoutes);
 app.use('/api/services', serviceRoutes);
+app.use('/api', projectRoutes); 
 
 // Fetch and store Contentful data on startup
 fetchAndStoreContentfulData() 
@@ -38,6 +42,15 @@ fetchAndStoreContentfulData()
     console.log('Services stored');
   })
   .catch(err => console.error('Error fetching services:', err));
+
+  fetchProjectsFromContentful()
+  .then((fetchedProjects) => {
+    contentStore.setProjects(fetchedProjects);
+    console.log("Projects stored");
+  })
+  .catch((err) => {
+    console.error("Error fetching projects:", err);
+  });
 
 // Root route
 app.get('/', (req, res) => {
