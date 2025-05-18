@@ -1,3 +1,8 @@
+.default-container{
+    display: flex;
+    flex-direction: row;
+}
+
 .design-process{
     display: flex;
     flex-direction: column;
@@ -17,13 +22,15 @@
     /* background-color: blueviolet; */
 }
 
+
+
 .service-card-container{
-    padding: 0.75rem;
+max-width: 25% !important;
 }
 
 .service-card{
     /* background-color: aquamarine; */
-    width: 25% !important;
+    /* width: 25% !important; */
 }
 
 .service-details-container-one{
@@ -45,4 +52,32 @@
     display: flex;
     flex-direction: row;
     gap: 0.75rem;
+}
+
+.service-toggler-detail-container{
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    gap: 0.5rem;
+}
+
+.service-toggler-detail-btn{
+    max-width: 30% !important;
+    font-size: 14px !important;
+    padding: 5px !important;
+}
+
+.selected-toggler-btn{
+    background-color: rgb(124, 123, 123) !important;
+    opacity: 0.5;
+    pointer-events: auto;
+    filter: grayscale(100%);
+    box-shadow: none !important;
+    font-weight:300 !important;
+}
+
+.selected-toggler-btn:hover  {
+  font-weight:normal !important;
+  box-shadow: none !important;
+  transform: none !important;
 }

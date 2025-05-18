@@ -41,7 +41,7 @@ const ServicePage: React.FC = () => {
     return (
         <div className="container-fluid justify-content-center text-center">
             <div className="row justify-content-center my-3">
-                <div className="col shadow-container mx-3 w-100"  >
+                <div className="default-container shadow-container mx-3 w-100"  >
                     <div className="design-process w-100">
                         {!selectedService && (
                             <div className="service-default-state-container mt-4">
@@ -56,7 +56,7 @@ const ServicePage: React.FC = () => {
                                             key={service.id}
                                             onClick={() => handleServiceClick(service)}
                                         >
-                                            <div className="card shadow-container album-card flex-column cursor-pointer">
+                                            <div className="card shadow-container service-card flex-column cursor-pointer">
                                                 <img
                                                     src={
                                                         service.ThumbnailCover?.startsWith("//")
@@ -117,21 +117,21 @@ const ServicePage: React.FC = () => {
                                             </div>
                                         </div>
 
-                                        <div className="service-toggler-container justify-content-center mt-3">
+                                        <div className="service-toggler-detail-container justify-content-center mt-3">
                                             <button
-                                                className={`btn ${activeSection === 'process' ? 'btn-primary' : 'btn-outline-primary'} mx-1`}
-                                                onClick={() => setActiveSection('process')}
-                                            >
-                                                Process
-                                            </button>
-                                            <button
-                                                className={`btn ${activeSection === 'general' ? 'btn-primary' : 'btn-outline-primary'} mx-1`}
+                                                className={`btn ${activeSection === 'general' ? 'btn-primary selected-toggler-btn' : 'btn-outline-primary'} service-toggler-detail-btn`}
                                                 onClick={() => setActiveSection('general')}
                                             >
                                                 About
                                             </button>
                                             <button
-                                                className={`btn ${activeSection === 'enquire' ? 'btn-primary' : 'btn-outline-primary'} mx-1`}
+                                                className={`btn ${activeSection === 'process' ? 'btn-primary selected-toggler-btn' : 'btn-outline-primary'} service-toggler-detail-btn`}
+                                                onClick={() => setActiveSection('process')}
+                                            >
+                                                Process
+                                            </button>
+                                            <button
+                                                className={`btn ${activeSection === 'enquire' ? 'btn-primary selected-toggler-btn' : 'btn-outline-primary'}  service-toggler-detail-btn`}
                                                 onClick={() => setActiveSection('enquire')}
                                             >
                                                 Enquire
