@@ -9,7 +9,7 @@
     gap: 0.75rem !important;
 }
 
-.design-process{
+.main-service-container{
     display: flex;
     flex-direction: column;
     padding: 0.75rem;
@@ -36,13 +36,11 @@ max-width: 25% !important;
 
 .service-card{
     /* background-color: aquamarine; */
-    /* width: 25% !important; */
+    width: 100% !important;
 }
 
 .service-details-container-one{
     width: 75%;
-    padding: 0.75rem;
-    /* background-color: brown; */
 }
 
 .service-primary-container{
@@ -65,6 +63,7 @@ max-width: 25% !important;
     flex-direction: row;
     max-width: 100%;
     gap: 0.5rem;
+    justify-content: center;
 }
 
 .service-toggler-detail-btn{

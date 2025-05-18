@@ -40,11 +40,11 @@ const ServicePage: React.FC = () => {
 
     return (
         <div className="container-fluid justify-content-center text-center">
-            <div className="row justify-content-center my-3">
+            <div className="row justify-content-center m-3">
                 <div className="default-container shadow-container mx-3 w-100"  >
-                    <div className="design-process w-100">
+                    <div className="main-service-container w-100">
                         {!selectedService && (
-                            <div className="service-default-state-container mt-4">
+                            <div className="service-default-state-container">
                                 <div className="mb-1">
                                     <h3>Services</h3>
                                 </div>
@@ -78,10 +78,10 @@ const ServicePage: React.FC = () => {
                         )}
                         {/* Toggle section only shown if a service is selected */}
                         {selectedService && (
-                            <div className="service-detail-container mt-4">
-                                <div className="service-toggler-container justify-content-center">
+                            <div className="service-detail-container">
+                                <div className="service-toggler-container justify-content-center d-block d-md-none">
                                     <h3>Service: {selectedService.Title}</h3>
-                                    <div id="default-service-togglers" className="justify-content-center">
+                                    <div id="default-service-togglers" className="justify-content-center my-3">
                                         {services
                                             .filter(service => service.id !== selectedService.id) // Exclude the current one
                                             .map(service => (
@@ -102,10 +102,9 @@ const ServicePage: React.FC = () => {
                                         </button>
                                     </div>
                                 </div>
-
-                                <div className="service-detail-row my-2 d-flex">
-                                    <div className="service-card-container mx-2 mb-4">
-                                        <div className="card shadow-container album-card flex-column cursor-pointer">
+                                <div className="service-detail-row d-flex">
+                                    <div className="service-card-container mx-2">
+                                        <div className="card shadow-container service-card flex-column cursor-pointer">
                                             <img
                                                 src={selectedService.ThumbnailCover?.startsWith("//") ? `https:${selectedService.ThumbnailCover}` : selectedService.ThumbnailCover}
                                                 alt={selectedService.Title}
@@ -117,7 +116,7 @@ const ServicePage: React.FC = () => {
                                             </div>
                                         </div>
 
-                                        <div className="service-toggler-detail-container justify-content-center mt-3">
+                                        <div className="service-toggler-detail-container mt-3">
                                             <button
                                                 className={`btn ${activeSection === 'general' ? 'btn-primary selected-toggler-btn' : 'btn-outline-primary'} service-toggler-detail-btn`}
                                                 onClick={() => setActiveSection('general')}
@@ -140,6 +139,29 @@ const ServicePage: React.FC = () => {
                                     </div>
 
                                     <div className="service-details-container-one">
+                                        <div className="service-toggler-container justify-content-center mb-3 d-none d-lg-block d-md-block">
+                                            <h3>Service: {selectedService.Title}</h3>
+                                            <div id="default-service-togglers" className="justify-content-center">
+                                                {services
+                                                    .filter(service => service.id !== selectedService.id)
+                                                    .map(service => (
+                                                        <button
+                                                            key={service.id}
+                                                            className="btn btn-outline-secondary"
+                                                            onClick={() => handleServiceClick(service)}
+                                                        >
+                                                            {service.Title}
+                                                        </button>
+                                                    ))
+                                                }
+                                                <button
+                                                    className="btn btn-outline-danger"
+                                                    onClick={() => setSelectedService(null)}
+                                                >
+                                                    Show All Services
+                                                </button>
+                                            </div>
+                                        </div>
                                         <div className="service-primary-container shadow-container p-3 justify-content-center ">
                                             {activeSection === 'general' && (
                                                 <div id="general-description" className="service-primary-option">
@@ -166,26 +188,27 @@ const ServicePage: React.FC = () => {
 
                                     </div>
                                 </div>
-
-                                {/* Optional Portfolio Row */}
-                                <div className="portfolio-detail-row my-4">
-                                    <div className="service-toggler-container justify-content-center mb-2">
-                                        <h4>Portfolio (Coming soon):</h4>
-                                    </div>
-                                    <div className="album-card-container service-card mx-2 mb-4">
-                                        <div className="card shadow-container album-card flex-column cursor-pointer">
-                                            <img
-                                                src={selectedService.ThumbnailCover}
-                                                alt={selectedService.Title}
-                                                className="card-img-top music-cover"
-                                            />
-                                            <div className="card-body music-card-body d-flex flex-column justify-content-between">
-                                                <h5 className="card-title mt-1">{selectedService.Title}</h5>
-                                                <p className="card-text">Related work or description</p>
+                                {/* Only show similar projects if there are any */}
+                                {selectedService.RelatedProjects && (
+                                    <div className="similar-projects-detail-row my-4">
+                                        <div className="justify-content-center mb-2">
+                                            <h4>Similar projects:</h4>
+                                        </div>
+                                        <div className="service-card-container service-card mx-2 mb-4">
+                                            <div className="card shadow-container service-card flex-column cursor-pointer">
+                                                <img
+                                                    src={selectedService.ThumbnailCover}
+                                                    alt={selectedService.Title}
+                                                    className="card-img-top music-cover"
+                                                />
+                                                <div className="card-body music-card-body d-flex flex-column justify-content-between">
+                                                    <h5 className="card-title mt-1">{selectedService.Title}</h5>
+                                                    <p className="card-text">Related work or description</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                )}
                             </div>
                         )}
                     </div>
