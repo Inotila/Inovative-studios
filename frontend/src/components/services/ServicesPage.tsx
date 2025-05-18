@@ -81,7 +81,7 @@ const ServicePage: React.FC = () => {
                             <div className="service-detail-container mt-4">
                                 <div className="service-toggler-container justify-content-center">
                                     <h3>Service: {selectedService.Title}</h3>
-                                    <div id="default-service-togglers">
+                                    <div id="default-service-togglers" className="justify-content-center">
                                         {services
                                             .filter(service => service.id !== selectedService.id) // Exclude the current one
                                             .map(service => (
