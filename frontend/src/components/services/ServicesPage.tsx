@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import './assets/css/service.css';
 import { fetchServices } from "../../services/contentfulService";
+import { fetchProjects } from '../../services/contentfulService';
+
 
 interface Service {
     id: string;
@@ -11,7 +13,7 @@ interface Service {
     DesignProcess: string;
     ThumbnailCover: string;
     IsAvailable: boolean;
-    RelatedProjects: string | null;
+    RelatedProjects: string[];
 }
 
 const ServicePage: React.FC = () => {
@@ -20,18 +22,25 @@ const ServicePage: React.FC = () => {
 
     const [activeSection, setActiveSection] = useState<'general' | 'process' | 'enquire'>('general');
 
-
+    const [projects, setProjects] = useState<any[]>([]);
     useEffect(() => {
-        const loadServices = async () => {
+        const loadData = async () => {
             try {
-                const data = await fetchServices();
-                setServices(data);
+                const [servicesData, projectsData] = await Promise.all([
+                    fetchServices(),
+                    fetchProjects()
+                ]);
+                console.log("Services fetched:", servicesData)
+                console.log("Projects fetched:", projectsData);
+                setServices(servicesData);
+                setProjects(projectsData);
             } catch (error) {
-                console.error("Failed to load services:", error);
+                console.error("Failed to load services or projects:", error);
             }
         };
-        loadServices();
+        loadData();
     }, []);
+
 
     const handleServiceClick = (service: Service) => {
         setSelectedService(service);
@@ -82,6 +91,7 @@ const ServicePage: React.FC = () => {
                                 <div className="service-toggler-container justify-content-center d-block d-md-none">
                                     <h3>Service: {selectedService.Title}</h3>
                                     <div id="default-service-togglers" className="justify-content-center my-3">
+
                                         {services
                                             .filter(service => service.id !== selectedService.id) // Exclude the current one
                                             .map(service => (
@@ -189,23 +199,30 @@ const ServicePage: React.FC = () => {
                                     </div>
                                 </div>
                                 {/* Only show similar projects if there are any */}
-                                {selectedService.RelatedProjects && (
+                                {selectedService?.RelatedProjects?.length > 0 && (
                                     <div className="similar-projects-detail-row my-4">
                                         <div className="justify-content-center mb-2">
-                                            <h4>Similar projects:</h4>
+                                            <h4>Similar Projects:</h4>
                                         </div>
-                                        <div className="service-card-container service-card mx-2 mb-4">
-                                            <div className="card shadow-container service-card flex-column cursor-pointer">
-                                                <img
-                                                    src={selectedService.ThumbnailCover}
-                                                    alt={selectedService.Title}
-                                                    className="card-img-top music-cover"
-                                                />
-                                                <div className="card-body music-card-body d-flex flex-column justify-content-between">
-                                                    <h5 className="card-title mt-1">{selectedService.Title}</h5>
-                                                    <p className="card-text">Related work or description</p>
-                                                </div>
-                                            </div>
+                                        <div className="d-flex flex-wrap justify-content-center">
+                                            {projects.filter(project => selectedService.RelatedProjects.includes(project.Title))
+                                                .map(project => (
+                                                    <div key={project.id} className="service-card-container service-card mx-2 mb-4">
+                                                        <a href={project.Link} target="_blank" rel="noopener noreferrer" className="text-decoration-none text-dark">
+                                                            <div className="card shadow-container project-card flex-column cursor-pointer">
+                                                                <img
+                                                                    src={project.ThumbnailCover}
+                                                                    alt={project.Title}
+                                                                    className="card-img-top music-cover"
+                                                                />
+                                                                <div className="card-body music-card-body d-flex flex-column justify-content-between">
+                                                                    <h5 className="card-title mt-1">{project.Title}</h5>
+                                                                    <p className="card-text">{project.SummaryDescription}</p>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                ))}
                                         </div>
                                     </div>
                                 )}

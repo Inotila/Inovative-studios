@@ -84,3 +84,31 @@ export const fetchServices = async () => {
     throw error;
   }
 };
+
+export const fetchProjects = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/projects`);
+    const rawProjects = response.data;
+
+    const projects = rawProjects.map((project: any) => ({
+      id: project.id,
+      Title: project.Title || '',
+      SummaryDescription: project.SummaryDescription || '',
+      GeneralDescription: project.GeneralDescription || '',
+      Link: project.Link || '',
+      ThumbnailCover: project.ThumbnailCover?.startsWith('//')
+        ? `https:${project.ThumbnailCover}`
+        : project.ThumbnailCover || '',
+      ProjectOwner: project.ProjectOwner || '',
+      FundingGoals: project.FundingGoals || '',
+      ReleaseDate: project.ReleaseDate || '',
+      ProjectReleaseStatus: project.ProjectReleaseStatus || '',
+      Version: project.Version || ''
+    }));
+
+    return projects;
+  } catch (error) {
+    console.error('Error fetching projects:', error);
+    throw error;
+  }
+};
