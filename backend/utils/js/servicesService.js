@@ -11,7 +11,9 @@ const fetchServicesFromContentful = async () => {
 
       const thumbnailUrl = fields.thumbnailCover?.fields?.file?.url;
       const typeOfService = fields.typeOfService?.fields?.title || null;
-      const relatedProject = fields.relatedProjects?.fields?.title || null;
+      const relatedProjects = Array.isArray(fields.relatedProjects)
+        ? fields.relatedProjects.map(proj => proj.fields?.title || null)
+        : [];
 
       return {
         id: item.sys.id,
@@ -22,7 +24,7 @@ const fetchServicesFromContentful = async () => {
         DesignProcess: fields.designProcess,
         ThumbnailCover: thumbnailUrl,
         IsAvailable: fields.isAvailable,
-        RelatedProjects: relatedProject
+        RelatedProjects: relatedProjects
       };
     });
 
