@@ -121,12 +121,14 @@ const ServicePage: React.FC = () => {
                                 </div>
                                 <div className="service-detail-row d-flex">
                                     <div className="service-card-container mx-2">
-                                        <div className="card shadow-container service-card flex-column cursor-pointer">
-                                            <img
-                                                src={selectedService.ThumbnailCover?.startsWith("//") ? `https:${selectedService.ThumbnailCover}` : selectedService.ThumbnailCover}
-                                                alt={selectedService.Title}
-                                                className="card-img-top music-cover"
-                                            />
+                                        <div className="card shadow-container project-and-service-card flex-column cursor-pointer">
+                                            <div className="card-img-cover-container">
+                                                <img
+                                                    src={selectedService.ThumbnailCover?.startsWith("//") ? `https:${selectedService.ThumbnailCover}` : selectedService.ThumbnailCover}
+                                                    alt={selectedService.Title}
+                                                    className="card-img-top card-cover-img"
+                                                />
+                                            </div>
                                             <div className="card-body music-card-body d-flex flex-column justify-content-between">
                                                 <h5 className="card-title mt-1">{selectedService.Title}</h5>
                                                 <p className="card-text">{selectedService.SummaryDescription}</p>
@@ -179,24 +181,24 @@ const ServicePage: React.FC = () => {
                                                 </button>
                                             </div>
                                         </div>
-                                        <div className="service-primary-container shadow-container p-3 justify-content-center ">
+                                        <div className="service-primary-container shadow-container justify-content-center ">
                                             {activeSection === 'general' && (
                                                 <div id="general-description" className="service-primary-option">
-                                                    <h5 className="my-2 ">About</h5>
+                                                    <h5 className="mb-1 ">About</h5>
                                                     <p>{selectedService.GeneralDescription}</p>
                                                 </div>
                                             )}
 
                                             {activeSection === 'process' && (
                                                 <div id="design-process" className="service-primary-option justify-content-center">
-                                                    <h5 className="my-2 ">Design Process</h5>
+                                                    <h5 className="mb-1 ">Design Process</h5>
                                                     <p>{selectedService.DesignProcess}</p>
                                                 </div>
                                             )}
 
                                             {activeSection === 'enquire' && (
                                                 <div id="enquire-form" className="service-primary-option justify-content-center">
-                                                    <h5 className="my-2">Enquire</h5>
+                                                    <h5 className="mb-1">Enquire</h5>
                                                     <p>Form will go here.</p>
                                                     {/* You can later replace this with an actual form component */}
                                                 </div>
@@ -207,7 +209,7 @@ const ServicePage: React.FC = () => {
                                 </div>
                                 {/* Only show similar projects if there are any */}
                                 {selectedService?.RelatedProjects?.length > 0 && (
-                                    <div className="similar-projects-detail-row my-4">
+                                    <div className="similar-projects-detail-row mt-2">
                                         <div className="justify-content-center mb-2">
                                             <h4>Similar Projects:</h4>
                                         </div>
@@ -216,16 +218,16 @@ const ServicePage: React.FC = () => {
                                                 .map(project => (
                                                     <div key={project.id} className="service-card-container service-card mx-2 ">
                                                         <a href={project.Link} target="_blank" rel="noopener noreferrer" className="text-decoration-none text-dark">
-                                                            <div className="card shadow-container project-card flex-column cursor-pointer">
+                                                            <div className="card shadow-container similar-projects-card flex-column cursor-pointer">
                                                                 <img
                                                                     src={project.ThumbnailCover}
                                                                     alt={project.Title}
-                                                                    className="card-img-top music-cover"
+                                                                    className="card-img-top similar-projects-card-img"
                                                                 />
-                                                                <div className="card-body d-flex flex-column justify-content-between">
-                                                                    <h5 className="card-title mt-1">{project.Title}</h5>
-                                                                    <p className="card-text">{project.SummaryDescription}</p>
-                                                                </div>
+                                                            </div>
+                                                            <div className="card-body d-flex flex-column justify-content-between">
+                                                                <h5 className="card-title mt-1">{project.Title}</h5>
+                                                                <p className="card-text">{project.SummaryDescription}</p>
                                                             </div>
                                                         </a>
                                                     </div>

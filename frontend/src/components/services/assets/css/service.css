@@ -78,3 +78,13 @@ max-width: 25% !important;
   box-shadow: none !important;
   transform: none !important;
 }
+
+/* similar projects styling  */
+
+.similar-projects-card{
+    height: 100px !important;
+}
+
+.similar-projects-card-img{
+    height: 100%;
+}
