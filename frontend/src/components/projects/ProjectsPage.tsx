@@ -54,28 +54,34 @@ const ProjectsPage: React.FC = () => {
                     <div className="main-service-container w-100">
                         {!selectedProject && (
                             <div className="service-default-state-container">
-                                <div className="mb-1">
+                                <div className="mb-2">
                                     <h3>Projects</h3>
+                                    <p>We are fuse art and technology to make stuff,
+                                        <br />
+                                        sometimes useful, sometimes fun, sometimes both.
+                                    </p>
                                 </div>
 
                                 <div className="service-cards-row d-flex flex-row flex-wrap justify-content-center">
                                     {projects.map((project) => (
                                         <div
-                                            className="service-card-container mx-2 mb-4"
+                                            className="service-card-container mx-2"
                                             key={project.id}
                                             onClick={() => handleServiceClick(project)}
                                         >
-                                            <div className="card shadow-container service-card flex-column cursor-pointer">
-                                                <img
-                                                    src={
-                                                        project.ThumbnailCover?.startsWith("//")
-                                                            ? `https:${project.ThumbnailCover}`
-                                                            : project.ThumbnailCover
-                                                    }
-                                                    alt={project.Title}
-                                                    className="card-img-top music-cover"
-                                                />
-                                                <div className="card-body music-card-body d-flex flex-column justify-content-between">
+                                            <div className="card shadow-container project-and-service-card flex-column cursor-pointer">
+                                                <div className="card-img-cover-container d-flex align-items-center">
+                                                    <img
+                                                        src={
+                                                            project.ThumbnailCover?.startsWith("//")
+                                                                ? `https:${project.ThumbnailCover}`
+                                                                : project.ThumbnailCover
+                                                        }
+                                                        alt={project.Title}
+                                                        className="card-img-top music-cover"
+                                                    />
+                                                </div>
+                                                <div className="card-body d-flex flex-column justify-content-between">
                                                     <h5 className="card-title mt-1">{project.Title}</h5>
                                                     <p className="card-text">{project.SummaryDescription}</p>
                                                 </div>
@@ -122,7 +128,6 @@ const ProjectsPage: React.FC = () => {
                                             />
                                             <div className="card-body music-card-body d-flex flex-column justify-content-between">
                                                 <h5 className="card-title mt-1">{selectedProject.Title}</h5>
-                                                <p className="card-text">{selectedProject.SummaryDescription}</p>
                                             </div>
                                         </div>
 
@@ -175,21 +180,21 @@ const ProjectsPage: React.FC = () => {
                                         <div className="service-primary-container shadow-container p-3 justify-content-center ">
                                             {activeSection === 'general' && (
                                                 <div id="general-description" className="service-primary-option">
-                                                    <h5 className="my-2 ">About</h5>
+                                                    <h5 className="mb-1 ">About</h5>
                                                     <p>{selectedProject.GeneralDescription}</p>
                                                 </div>
                                             )}
 
                                             {activeSection === 'process' && (
                                                 <div id="design-process" className="service-primary-option justify-content-center">
-                                                    <h5 className="my-2 ">Design Process</h5>
+                                                    <h5 className="mb-1 ">Design Process</h5>
                                                     <p>{selectedProject.DesignProcess}</p>
                                                 </div>
                                             )}
 
                                             {activeSection === 'enquire' && (
                                                 <div id="enquire-form" className="service-primary-option justify-content-center">
-                                                    <h5 className="my-2">Enquire</h5>
+                                                    <h5 className="mb-1">Enquire</h5>
                                                     <p>Form will go here.</p>
                                                     {/* You can later replace this with an actual form component */}
                                                 </div>

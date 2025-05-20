@@ -42,7 +42,6 @@ const ServicePage: React.FC = () => {
         loadData();
     }, []);
 
-
     const handleServiceClick = (service: Service) => {
         setSelectedService(service);
         setActiveSection('general');
@@ -82,7 +81,7 @@ const ServicePage: React.FC = () => {
                                                         className="card-img-top card-cover-img"
                                                     />
                                                 </div>
-                                                <div className="card-body music-card-body d-flex flex-column justify-content-between">
+                                                <div className="card-body  d-flex flex-column justify-content-between">
                                                     <h5 className="card-title mt-1">{service.Title}</h5>
                                                     <p className="card-text">{service.SummaryDescription}</p>
                                                 </div>
@@ -129,9 +128,8 @@ const ServicePage: React.FC = () => {
                                                     className="card-img-top card-cover-img"
                                                 />
                                             </div>
-                                            <div className="card-body music-card-body d-flex flex-column justify-content-between">
+                                            <div className="card-body d-flex flex-column justify-content-between">
                                                 <h5 className="card-title mt-1">{selectedService.Title}</h5>
-                                                <p className="card-text">{selectedService.SummaryDescription}</p>
                                             </div>
                                         </div>
 
