@@ -122,6 +122,29 @@ a:hover {
     padding: 10px;
   }
 
+  .card-body{
+    padding: 0.5rem !important;
+}
+
 .card-title {
   font-weight: 600;
+}
+
+.card-text{
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.card-img-cover-container{
+  background-color: #085c94;
+  height: 75%;
+}
+
+.card-cover-img{
+  height: 100%;
+}
+
+.card-body{
+  width: 100%;
+  padding: 0 !important;
 }

@@ -25,18 +25,10 @@
     display: flex;
     flex-direction: row;
     min-width: 100% !important;
-    /* background-color: blueviolet; */
 }
-
-
 
 .service-card-container{
 max-width: 25% !important;
-}
-
-.service-card{
-    /* background-color: aquamarine; */
-    width: 100% !important;
 }
 
 .service-details-container-one{

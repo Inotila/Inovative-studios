@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './assets/css/service.css';
+import '../assets/css/cardStyling.css';
 import { fetchServices } from "../../services/contentfulService";
 import { fetchProjects } from '../../services/contentfulService';
 
@@ -65,20 +66,22 @@ const ServicePage: React.FC = () => {
                                 <div className="service-cards-row d-flex flex-row flex-wrap justify-content-center">
                                     {services.map((service) => (
                                         <div
-                                            className="service-card-container mx-2 mb-4"
+                                            className="service-card-container mx-2 "
                                             key={service.id}
                                             onClick={() => handleServiceClick(service)}
                                         >
-                                            <div className="card shadow-container service-card flex-column cursor-pointer">
-                                                <img
-                                                    src={
-                                                        service.ThumbnailCover?.startsWith("//")
-                                                            ? `https:${service.ThumbnailCover}`
-                                                            : service.ThumbnailCover
-                                                    }
-                                                    alt={service.Title}
-                                                    className="card-img-top music-cover"
-                                                />
+                                            <div className="card shadow-container project-and-service-card flex-column cursor-pointer">
+                                                <div className="card-img-cover-container">
+                                                    <img
+                                                        src={
+                                                            service.ThumbnailCover?.startsWith("//")
+                                                                ? `https:${service.ThumbnailCover}`
+                                                                : service.ThumbnailCover
+                                                        }
+                                                        alt={service.Title}
+                                                        className="card-img-top card-cover-img"
+                                                    />
+                                                </div>
                                                 <div className="card-body music-card-body d-flex flex-column justify-content-between">
                                                     <h5 className="card-title mt-1">{service.Title}</h5>
                                                     <p className="card-text">{service.SummaryDescription}</p>
@@ -211,7 +214,7 @@ const ServicePage: React.FC = () => {
                                         <div className="d-flex flex-wrap justify-content-center">
                                             {projects.filter(project => selectedService.RelatedProjects.includes(project.Title))
                                                 .map(project => (
-                                                    <div key={project.id} className="service-card-container service-card mx-2 mb-4">
+                                                    <div key={project.id} className="service-card-container service-card mx-2 ">
                                                         <a href={project.Link} target="_blank" rel="noopener noreferrer" className="text-decoration-none text-dark">
                                                             <div className="card shadow-container project-card flex-column cursor-pointer">
                                                                 <img
@@ -219,7 +222,7 @@ const ServicePage: React.FC = () => {
                                                                     alt={project.Title}
                                                                     className="card-img-top music-cover"
                                                                 />
-                                                                <div className="card-body music-card-body d-flex flex-column justify-content-between">
+                                                                <div className="card-body d-flex flex-column justify-content-between">
                                                                     <h5 className="card-title mt-1">{project.Title}</h5>
                                                                     <p className="card-text">{project.SummaryDescription}</p>
                                                                 </div>
