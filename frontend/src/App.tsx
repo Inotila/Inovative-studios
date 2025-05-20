@@ -7,6 +7,8 @@ import Footer from './components/footer/Footer';
 import EntertainmentPage from './components/entertainment/EntertainmentPage';
 import MusicPage from './components/music/MusicPage';
 import ServicePage from './components/services/ServicesPage';
+import ProjectsPage from './components/projects/ProjectsPage';
+
 
 
 const App: React.FC = () => {
@@ -22,7 +24,7 @@ const App: React.FC = () => {
             <Route path="/music" element={<MusicPage />} />
             <Route path="/videos" element={<div>Videos Page</div>} />
             <Route path="/services" element={<ServicePage />} />
-            <Route path="/projects" element={<div>Projects Page</div>} />
+            <Route path="/projects" element={<ProjectsPage />} />
           </Routes>
         </div>
         <Footer />

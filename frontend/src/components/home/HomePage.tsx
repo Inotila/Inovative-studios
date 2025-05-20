@@ -22,7 +22,7 @@ const HomePage: React.FC = () => {
       <div className="row justify-content-center home-row mt-2">
         <div className="col-12 col-md-4 card-col d-flex mt-1 mb-3">
           <div className="card shadow-container flex-fill h-100">
-            <Link to="/" className='home-img-links-container'>
+            <Link to="/services" className='home-img-links-container'>
               <img className="home-img-links card-img-top" src={imagePath + "services.png"}
                 alt="#" aria-label="an image link leads to details about the art work" />
             </Link>
@@ -44,11 +44,11 @@ const HomePage: React.FC = () => {
         </div>
         <div className="col-12 col-md-4 card-col d-flex mt-1 mb-3">
           <div className="card shadow-container flex-fill h-100">
-            <Link to="/" className='home-img-links-container'>
+            <Link to="/projects" className='home-img-links-container'>
               <img className="home-img-links card-img-top" src={imagePath + "projects.png"}
                 alt="#" aria-label="an image link leads to details about the art work" />
             </Link>
-            <Link to="#" className="btn main-btn mt-2">
+            <Link to="projects" className="btn main-btn mt-2">
               <h5 className="">Projects</h5>
             </Link>
           </div>
