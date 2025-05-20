@@ -31,7 +31,7 @@ a, p, link {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
   color: #000000 !important;
 
 }

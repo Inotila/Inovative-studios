@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import './assets/css/projects.css';
+import './assests/css/projects.css';
 import { fetchProjects } from '../../services/contentfulService';
 
 
@@ -150,6 +150,14 @@ const ProjectsPage: React.FC = () => {
                                             >
                                                 Enquire
                                             </button>
+                                        </div>
+                                        <div className="mt-3">
+                                            <ul className="project-summary-details-list">
+                                                <li>Live: <a href={selectedProject.Link}>Go</a></li>
+                                                <li>Status: {selectedProject.ProjectReleaseStatus} </li>
+                                                <li>Version: {selectedProject.Version} </li>
+
+                                            </ul>
                                         </div>
                                     </div>
 
