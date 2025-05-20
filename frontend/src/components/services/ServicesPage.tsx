@@ -54,8 +54,12 @@ const ServicePage: React.FC = () => {
                     <div className="main-service-container w-100">
                         {!selectedService && (
                             <div className="service-default-state-container">
-                                <div className="mb-1">
+                                <div className="mb-2">
                                     <h3>Services</h3>
+                                    <p>We offer creative solutions,
+                                        <br />
+                                        collaborating with our clients to bring to life a product that is innovative!
+                                    </p>
                                 </div>
 
                                 <div className="service-cards-row d-flex flex-row flex-wrap justify-content-center">
