@@ -118,8 +118,8 @@ const ServicePage: React.FC = () => {
                                         </button>
                                     </div>
                                 </div>
-                                <div className="service-detail-row d-flex">
-                                    <div className="service-card-container mx-2">
+                                <div className="service-detail-row">
+                                    <div className="service-card-container ">
                                         <div className="card shadow-container project-and-service-card flex-column cursor-pointer">
                                             <div className="card-img-cover-container">
                                                 <img
@@ -157,7 +157,7 @@ const ServicePage: React.FC = () => {
 
                                     <div className="service-details-container-one">
                                         <div className="service-toggler-container justify-content-center mb-3 d-none d-lg-block d-md-block">
-                                            <h3>Service: {selectedService.Title}</h3>
+                                            <h3 className="mb-2">Service: {selectedService.Title}</h3>
                                             <div id="default-service-togglers" className="justify-content-center">
                                                 {services
                                                     .filter(service => service.id !== selectedService.id)
