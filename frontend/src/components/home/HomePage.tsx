@@ -5,18 +5,20 @@ import './assets/css/HomePage.css';
 
 const HomePage: React.FC = () => {
   const imagePath = '/images/home/';
+  const logoImagePath = '/images/logo/';
+
   return (
     <div className="container text-center">
       <div className="row">
         <div className="col">
-          <h1>Inovative Studios</h1>
+          <img className="my-3" src={logoImagePath + "inovative-studios.png"}
+            alt="#" aria-label="an image link leads to details about the art work" />
         </div>
       </div>
-      <div className="row">
+      <div className="row mb-3">
         <div className="col">
-          <h5>Welcome to Inovative Studios
-            <br />
-            We make stuff because we can!</h5>
+          <h5>Welcome to Inovative Studios, Where technology and art converge.
+          </h5>
         </div>
       </div>
       <div className="row justify-content-center home-row mt-2">
@@ -52,12 +54,6 @@ const HomePage: React.FC = () => {
               <h5 className="">Projects</h5>
             </Link>
           </div>
-        </div>
-      </div>
-      <div className="row mt-3">
-        <div className="col">
-          <p> We strive to create the world we want to live in. A world of color, and wonder! Where technology and art converge.
-          </p>
         </div>
       </div>
     </div>
