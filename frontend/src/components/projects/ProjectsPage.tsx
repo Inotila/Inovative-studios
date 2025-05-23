@@ -55,7 +55,7 @@ const ProjectsPage: React.FC = () => {
                         {!selectedProject && (
                             <div className="service-default-state-container">
                                 <div className="mb-2">
-                                    <h3>Projects</h3>
+                                    <h3 className="mb-2">Projects</h3>
                                     <p>We are fuse art and technology to make stuff,
                                         <br />
                                         sometimes useful, sometimes fun, sometimes both.
@@ -118,8 +118,8 @@ const ProjectsPage: React.FC = () => {
                                         </button>
                                     </div>
                                 </div>
-                                <div className="service-detail-row d-flex">
-                                    <div className="service-card-container mx-2">
+                                <div className="service-detail-row">
+                                    <div className="service-card-container">
                                         <div className="card shadow-container service-card flex-column cursor-pointer">
                                             <img
                                                 src={selectedProject.ThumbnailCover?.startsWith("//") ? `https:${selectedProject.ThumbnailCover}` : selectedProject.ThumbnailCover}
@@ -153,7 +153,7 @@ const ProjectsPage: React.FC = () => {
                                         </div>
                                         <div className="mt-3">
                                             <ul className="project-summary-details-list">
-                                                <li>Live: <a href={selectedProject.Link}>Go</a></li>
+                                                <li><a href={selectedProject.Link}>[click here to try it]</a></li>
                                                 <li>Status: {selectedProject.ProjectReleaseStatus} </li>
                                                 <li>Version: {selectedProject.Version} </li>
 
