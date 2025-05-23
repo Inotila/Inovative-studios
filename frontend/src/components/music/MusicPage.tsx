@@ -121,10 +121,13 @@ const MusicPage: React.FC = () => {
                 alt={currentTrack?.title || 'Placeholder'}
                 className="music-player-cover-art"
               />
+              <h6 className='mt-2'> {currentTrack?.artist} </h6>
+              <h6 className='mt-1'> {albums.find((album) => album.id === currentTrack?.albumId)?.Title} </h6>
             </div>
             {/* Timeline & Controls */}
             <div className="controls-wrapper d-flex flex-column align-items-center justify-content-center flex-grow-1">
-              <div className="music-timeline d-flex align-items-center w-100">
+              <h3>{currentTrack?.title}</h3>
+              <div className="music-timeline d-flex align-items-center w-100 my-3">
                 <span className="me-2" style={{ fontSize: '0.9rem' }}>{formatTime(currentTime)}</span>
                 <input
                   type="range"
