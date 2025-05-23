@@ -79,7 +79,7 @@
 width: 100% !important;
 }
 .custom-music-player {
-width: 90% !important;
+min-width: 90% !important;
 }
 
 

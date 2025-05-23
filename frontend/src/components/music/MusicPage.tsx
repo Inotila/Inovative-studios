@@ -107,7 +107,7 @@ const MusicPage: React.FC = () => {
       </div>
 
       {/* Music Player */}
-      <div className="row justify-content-center align-items-center">
+      <div className="row justify-content-center align-items-center w-100">
         <div className="col-auto music-player-col d-flex justify-content-center align-items-center">
           <div className="custom-music-player shadow-container d-flex">
             {/* Cover Art */}
