@@ -231,7 +231,7 @@ const MusicPage: React.FC = () => {
                         setIsMuted(newVolume === 0);
                       }
                       setVolume(newVolume);
-                      resetVolumeTimer(3000); // reset timer to 5s on change
+                      resetVolumeTimer(3000);
                     }}
                     className="volume-slider my-auto"
                     style={{ transform: 'rotate(-90deg)', height: '100px' }}
