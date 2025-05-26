@@ -30,6 +30,15 @@ const MusicPage: React.FC = () => {
   const [isShuffling, setIsShuffling] = useState(false);
   const [shuffleHistory, setShuffleHistory] = useState<Track[]>([]);
 
+  const volumeTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const [isMuted, setIsMuted] = useState(false);
+
+  const [showVolumeSlider, setShowVolumeSlider] = useState(false);
+  const [volume, setVolume] = useState(1);
+
+
+
   useEffect(() => {
     const loadAlbums = async () => {
       try {
@@ -73,6 +82,36 @@ const MusicPage: React.FC = () => {
       audio.removeEventListener('timeupdate', handleTimeUpdate);
     };
   }, [currentTrack]);
+
+  const toggleVolumeSlider = () => {
+    setShowVolumeSlider(prev => {
+      const next = !prev;
+      if (next) {
+        resetVolumeTimer(3000);
+      } else {
+        clearVolumeTimer();
+      }
+      return next;
+    });
+  };
+
+  const resetVolumeTimer = (timeout: number) => {
+    clearVolumeTimer();
+    volumeTimerRef.current = setTimeout(() => {
+      setShowVolumeSlider(false);
+    }, timeout);
+  };
+
+  const clearVolumeTimer = () => {
+    if (volumeTimerRef.current) {
+      clearTimeout(volumeTimerRef.current);
+      volumeTimerRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    return () => clearVolumeTimer(); // Cleanup on unmount
+  }, []);
 
   return (
     <div className="container-fluid text-center">
@@ -176,30 +215,61 @@ const MusicPage: React.FC = () => {
             </div>
 
             {/* Extra Actions */}
-            <div className="d-flex flex-column align-items-center">
-              {/* <button className="btn btn-secondary mb-2 s">
-                <i className="fa-regular fa-share-from-square"></i>
-              </button> */}
-              <button
-                className={`btn mb-2 ${!isShuffling ? 'music-btn-disabled' : ''}`}
-                onClick={() => setIsShuffling(prev => !prev)}
-              >
-                <i className="fa-solid fa-shuffle"></i>
-              </button>
-              {/* <button className="btn btn-secondary mb-2 music-btn-disabled">
-                <i className="fa-regular fa-heart"></i>
-              </button> */}
-              <button className={`btn mb-2 ${repeatMode === 'none' ? 'music-btn-disabled' : ''}`}
-                onClick={() => setRepeatMode(prev => toggleRepeatMode(prev))}>
-                <i className="fa-solid fa-repeat"></i>
-                {repeatMode === 'track' && <span className='repeat-current-track'>1</span>}
-              </button>
+            <div className="d-flex flex-column align-items-center justify-content-center extra-btns-container" style={{ minWidth: '50px' }}>
+              {showVolumeSlider ? (
+                <>
+                  <input
+                    type="range"
+                    min={0}
+                    max={1}
+                    step={0.01}
+                    value={isMuted ? 0 : volume}
+                    onChange={(e) => {
+                      const newVolume = parseFloat(e.target.value);
+                      if (audioRef.current) {
+                        audioRef.current.volume = newVolume;
+                        setIsMuted(newVolume === 0);
+                      }
+                      setVolume(newVolume);
+                      resetVolumeTimer(3000); // reset timer to 5s on change
+                    }}
+                    className="volume-slider my-auto"
+                    style={{ transform: 'rotate(-90deg)', height: '100px' }}
+                  />
+                </>
+              ) : (
+                <>
+                  <button
+                    className={`btn mb-2 ${!isShuffling ? 'music-btn-disabled' : ''}`}
+                    onClick={() => setIsShuffling(prev => !prev)}
+                  >
+                    <i className="fa-solid fa-shuffle"></i>
+                  </button>
+                  <button
+                    className={`btn mb-2 ${repeatMode === 'none' ? 'music-btn-disabled' : ''}`}
+                    onClick={() => setRepeatMode(prev => toggleRepeatMode(prev))}
+                  >
+                    <i className="fa-solid fa-repeat"></i>
+                    {repeatMode === 'track' && <span className='repeat-current-track'>1</span>}
+                  </button>
+                  <button
+                    className="btn volume-btn mt-2"
+                    onClick={toggleVolumeSlider}
+                  >
+                    {isMuted ? (
+                      <i className="fa-solid fa-volume-xmark"></i>
+                    ) : (
+                      <i className="fa-solid fa-volume-low"></i>
+                    )}
+                  </button>
+                </>
+              )}
             </div>
-
             {/* Hidden Audio Element */}
             <audio
               ref={audioRef}
               src={currentTrack?.audioUrl}
+              muted={isMuted}
               onEnded={() =>
                 handleEnded(currentTrack, tracks, repeatMode, isShuffling, setCurrentTrack, setIsPlaying,
                   audioRef, shuffleHistory, setShuffleHistory)
