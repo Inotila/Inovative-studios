@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 exports.register = async (req, res) => {
-  const { name, email, password, confirmPassword } = req.body;
+  const { name, email, password, confirmPassword, agree_to_terms_and_conditions } = req.body;
 
   const isStrongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
@@ -21,11 +21,16 @@ exports.register = async (req, res) => {
         msg: 'Password must be at least 8 characters long and include an uppercase letter, a number, and a special character'
       });
     }
+    
+    if (!agree_to_terms_and_conditions) {
+      return res.status(400).json({ msg: 'You must agree to the terms and conditions' });
+    }
+    
 
     let user = await User.findOne({ email });
     if (user) return res.status(400).json({ msg: 'User already exists' });
 
-    user = new User({ name, email, password });
+    user = new User({ name, email, password, agree_to_terms_and_conditions });
 
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt);
