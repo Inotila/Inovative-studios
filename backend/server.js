@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors'); 
+const connectDB = require('./config/db');
 const albumRoutes = require('./routes/albumRoutes');
 const trackRoutes = require('./routes/trackRoutes'); 
 const serviceRoutes = require('./routes/serviceRoutes');
@@ -14,6 +15,7 @@ const { fetchProjectsFromContentful } = require('./utils/js/projectService');
 
 const app = express();
 const port = 3001;
+connectDB();
 
 // Use CORS middleware
 app.use(cors()); 
@@ -26,6 +28,7 @@ app.use('/api/albums', albumRoutes);
 app.use('/api/tracks', trackRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api', projectRoutes); 
+app.use('/api/auth', require('./routes/auth'));
 
 // Fetch and store Contentful data on startup
 fetchAndStoreContentfulData() 
