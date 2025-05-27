@@ -7,7 +7,8 @@ const Navbar: React.FC = () => {
 
   // Check if the user is logged in by looking for the token in localStorage
   const token = localStorage.getItem('token');
-  const userName = localStorage.getItem('userName');
+  const userString = localStorage.getItem('user');
+  const user = userString ? JSON.parse(userString) : null;
 
   const handleLogout = () => {
     localStorage.removeItem('token');
@@ -66,7 +67,7 @@ const Navbar: React.FC = () => {
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      {userName} {/* Display user's name */}
+                      {user?.name}
                     </Link>
                     <ul className="dropdown-menu text-center" aria-labelledby="navbarDropdown">
                       <li>
