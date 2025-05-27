@@ -11,13 +11,15 @@ const RegisterPage: React.FC = () => {
         email: '',
         password: '',
         confirmPassword: '',
+        agree_to_terms_and_conditions: false,
     });
 
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const { name, type, checked, value } = e.target;
+        setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -99,6 +101,21 @@ const RegisterPage: React.FC = () => {
                             onChange={handleChange}
                             required
                         />
+                        <div className="form-check mb-3 text-start">
+                            <input
+                                type="checkbox"
+                                className="form-check-input"
+                                id="termsCheck"
+                                name="agree_to_terms_and_conditions"
+                                checked={formData.agree_to_terms_and_conditions}
+                                onChange={handleChange}
+                                required
+                            />
+                            <label className="form-check-label" htmlFor="termsCheck">
+                                I agree to the terms and conditions.
+                            </label>
+                        </div>
+
 
                         <button type="submit" className="btn btn-primary w-100">
                             Register
