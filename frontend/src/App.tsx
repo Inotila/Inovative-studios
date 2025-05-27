@@ -11,8 +11,7 @@ import ProjectsPage from './components/projects/ProjectsPage';
 import RegisterPage from './components/authentication/register/register';
 import LoginPage from './components/authentication/login/login';
 import ProfilePage from './components/authentication/profile/profile';
-
-
+import ProtectedRoute from './components/authentication/ProtectedRoute'
 
 const App: React.FC = () => {
   return (
@@ -30,7 +29,12 @@ const App: React.FC = () => {
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/profile" element={
+              <ProtectedRoute>
+                <ProfilePage />
+              </ProtectedRoute>
+            }
+            />
           </Routes>
         </div>
         <Footer />

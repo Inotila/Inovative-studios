@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../assets/css/register.css'
+import '../assets/css/auth.css'
 
 const RegisterPage: React.FC = () => {
     const navigate = useNavigate();
@@ -47,15 +47,22 @@ const RegisterPage: React.FC = () => {
 
 
     return (
-        <div className="container text-center mt-5">
+        <div className="container text-center">
             <div className="row justify-content-center">
-                <div className="col-md-6 register-container shadow-container p-4">
-                    <h2 className="mb-4">Register</h2>
+                <div className="col auth-container shadow-container">
+                    <h2 className="mb-2">Register</h2>
+                    <h4>Get access to more features and content by creating an account.</h4>
+                    <p className='terms-and-conditions'>
+                        In creating this account inovative agrees to not share your  personal data,
+                        <br /> and to up hold a healthy eco system. You as the owner of this account
+                        <br /> agree in turn to not duplicate content found here for comercial gain or distribution,
+                        <br />unless given such authorization explicitly.
+                    </p>
 
                     {error && <div className="alert alert-danger">{error}</div>}
                     {success && <div className="alert alert-success">{success}</div>}
 
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className='mt-2'>
                         <input
                             type="text"
                             name="name"

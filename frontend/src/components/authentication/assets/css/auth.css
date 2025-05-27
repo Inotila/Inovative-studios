@@ -1,6 +1,7 @@
-.register-container{
+.auth-container{
     /* background-color: aqua; */
     min-width: 90%;
+    padding: 0.75rem !important;
     display: flex;
     flex-direction: column;
 }
