@@ -8,6 +8,9 @@ import EntertainmentPage from './components/entertainment/EntertainmentPage';
 import MusicPage from './components/music/MusicPage';
 import ServicePage from './components/services/ServicesPage';
 import ProjectsPage from './components/projects/ProjectsPage';
+import RegisterPage from './components/authentication/register/register';
+import LoginPage from './components/authentication/login/login';
+import ProfilePage from './components/authentication/profile/profile';
 
 
 
@@ -25,6 +28,9 @@ const App: React.FC = () => {
             <Route path="/videos" element={<div>Videos Page</div>} />
             <Route path="/services" element={<ServicePage />} />
             <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
           </Routes>
         </div>
         <Footer />

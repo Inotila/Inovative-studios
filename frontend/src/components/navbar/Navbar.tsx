@@ -100,7 +100,7 @@ const Navbar: React.FC = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link className="dropdown-item" to="/signup">
+                        <Link className="dropdown-item" to="/register">
                           Signup
                         </Link>
                       </li>
