@@ -35,12 +35,14 @@ const fetchAndStoreContentfulData = async () => {
 
     const tracks = trackEntries.items.map((item) => {
       const fields = item.fields;
+      const id = item.sys.id;
 
       const musicFileUrl = fields.musicFile?.fields?.file?.url;
       const coverArtUrl = fields.trackCoverArt?.fields?.file?.url;
       const albumRefId = fields.album?.sys?.id;
 
       const trackData = {
+        Id: id,
         Title: fields.title,
         TrackNumber: fields.trackNumber,
         TrackArtist: fields.trackArtist,

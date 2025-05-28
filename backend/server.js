@@ -6,6 +6,7 @@ const trackRoutes = require('./routes/trackRoutes');
 const serviceRoutes = require('./routes/serviceRoutes');
 const projectRoutes = require('./routes/projectRoutes')
 const contentStore = require('./utils/js/contentStore');
+const trackInteractionRoutes = require('./routes/music/trackInteractions');
 const { fetchAndStoreContentfulData } = require('./utils/js/contentfulService');
 const { fetchServicesFromContentful } = require('./utils/js/servicesService');
 const { fetchProjectsFromContentful } = require('./utils/js/projectService');
@@ -29,6 +30,8 @@ app.use('/api/tracks', trackRoutes);
 app.use('/api/services', serviceRoutes);
 app.use('/api', projectRoutes); 
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/track-interactions', trackInteractionRoutes);
+
 
 // Fetch and store Contentful data on startup
 fetchAndStoreContentfulData() 
