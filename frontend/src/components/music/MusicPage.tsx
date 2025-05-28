@@ -11,6 +11,8 @@ import { handleTrackPlay } from './helpers/handleTrackPlay';
 import { handleTabClick } from './helpers/handleTabClick';
 import { handleAlbumClick } from './helpers/handleAlbumClick';
 import { handleSkipForward, handleSkipBackward } from './helpers/handleSkip';
+import LikeButton from "../music/likeButton";
+
 
 
 const MusicPage: React.FC = () => {
@@ -239,6 +241,7 @@ const MusicPage: React.FC = () => {
                 </>
               ) : (
                 <>
+                  <LikeButton trackId={currentTrack?.id || ''} />
                   <button
                     className={`btn mb-2 ${!isShuffling ? 'music-btn-disabled' : ''}`}
                     onClick={() => setIsShuffling(prev => !prev)}

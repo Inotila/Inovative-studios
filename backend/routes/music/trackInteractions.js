@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const TrackInteraction = require('../../models/music/TrackInteraction');
-const authenticateUser = require('../../ middleware/authenticateUser');
+const authenticateUser = require('../../middleware/authenticateUser');
 
-// POST /api/track-interactions/like
+// Toggle Like
 router.post('/like', authenticateUser, async (req, res) => {
   try {
-    const { trackId } = req.body; // Contentful track ID
+    const { trackId } = req.body;
     const userId = req.user.id;
 
     if (!trackId) return res.status(400).json({ error: 'trackId is required' });
@@ -14,11 +14,11 @@ router.post('/like', authenticateUser, async (req, res) => {
     let interaction = await TrackInteraction.findOne({ userId, contentfulTrackId: trackId });
 
     if (!interaction) {
-      interaction = new TrackInteraction({ userId, contentfulTrackId: trackId });
+      interaction = new TrackInteraction({ userId, contentfulTrackId: trackId, liked: true });
+    } else {
+      interaction.liked = !interaction.liked;
     }
 
-    // Toggle like status
-    interaction.liked = !interaction.liked;
     await interaction.save();
 
     res.json({
@@ -28,6 +28,23 @@ router.post('/like', authenticateUser, async (req, res) => {
     });
   } catch (err) {
     console.error('Error toggling like:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// Get Like Status
+router.get('/like-status', authenticateUser, async (req, res) => {
+  try {
+    const trackId = req.query.trackId;
+    const userId = req.user.id;
+
+    if (!trackId) return res.status(400).json({ error: 'trackId is required' });
+
+    const interaction = await TrackInteraction.findOne({ userId, contentfulTrackId: trackId });
+
+    res.json({ isLiked: interaction?.liked === true });
+  } catch (err) {
+    console.error('Error fetching like status:', err);
     res.status(500).json({ error: 'Server error' });
   }
 });

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import uncool from '../assets/images/entertianment/Front-cover-art.jpg';
 import { Album, Track } from '../../interfaces/musicInterface';
+import LikeButton from "../music/likeButton";
 
 interface MusicSelectionProps {
     albums: Album[];
@@ -81,13 +82,16 @@ const MusicSelection: React.FC<MusicSelectionProps> = ({
                                 <div>
                                     <strong>{track.title}</strong> — <span>{track.artist}</span>
                                 </div>
-                                <div className="track-controls">
-                                    <button
-                                        className="btn btn-primary mx-2"
-                                        onClick={() => handleTrackPlay(track)}
-                                    >
-                                        <i className={`fas ${currentTrack?.id === track.id ? 'fa-pause' : 'fa-play'}`}></i>
-                                    </button>
+                                <div className="track-controls d-flex">
+                                    <LikeButton trackId={track.id} />
+                                    <div className='play-pause-btn-container'>
+                                        <button
+                                            className="btn btn-primary mx-2"
+                                            onClick={() => handleTrackPlay(track)}
+                                        >
+                                            <i className={`fas ${currentTrack?.id === track.id ? 'fa-pause' : 'fa-play'}`}></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </li>
                         ))}
