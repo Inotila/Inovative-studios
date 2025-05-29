@@ -76,13 +76,24 @@ const MusicSelection: React.FC<MusicSelectionProps> = ({
                     <ul className="list-group">
                         {tracks.map((track) => (
                             <li
-                                className="list-group-item d-flex justify-content-between align-items-center"
+                                className="list-group-item track-list d-flex justify-content-between align-items-center"
                                 key={track.id}
                             >
-                                <div>
-                                    <strong>{track.title}</strong> — <span>{track.artist}</span>
+                                <div className='selection-track-container d-flex align-items-center'>
+                                    <img className='selection-track-cover-art-img me-2' src={track.TrackCoverArt} alt="" />
+                                    <div className='track-artist-details-container d-flex align-items-start'>
+                                        <div className='track-artist-details d-flex flex-row'>
+                                            <h5>{track.title}</h5> — <p>{track.artist}</p>
+                                        </div>
+                                        <div className='featured-artists'>
+                                            {track.featuredArtists && (
+                                                <p className="mb-0 ">feat. {track.featuredArtists}</p>
+                                            )}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="track-controls d-flex">
+
+                                <div className="track-controls d-flex ">
                                     <LikeButton trackId={track.id} />
                                     <div className='play-pause-btn-container'>
                                         <button

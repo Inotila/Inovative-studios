@@ -168,6 +168,11 @@ const MusicPage: React.FC = () => {
             {/* Timeline & Controls */}
             <div className="controls-wrapper d-flex flex-column align-items-center justify-content-center flex-grow-1">
               <h3>{currentTrack?.title}</h3>
+              <div className='featured-artists'>
+                {currentTrack?.featuredArtists && (
+                  <p className="mb-0 ">feat. {currentTrack?.featuredArtists}</p>
+                )}
+              </div>
               <div className="music-timeline d-flex align-items-center w-100 my-3">
                 <span className="me-2" style={{ fontSize: '0.9rem' }}>{formatTime(currentTime)}</span>
                 <input

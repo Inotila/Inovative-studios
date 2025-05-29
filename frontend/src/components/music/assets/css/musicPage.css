@@ -15,10 +15,34 @@
   height: 100%;
 }
 
-/* selection btns */
+/* selection  */
 
 .track-album-playlist-container{
   gap: 1rem;
+}
+
+.selection-track-container{
+  max-height: 65px;
+width: 50% !important;
+}
+
+.track-list{
+  /* background-color: #11b5ca !important; */
+  width: 100% !important;
+}
+
+.selection-track-cover-art-img{
+  height: 65px !important;
+  width: auto !important;
+}
+
+.track-artist-details-container{
+  min-width: 100%;
+  flex-direction: column;
+}
+
+.track-artist-details{
+  gap: 0.5rem;
 }
 
 /* music cards  */

@@ -1,5 +1,6 @@
 // src/services/contentfulService.ts
 import axios from 'axios';
+import { features } from 'process';
 
 const API_BASE_URL = 'http://localhost:3001/api';
 
@@ -42,6 +43,9 @@ export const fetchTracks = async () => {
         id: `${album.id}-track-${index}`,
         title: track.Title,
         artist: track.TrackArtist || album.Artist,
+        featuredArtists: Array.isArray(track.FeaturedArtists) ? 
+        track.FeaturedArtists.join(', ') 
+        : track.FeaturedArtists || '',
         albumId: track.AlbumId,
         audioUrl: track.MusicFile?.startsWith('//')
           ? `https:${track.MusicFile}`
