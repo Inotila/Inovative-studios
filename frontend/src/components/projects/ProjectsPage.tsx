@@ -50,7 +50,7 @@ const ProjectsPage: React.FC = () => {
     return (
         <div className="container-fluid justify-content-center text-center">
             <div className="row justify-content-center m-3">
-                <div className="default-container shadow-container mx-3 w-100"  >
+                <div className="default-container mx-3 w-100"  >
                     <div className="main-service-container w-100">
                         {!selectedProject && (
                             <div className="service-default-state-container">
