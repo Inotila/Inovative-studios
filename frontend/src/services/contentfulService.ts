@@ -1,4 +1,3 @@
-// src/services/contentfulService.ts
 import axios from 'axios';
 import { features } from 'process';
 
