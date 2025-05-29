@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './assets/css/musicPage.css';
+import OverlayImageViewer from './OverlayImageViewer';
 import uncool from '../assets/images/entertianment/Front-cover-art.jpg';
 import { fetchAlbums } from '../../services/contentfulService';
 import MusicSelection from './MusicSelection';
@@ -39,7 +40,10 @@ const MusicPage: React.FC = () => {
   const [showVolumeSlider, setShowVolumeSlider] = useState(false);
   const [volume, setVolume] = useState(1);
 
+  const [overlayImageSrc, setOverlayImageSrc] = useState<string | null>(null);
 
+  const openImageOverlay = (src: string) => setOverlayImageSrc(src);
+  const closeImageOverlay = () => setOverlayImageSrc(null);
 
   useEffect(() => {
     const loadAlbums = async () => {
@@ -144,6 +148,7 @@ const MusicPage: React.FC = () => {
           handleTrackPlay={(track) =>
             handleTrackPlay(track, currentTrack, isPlaying, setCurrentTrack, setIsPlaying, audioRef)
           }
+          onCoverClick={openImageOverlay}
         />
       </div>
 
@@ -161,7 +166,16 @@ const MusicPage: React.FC = () => {
                 }
                 alt={currentTrack?.title || 'Placeholder'}
                 className="music-player-cover-art"
+                style={{ cursor: 'pointer' }}
+                onClick={() => {
+                  const imgSrc =
+                    currentTrack?.TrackCoverArt ||
+                    albums.find((album) => album.id === currentTrack?.albumId)?.AlbumCoverArt ||
+                    uncool;
+                  openImageOverlay(imgSrc);
+                }}
               />
+
               <h6 className='mt-2'> {currentTrack?.artist} </h6>
               <h6 className='mt-1'> {albums.find((album) => album.id === currentTrack?.albumId)?.Title} </h6>
             </div>
@@ -272,6 +286,7 @@ const MusicPage: React.FC = () => {
                   </button>
                 </>
               )}
+
             </div>
             {/* Hidden Audio Element */}
             <audio
@@ -287,6 +302,8 @@ const MusicPage: React.FC = () => {
           </div>
         </div>
       </div>
+      <OverlayImageViewer imgSrc={overlayImageSrc} onClose={closeImageOverlay} />
+
     </div>
   );
 };

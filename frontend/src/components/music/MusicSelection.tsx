@@ -12,6 +12,7 @@ interface MusicSelectionProps {
     currentTrack: Track | null;
     isPlaying: boolean;
     handleTrackPlay: (track: Track) => void;
+    onCoverClick: (imgSrc: string) => void;
 }
 
 const MusicSelection: React.FC<MusicSelectionProps> = ({
@@ -23,6 +24,7 @@ const MusicSelection: React.FC<MusicSelectionProps> = ({
     currentTrack,
     isPlaying,
     handleTrackPlay,
+    onCoverClick
 }) => {
 
     return (
@@ -81,7 +83,12 @@ const MusicSelection: React.FC<MusicSelectionProps> = ({
                                 key={track.id}
                             >
                                 <div className='selection-track-container d-flex align-items-center'>
-                                    <img className='selection-track-cover-art-img me-2' src={track.TrackCoverArt} alt="" />
+                                    <img
+                                        className='selection-track-cover-art-img me-2'
+                                        src={track.TrackCoverArt}
+                                        alt=""
+                                        onClick={() => onCoverClick(track.TrackCoverArt ?? uncool)}
+                                    />
                                     <div className='track-artist-details-container d-flex align-items-start'>
                                         <div className='track-artist-details d-flex flex-row'>
                                             <h5>{track.title}</h5> — <p>{track.artist}</p>
