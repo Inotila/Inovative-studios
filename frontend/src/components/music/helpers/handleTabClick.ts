@@ -1,4 +1,3 @@
-// src/components/music/helpers/handleTabClick.ts
 import { fetchTracks } from '../../../services/contentfulService';
 import { Track } from '../../../interfaces/musicInterface';
 

@@ -11,7 +11,11 @@ import ProjectsPage from './components/projects/ProjectsPage';
 import RegisterPage from './components/authentication/register/register';
 import LoginPage from './components/authentication/login/login';
 import ProfilePage from './components/authentication/profile/profile';
+import VideoPage from './components/videos/videos';
+
+
 import ProtectedRoute from './components/authentication/ProtectedRoute'
+
 
 const App: React.FC = () => {
   return (
@@ -24,7 +28,7 @@ const App: React.FC = () => {
             <Route path="/signup-login" element={<div>Signup/Login Page</div>} />
             <Route path="/entertainment" element={<EntertainmentPage />} />
             <Route path="/music" element={<MusicPage />} />
-            <Route path="/videos" element={<div>Videos Page</div>} />
+            <Route path="/videos" element={<VideoPage />} />
             <Route path="/services" element={<ServicePage />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/register" element={<RegisterPage />} />
