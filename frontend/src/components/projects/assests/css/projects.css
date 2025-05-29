@@ -2,3 +2,21 @@
     list-style: none;
     padding: 0;
 }
+
+.live-light {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: #04ce04;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+    animation: pulse 1.5s infinite;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 5px #00ff00; }
+    50% { box-shadow: 0 0 15px #00ff00; }
+    100% { box-shadow: 0 0 5px #00ff00; }
+}

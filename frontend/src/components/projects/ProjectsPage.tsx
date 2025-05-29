@@ -153,7 +153,14 @@ const ProjectsPage: React.FC = () => {
                                         </div>
                                         <div className="mt-3">
                                             <ul className="project-summary-details-list">
-                                                <li><a href={selectedProject.Link}>[click here to try it]</a></li>
+                                                {selectedProject.Link && (
+                                                    <li>
+                                                        <span className="live-light"></span>
+                                                        <a href={selectedProject.Link} target="_blank" rel="noreferrer" className="ms-2">
+                                                            [click here to try it]
+                                                        </a>
+                                                    </li>
+                                                )}
                                                 <li>Status: {selectedProject.ProjectReleaseStatus} </li>
                                                 <li>Version: {selectedProject.Version} </li>
 
