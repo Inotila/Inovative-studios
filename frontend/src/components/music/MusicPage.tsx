@@ -116,8 +116,13 @@ const MusicPage: React.FC = () => {
   };
 
   useEffect(() => {
-    return () => clearVolumeTimer(); // Cleanup on unmount
+    return () => clearVolumeTimer();
   }, []);
+
+  useEffect(() => {
+    console.log('Repeat Mode:', repeatMode);
+    console.log('Shuffling:', isShuffling);
+  }, [repeatMode, isShuffling]);
 
   return (
     <div className="container-fluid text-center">

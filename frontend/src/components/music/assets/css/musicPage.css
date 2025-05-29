@@ -192,12 +192,12 @@ min-width: 90% !important;
 /* Firefox */
 .music-timeline input[type="range"]::-moz-range-track {
   background-color: #a5aecb; 
-}c
+}
 
 .music-btn-disabled {
-  opacity: 0.5;
-  pointer-events: auto; /* Still clickable */
-  filter: grayscale(100%);
+  opacity: 0.5 !important;
+  pointer-events: auto; 
+  filter: grayscale(100%) !important;
 }
 
 .repeat-current-track{
