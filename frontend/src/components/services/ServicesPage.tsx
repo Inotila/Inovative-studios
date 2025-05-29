@@ -197,7 +197,7 @@ const ServicePage: React.FC = () => {
                                             {activeSection === 'enquire' && (
                                                 <div id="enquire-form" className="service-primary-option justify-content-center">
                                                     <h5 className="mb-1">Enquire</h5>
-                                                    <p>Form will go here.</p>
+                                                    <p>We are currently updating our service structure, please come back soon!</p>
                                                 </div>
                                             )}
                                         </div>

@@ -210,7 +210,7 @@ const ProjectsPage: React.FC = () => {
                                             {activeSection === 'enquire' && (
                                                 <div id="enquire-form" className="service-primary-option justify-content-center">
                                                     <h5 className="mb-1">Enquire</h5>
-                                                    <p>Form will go here.</p>
+                                                    <p>Updates on this project and how you can be a part of it will soon be avaible here! Come back soon!</p>
                                                 </div>
                                             )}
                                         </div>
