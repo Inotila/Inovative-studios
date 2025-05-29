@@ -4,12 +4,18 @@ import axios from "axios";
 export function useTrackLike(trackId: string) {
     
   const [isLiked, setIsLiked] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const baseURL = 'http://localhost:3001';
 
-  const token = localStorage.getItem("token");
-
   useEffect(() => {
-    if (!trackId || !token) return;
+    const token = localStorage.getItem("token");
+    if (!trackId || !token) {
+      setIsAuthenticated(false);
+      return;
+    }
+
+    setIsAuthenticated(true);
+
     axios
       .get(`${baseURL}/api/track-interactions/like-status?trackId=${trackId}`, {
         headers: {
@@ -18,40 +24,29 @@ export function useTrackLike(trackId: string) {
       })
       .then((res) => setIsLiked(res.data.isLiked))
       .catch(() => setIsLiked(false));
-  }, [trackId, token]);
+  }, [trackId]);
 
   const toggleLike = async () => {
-    if (!trackId || !token) return;
-
-    try {
-      if (isLiked) {
-        await axios.post(
+    const token = localStorage.getItem("token");
+   if (!trackId || !token) {
+      console.warn("User not authenticated.");
+      return;
+    }
+ try {
+      await axios.post(
         `${baseURL}/api/track-interactions/like`,
         { trackId },
         {
-            headers: {
+          headers: {
             Authorization: `Bearer ${token}`,
-        },
+          },
         }
-    );
-setIsLiked((prev) => !prev);
-
-      } else {
-        await axios.post(
-          `${baseURL}/api/track-interactions/like`,
-          { trackId },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        setIsLiked(true);
-      }
+      );
+      setIsLiked((prev) => !prev);
     } catch (error) {
       console.error("Failed to toggle like:", error);
     }
   };
 
-  return { isLiked, toggleLike };
+  return { isLiked, toggleLike, isAuthenticated };
 }

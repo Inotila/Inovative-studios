@@ -5,7 +5,11 @@ interface LikeButtonProps {
 }
 
 export default function LikeButton({ trackId }: LikeButtonProps) {
-    const { isLiked, toggleLike } = useTrackLike(trackId);
+    const { isLiked, toggleLike, isAuthenticated } = useTrackLike(trackId);
+
+    if (!isAuthenticated) {
+        return null;
+    }
 
     return (
         <button onClick={toggleLike} style={{ color: isLiked ? 'red' : 'gray' }} className="btn like-btn-container mb-3">

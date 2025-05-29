@@ -24,6 +24,7 @@ const MusicSelection: React.FC<MusicSelectionProps> = ({
     isPlaying,
     handleTrackPlay,
 }) => {
+
     return (
         <div className="music-selection-container shadow-container">
             <div className="track-album-playlist-container my-3">
