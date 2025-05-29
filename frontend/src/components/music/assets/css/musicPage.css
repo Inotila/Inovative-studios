@@ -58,13 +58,6 @@ width: 50% !important;
 
 /* music cards  */
 
-.music-card{
-  /* background-color: aqua;
-  display: flex;
-  flex-direction: row;
-  width: 100%; */
-}
-
 .music-cover {
   height: 75%;
   width: auto;
@@ -85,7 +78,7 @@ width: 50% !important;
 
 /* Album cards styling */
 .album-card-container {
-  width: 200px; /* fixed width or use flex-basis */
+  width: 200px;
 }
 .album-cards-row {
   width: 100%;

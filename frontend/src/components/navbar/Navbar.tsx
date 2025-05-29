@@ -28,18 +28,6 @@ const Navbar: React.FC = () => {
             </Link>
           </div>
 
-          {/* Search Bar */}
-          {/* <div className="nav-search-container">
-            <form className="d-flex">
-              <input
-                className="form-control"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-            </form>
-          </div> */}
-
           {/* Burger Menu & Navbar Links */}
           <div className="nav-links-container">
             <button
@@ -147,25 +135,6 @@ const Navbar: React.FC = () => {
                     Projects
                   </Link>
                 </li>
-                {/* <li className="nav-item dropdown">
-                  <Link
-                    className="nav-link dropdown-toggle mx-3"
-                    to="#"
-                    id="navbarDropdown"
-                    role="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    About us
-                  </Link>
-                  <ul className="dropdown-menu info-dropdown-menu text-center" aria-labelledby="navbarDropdown">
-                    <li>
-                      <Link className="dropdown-item" to="/contactUs">
-                        Contact us
-                      </Link>
-                    </li>
-                  </ul>
-                </li> */}
               </ul>
             </div>
           </div>

@@ -204,41 +204,11 @@ const ProjectsPage: React.FC = () => {
                                                 <div id="enquire-form" className="service-primary-option justify-content-center">
                                                     <h5 className="mb-1">Enquire</h5>
                                                     <p>Form will go here.</p>
-                                                    {/* You can later replace this with an actual form component */}
                                                 </div>
                                             )}
                                         </div>
-
                                     </div>
                                 </div>
-                                {/* Only show similar projects if there are any */}
-                                {/* {selectedProject?.RelatedProjects?.length > 0 && (
-                                    <div className="similar-projects-detail-row my-4">
-                                        <div className="justify-content-center mb-2">
-                                            <h4>Similar Projects:</h4>
-                                        </div>
-                                        <div className="d-flex flex-wrap justify-content-center">
-                                            {projects.filter(project => selectedProject.RelatedProjects.includes(project.Title))
-                                                .map(project => (
-                                                    <div key={project.id} className="service-card-container service-card mx-2 mb-4">
-                                                        <a href={project.Link} target="_blank" rel="noopener noreferrer" className="text-decoration-none text-dark">
-                                                            <div className="card shadow-container project-card flex-column cursor-pointer">
-                                                                <img
-                                                                    src={project.ThumbnailCover}
-                                                                    alt={project.Title}
-                                                                    className="card-img-top music-cover"
-                                                                />
-                                                                <div className="card-body music-card-body d-flex flex-column justify-content-between">
-                                                                    <h5 className="card-title mt-1">{project.Title}</h5>
-                                                                    <p className="card-text">{project.SummaryDescription}</p>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                ))}
-                                        </div>
-                                    </div>
-                                )} */}
                             </div>
                         )}
                     </div>

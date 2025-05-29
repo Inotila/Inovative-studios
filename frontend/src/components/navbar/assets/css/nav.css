@@ -1,10 +1,8 @@
-/* frontend/src/components/nav.css */
 nav {
     padding: 0.75rem !important;
     max-width: 100%;
   }
   
-  /* Make sure navbar links are white */
   .navbar-light .navbar-nav .nav-link {
     color: #000000 !important;
   }
@@ -14,7 +12,6 @@ nav {
     gap: 0.75rem;
   }
   
-  /* For the brand name/logo */
   .navbar-light .navbar-brand {
     color: #000000 !important;
   }

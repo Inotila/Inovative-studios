@@ -1,4 +1,3 @@
-// src/interfaces/musicInterface.ts
 export interface Album {
   id: string;
   Title: string;

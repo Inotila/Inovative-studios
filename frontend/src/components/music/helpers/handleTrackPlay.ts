@@ -1,4 +1,3 @@
-// src/components/music/helpers/handleTrackPlay.ts
 import { Track } from '../../../interfaces/musicInterface';
 
 export const handleTrackPlay = (

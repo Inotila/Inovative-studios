@@ -198,7 +198,6 @@ const ServicePage: React.FC = () => {
                                                 <div id="enquire-form" className="service-primary-option justify-content-center">
                                                     <h5 className="mb-1">Enquire</h5>
                                                     <p>Form will go here.</p>
-                                                    {/* You can later replace this with an actual form component */}
                                                 </div>
                                             )}
                                         </div>
