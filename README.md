@@ -8,88 +8,93 @@ To run the webpage click on this link: [Inovative studio]()
 
 ## About Inovative Studios
 
-A web application for a creative studio business. The business creates art (music, paintings, animations),graphic design (cover art and posters), fashion, games and software development and design. This is a small business with a primary focus on B2C sales but also does B2B particularly for it's more softwaredevelopment offerings.
+A web application for a creative studio business. The business creates art (music, paintings, animations),graphic design (cover art and posters), fashion, games and software development and design. This is a small business with a primary focus on B2C sales but also does B2B particularly for it's more software development offerings.
 
-The site owner is a designer, artist, and software developer. The owner would like to offer users a platform to view his studio's services and also the products and projects that are being developed by the studio. In addition the owner would like to be able to handle data at the backend and manage his product by adding, removing, updating his product from the admin panel. Furthermore, the owner would like to also be able to communicate with site users so that potential clients, collaborators, and inverstors can easily communicate their questions and queries to the owner. The owner would like to keep adding features to the site and updating it to increase the way in which site users can engage with the content, the owner and each other. 
+The site owner is a designer, artist, and software developer. The owner would like to offer users a platform to view his studio's services and also the products and projects that are being developed by the studio. In addition the owner would like to be able to handle data at the backend and manage his product by adding, removing, updating his product from the admin panel. Furthermore, the owner would like to also be able to communicate with site users so that potential clients, collaborators, and inverstors can easily communicate their questions and queries to the owner. The owner would like to keep adding features to the site and updating it to increase the way in which site users can engage with the content, the owner and each other.
 
 The users are primarily entities interested in web application developement and design. The target markter is small business owners and sole traders. Since the studio also offers it's own products, it is also targeting potential invetors, gamers, and music lovers.
 
-## Value 
+## Value
+
 ### Intutive and minimal design
+
 The app is optimized for all screens and is desginded with a user first approach
+
 ### Users can easily navigate webapp
 
 ### Users can easily signup
+
 Users can signup with social media
 
 ### Content
+
 Users can listen to music
 Users can watch videos
 
 ### Secure payment portals
 
-
 ## Potential features (before starting)
 
-1. Home screen ->    
-   -> Nav bar ->    
-      login/logout button    
-      bag button    
-      buttons/burger menu (for small screens) for links to other pages    
-      seach bar    
-   buttons to other pages with slide show of pages ever 15 seconds  
-2. Services screen -> I.T:  
-                           web design, prototype design    
-                           availability status for new project/ calander    
-                           option to book consultation/open a file  
-                           Graphic (cover art design, poster design)  
-                           availability status for new project/ calander  
-                           option to book consultation/open a file  
-3. Entertainment screen -> 
-                           Music:  
-                           View all music,    
-                           filter music,    
-                           Music player -> Play,<br>skip songs,<br> shuffle songs,<br> create playlist,<br> like,<br> comment,<br> share link,<br>download/buy songs  
+1.  Home screen ->  
+    -> Nav bar ->  
+     login/logout button  
+     bag button  
+     buttons/burger menu (for small screens) for links to other pages  
+     seach bar  
+    buttons to other pages with slide show of pages ever 15 seconds
+2.  Services screen -> I.T:  
+     web design, prototype design  
+     availability status for new project/ calander  
+     option to book consultation/open a file  
+     Graphic (cover art design, poster design)  
+     availability status for new project/ calander  
+     option to book consultation/open a file
+3.  Entertainment screen ->
+    Music:  
+     View all music,  
+     filter music,  
+     Music player -> Play,<br>skip songs,<br> shuffle songs,<br> create playlist,<br> like,<br> comment,<br> share link,<br>download/buy songs
 
-                            Video:  
-                            View all videos  
+                            Video:
+                            View all videos
                             Video -> Play, skip, like, pause, volume
 
-                            Games:  
-                            View details about game  
+                            Games:
+                            View details about game
                             Link to play games
-4. Projects ->  
-      View projects details  
-      Button to go to project link (if available)                      
-5. Registeration ->  
-   With email  
-   With social media account  
-6. checkout page:  
-   secure debit/card payement system
-7. User profile:
-   Update name  
-   View items in bag  
-8. Footer:  
-   Links socail media accounts  
-   Privacy disclaimer  
-   Copy right disclaimer  
-9. 
-10. 
-11. 
-12. 
-13. 
-14. 
-15. 
-16. 
-17. 
-18. 
+
+4.  Projects ->  
+     View projects details  
+     Button to go to project link (if available)
+5.  Registeration ->  
+    With email  
+    With social media account
+6.  checkout page:  
+    secure debit/card payement system
+7.  User profile:
+    Update name  
+    View items in bag
+8.  Footer:  
+    Links socail media accounts  
+    Privacy disclaimer  
+    Copy right disclaimer
+9.
+10.
+11.
+12.
+13.
+14.
+15.
+16.
+17.
+18.
 
 ## Actual Features (end product)
 
 ## Future Features
 
 ## Testing
- 
+
 ### User test
 
 ### Accessibility and performance test
@@ -103,12 +108,14 @@ Users can watch videos
 ### Entity relationship diagram
 
 ### Wireframes
- Low-fi protoype on figma:
+
+Low-fi protoype on figma:
 [Prototype](https://www.figma.com/design/1vXBjki37l8LWRMeXTMMc7/Ino.v.ati.v.e-Studio?node-id=0-1&t=LCwXjMlNrjO0ZDQm-1)
 
-## Bugs and fixes 
+## Bugs and fixes
 
-### bug 
+### bug
+
 none
 
 ### Solved bugs
@@ -137,7 +144,7 @@ Python - No errors returned from the Pep8 validator
 
 ![an image of the validators that the app was run through]()
 
-All pages of this app were run through  the respective validators and no errors were found.
+All pages of this app were run through the respective validators and no errors were found.
 
 ## Deployment
 
@@ -145,17 +152,19 @@ The live deployed application can be found at [invative studio](https://inotila.
 
 ### Local Deployment
 
-*Gitpod* IDE was used to write the code for this project.
+_Gitpod_ IDE was used to write the code for this project.
 
-## Credits/Reference 
+## Credits/Reference
+
 This work is the original work of Inotila Nghaamwa, however the following resources were used to supplement:
 
 ### Code
 
 ### Media
+
 All images used are the property of Inotila Nghaamwa.
 
-### Credits 
+### Credits
 
 Content - by Inotila Opoeli Nghaamwa
 Text-Written by Inotila Opoeli Nghaamwa.
