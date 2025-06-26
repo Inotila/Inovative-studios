@@ -13,7 +13,7 @@ const EntertainmentPage: React.FC = () => {
           <h1 className="entertainment-header mb-3">Media Center</h1>
           <p>Enjoy orignal content exclusively found here at Inovative studios,
             <br />
-            We have curated the most interesting content out there, and we continue to grow our catalouge.
+            We have curated some interesting content for you, and our catalouge is still growing.
           </p>
         </div>
         <div className="ent-card-wrapper d-flex flex-grow-1">

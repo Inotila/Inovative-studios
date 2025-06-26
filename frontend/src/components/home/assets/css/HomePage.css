@@ -5,7 +5,17 @@
     height: 100vh; /* Full viewport height */
   }
 
+  .home-hero-banner{
+    width: 33%;
+  }
+
+  .home-hero-banner> img{
+    width: 100%;
+  }
+
+
   .home-row {
+    min-width: 100%;
     gap: 3rem;
   }
   
@@ -24,5 +34,72 @@ button {
   text-align: center;
   justify-content: center; 
   align-items: center;
+}
+
+@media (max-width: 1033px) {
+
+   .home-row {
+    gap: 1rem;
+  }
+   
+  .home-card{
+    max-width: 15rem !important;
+    max-height: 20rem !important ;
+  }
+
+  .home-img-links{
+width: 100%;
+height: auto;
+  } 
+
+}
+
+@media (max-width: 815px) {
+   
+  /* .home-card{
+    max-width: 13rem !important;
+    max-height: 17rem !important ;
+  } */
+}
+
+@media (max-width: 767px) {
+   
+  .home-hero-banner{
+    width: 40%;
+  }
+
+  .home-hero-banner> img{
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 655px) {
+     /* .home-card{
+    max-width: 11rem !important;
+    max-height: 15rem !important ;
+  } */
+
+}
+@media (max-width: 751px) {
+     .home-card{
+    max-width: 11rem !important;
+    max-height: 15rem !important ;
+  }
+
+}
+
+@media (min-width: 512px) and (max-width: 751px) {
+  .home-card {
+    max-width:10rem !important;
+    max-height: 15rem !important;
+  }
+}
+
+@media (max-width: 511px) {
+  .home-card {
+    max-width:20rem !important;
+    max-height: 25rem !important;
+  }
 }
 
