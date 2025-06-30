@@ -24,18 +24,51 @@ const App: React.FC = () => {
         <div className="content">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/signup-login" element={<div>Signup/Login Page</div>} />
             <Route path="/entertainment" element={<EntertainmentPage />} />
-            <Route path="/music" element={<MusicPage />} />
-            <Route path="/videos" element={<VideoPage />} />
+            <Route
+              path="/music"
+              element={
+                <Suspense fallback={<div>Loading music...</div>}>
+                  <MusicPage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/videos"
+              element={
+                <Suspense fallback={<div>Loading videos...</div>}>
+                  <VideoPage />
+                </Suspense>
+              }
+            />
             <Route path="/services" element={<ServicePage />} />
             <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/profile" element={
-              <ProtectedRoute>
-                <ProfilePage />
-              </ProtectedRoute>
-            }
+            <Route
+              path="/register"
+              element={
+                <Suspense fallback={<div>Loading register...</div>}>
+                  <RegisterPage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <Suspense fallback={<div>Loading login...</div>}>
+                  <LoginPage />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Suspense fallback={<div>Loading profile...</div>}>
+                    <ProfilePage />
+                  </Suspense>
+                </ProtectedRoute>
+              }
             />
           </Routes>
         </div>
