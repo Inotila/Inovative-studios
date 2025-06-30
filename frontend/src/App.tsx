@@ -1,20 +1,19 @@
 // frontend/src/App.tsx
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './components/home/HomePage';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import EntertainmentPage from './components/entertainment/EntertainmentPage';
-import MusicPage from './components/music/MusicPage';
 import ServicePage from './components/services/ServicesPage';
 import ProjectsPage from './components/projects/ProjectsPage';
-import RegisterPage from './components/authentication/register/register';
-import LoginPage from './components/authentication/login/login';
-import ProfilePage from './components/authentication/profile/profile';
-import VideoPage from './components/videos/videos';
+import ProtectedRoute from './components/authentication/ProtectedRoute';
 
-
-import ProtectedRoute from './components/authentication/ProtectedRoute'
+const RegisterPage = lazy(() => import('./components/authentication/register/register'));
+const LoginPage = lazy(() => import('./components/authentication/login/login'));
+const ProfilePage = lazy(() => import('./components/authentication/profile/profile'));
+const MusicPage = lazy(() => import('./components/music/MusicPage'));
+const VideoPage = lazy(() => import('./components/videos/videos'));
 
 
 const App: React.FC = () => {
@@ -25,7 +24,6 @@ const App: React.FC = () => {
         <div className="content">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/signup-login" element={<div>Signup/Login Page</div>} />
             <Route path="/entertainment" element={<EntertainmentPage />} />
             <Route path="/music" element={<MusicPage />} />
             <Route path="/videos" element={<VideoPage />} />
