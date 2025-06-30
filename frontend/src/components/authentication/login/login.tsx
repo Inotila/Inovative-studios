@@ -41,11 +41,10 @@ const LoginPage: React.FC = () => {
 
 
     return (
-        <div className="container text-center mt-5">
+        <div className="container text-center mt-2">
             <div className="row justify-content-center">
-                <div className="col-md-6 shadow-container p-4">
-                    <h2 className="mb-4">Login</h2>
-
+                <div className="col-md-6 shadow-container d-flex flex-column">
+                    <h2 className="mb-2">Login</h2>
                     {error && <div className="alert alert-danger">{error}</div>}
                     {success && <div className="alert alert-success">{success}</div>}
 
@@ -69,7 +68,7 @@ const LoginPage: React.FC = () => {
                             required
                         />
 
-                        <button type="submit" className="btn btn-primary w-100">
+                        <button type="submit" className="btn btn-primary">
                             Login
                         </button>
                     </form>
