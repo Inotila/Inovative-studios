@@ -127,7 +127,7 @@ const MusicPage: React.FC = () => {
   return (
     <div className="container-fluid text-center">
       {/* Banner */}
-      <div className="row justify-content-center my-3">
+      <div className="row justify-content-center">
         <div className="out-now-banner-container shadow-container mx-3">
           <div className="out-now-banner-img-div align-self-start">
             <img id="outnow-img" src={uncool} alt="" />
@@ -158,7 +158,7 @@ const MusicPage: React.FC = () => {
       </div>
 
       {/* Music Player */}
-      <div className="row justify-content-center align-items-center w-100">
+      <div className="row justify-content-center align-items-center mt-3">
         <div className="col-auto music-player-col d-flex justify-content-center align-items-center">
           <div className="custom-music-player shadow-container d-flex">
             {/* Cover Art */}

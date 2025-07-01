@@ -1,6 +1,6 @@
 /* Out now banner */
 .out-now-banner-container{
-  height: 150px !important;
+  height: 12.5vh !important;
   width: 90% !important;
   background-color: #e1f2fa;
   gap: 1rem;
@@ -31,7 +31,7 @@ width: 50% !important;
 }
 
 .selection-track-cover-art-img{
-  height: 65px !important;
+  height: 45px !important;
   width: auto !important;
 }
 
@@ -66,14 +66,13 @@ width: 50% !important;
 
 /* Container for albums */
 .music-selection-container {
-  background-color: #fafbfc !important;
-  margin: 1rem;
+  max-height: 50vh;
   display: flex !important;
   flex-direction: column !important;
   align-items: center;
   justify-content: center;
   width: 90% !important;
-  padding: 20px;
+  padding: 0.75rem;
 }
 
 /* Album cards styling */
@@ -101,15 +100,18 @@ width: 50% !important;
   transition: transform 0.3s ease;
 }
 
+/* track list container  */
+.music-selection-content {
+  flex: 1; /* fill the remaining space */
+  overflow-y: auto;
+  width: 100%;
+}
+
 /* Custom music player styling */
 
 .music-player-col {
 width: 100% !important;
 }
-.custom-music-player {
-min-width: 90% !important;
-}
-
 
 .music-player-cover-art {
   width: 100%;
@@ -122,8 +124,7 @@ min-width: 90% !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  max-width: 900px;
+  width: 90%;
   padding: 1rem;
   gap: 1rem;
 }
