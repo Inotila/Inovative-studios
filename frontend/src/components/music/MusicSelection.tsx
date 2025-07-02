@@ -132,7 +132,7 @@ const MusicSelection: React.FC<MusicSelectionProps> = ({
                                             <LikeButton trackId={track.id} />
                                             <div className='play-pause-btn-container'>
                                                 <button
-                                                    className="btn btn-primary mx-3"
+                                                    className="btn btn-primary ms-3"
                                                     onClick={() => handleTrackPlay(track)}
                                                 >
                                                     <i className={`fas ${currentTrack?.id === track.id ? 'fa-pause' : 'fa-play'}`}></i>
@@ -144,7 +144,7 @@ const MusicSelection: React.FC<MusicSelectionProps> = ({
                                             <div className="extra-track-controls-toggle-container">
                                                 <div className='extra-controls-toggler-btn-container'>
                                                     <button
-                                                        className="btn extra-controls-toggler"
+                                                        className="btn extra-controls-toggler  ms-3"
                                                         onClick={() =>
                                                             handleExtraControlsToggle(track.id, extraControlsState, setExtraControlsState)
                                                         }

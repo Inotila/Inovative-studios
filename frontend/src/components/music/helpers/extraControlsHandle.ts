@@ -27,7 +27,7 @@ export function handleExtraControlsToggle(
         visibleTrackId: null,
         timerId: null,
       });
-    }, 7000),
+    }, 5000),
   }));
 }
 
