@@ -2,6 +2,11 @@ import React, { useRef, useState } from 'react';
 import uncool from '../assets/images/entertianment/Front-cover-art.jpg';
 import { Album, Track } from '../../interfaces/musicInterface';
 import LikeButton from "../music/likeButton";
+import {
+    handleExtraControlsToggle,
+    handleExtraControlsHide,
+    ExtraControlsState
+} from './helpers/extraControlsHandle';
 
 interface MusicSelectionProps {
     albums: Album[];
@@ -26,6 +31,11 @@ const MusicSelection: React.FC<MusicSelectionProps> = ({
     handleTrackPlay,
     onCoverClick
 }) => {
+
+    const [extraControlsState, setExtraControlsState] = useState<ExtraControlsState>({
+        visibleTrackId: null,
+        timerId: null,
+    });
 
     return (
         <div className="music-selection-container shadow-container">
@@ -100,17 +110,50 @@ const MusicSelection: React.FC<MusicSelectionProps> = ({
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div className="track-controls d-flex ">
-                                        <LikeButton trackId={track.id} />
-                                        <div className='play-pause-btn-container'>
-                                            <button
-                                                className="btn btn-primary mx-2"
-                                                onClick={() => handleTrackPlay(track)}
-                                            >
-                                                <i className={`fas ${currentTrack?.id === track.id ? 'fa-pause' : 'fa-play'}`}></i>
-                                            </button>
+                                    <div className='d-flex justify-content-end'>
+                                        {/* extra controls */}
+                                        {extraControlsState.visibleTrackId === track.id && (
+                                            <div className='extra-controls-container'>
+                                                <button
+                                                    className="btn btn-primary extra-controls-btn mx-3"
+                                                // onClick={() => handleTrackPlay(track)}
+                                                >
+                                                    <i className="fa-solid fa-download"></i>
+                                                </button>
+                                                <button
+                                                    className="btn btn-primary extra-controls-btn"
+                                                // onClick={() => handleTrackPlay(track)}
+                                                >
+                                                    <i className="fa-solid fa-share"></i>
+                                                </button>
+                                            </div>
+                                        )}
+                                        <div className="track-controls d-flex ">
+                                            <LikeButton trackId={track.id} />
+                                            <div className='play-pause-btn-container'>
+                                                <button
+                                                    className="btn btn-primary mx-3"
+                                                    onClick={() => handleTrackPlay(track)}
+                                                >
+                                                    <i className={`fas ${currentTrack?.id === track.id ? 'fa-pause' : 'fa-play'}`}></i>
+                                                </button>
+                                            </div>
                                         </div>
+                                        {/* toggler */}
+                                        {extraControlsState.visibleTrackId !== track.id && (
+                                            <div className="extra-track-controls-toggle-container">
+                                                <div className='extra-controls-toggler-btn-container'>
+                                                    <button
+                                                        className="btn extra-controls-toggler"
+                                                        onClick={() =>
+                                                            handleExtraControlsToggle(track.id, extraControlsState, setExtraControlsState)
+                                                        }
+                                                    >
+                                                        <i className="fa-solid fa-bars"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
                                 </li>
                             ))}
