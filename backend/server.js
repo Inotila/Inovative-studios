@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors'); 
 const connectDB = require('./config/db');
+const path = require('path');
 const albumRoutes = require('./routes/albumRoutes');
 const trackRoutes = require('./routes/trackRoutes'); 
 const serviceRoutes = require('./routes/serviceRoutes');
@@ -20,6 +21,10 @@ connectDB();
 
 // Use CORS middleware
 app.use(cors()); 
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+});
 
 // Parse incoming JSON requests
 app.use(express.json());
